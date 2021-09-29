@@ -1,4 +1,4 @@
-# Project 3 Cooper, Jessé, Ma
+# Project 3 Cooper, Jessé, Mathijs, Thea
 
 ## Description
 
