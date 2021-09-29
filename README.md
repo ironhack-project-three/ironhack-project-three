@@ -34,8 +34,8 @@ Setting up Third Party Pool:
 - /auth/login - Login form
 - /pools - pools list
 - /pools/create - create a pool
-- /restaurants/:id - restaurant detail
-- /profile/me - my details and favorite restaurants
+- /pools/:id - restaurant detail
+- /profile/me - my details and favorite pools
 - 404
 
 ## Pages
@@ -43,17 +43,17 @@ Setting up Third Party Pool:
 - Home Page (public)
 - Sign in Page (anon only)
 - Log in Page (anon only)
-- Restaurants List Page (public only)
-- Restaurant Create (user only)
-- Restaurant Detail Page (public only)
+- Pool List Page (public only)
+- Pool Create (user only)
+- Pool Detail Page (public only)
 - My Profile Page (user only)
 - 404 Page (public)
 
 ## Components
 
-- Restaurant Card component
-  - Input: restaurant: any
-  - Output: favorite(restaurantId: string, on: boolean)
+- Pool Card component
+  - Input: pool: any
+  - Output: favorite(poolId: string, on: boolean)
 - Search component
   - Output: change(terms: string)
 
@@ -68,12 +68,12 @@ Setting up Third Party Pool:
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Restaurant Service
-  - restaurant.list()
-  - restaurant.create(data)
-  - restaurant.detail(id)
-  - restaurant.addFavorite(id)
-  - restaurant.removeFavorite(id)   
+- Pool Service
+  - pool.list()
+  - pool.create(data)
+  - pool.detail(id)
+  - pool.addFavorite(id)
+  - pool.removeFavorite(id)   
 
 # Server
 
@@ -85,10 +85,10 @@ User model
 username - String // required
 email - String // required & unique
 password - String // required
-favorites - [ObjectID<Restaurant>]
+favorites - [ObjectID<Pool>]
 ```
 
-Restaurant model
+Pool model
 
 ```
 owner - ObjectID<User> // required
@@ -113,16 +113,16 @@ address - String
   - body: (empty)
 - POST /user/me/favorite
   - body:
-    - restaurantId
-- DELETE /user/me/favorite/:restaurantId
+    - poolId
+- DELETE /user/me/favorite/:poolId
   - body: (empty)
-- GET /restaurant
-- POST /restaurant
+- GET /pool
+- POST /pool
   - body:
     - name
     - phone
     - address
-- GET /restaurant/:id
+- GET /pool/:id
 
   
 
