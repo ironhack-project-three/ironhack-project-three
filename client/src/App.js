@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import './App.css';
 import AllWines from './Pages/AllWines';
 import HomePage from './Pages/HomePage';
@@ -36,6 +37,7 @@ function App() {
         <Route path='/505' component ={ErrorPage505} />
       </Switch>
       </header>
+      <Footer />
     </div>
   );
 }
