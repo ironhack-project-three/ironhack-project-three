@@ -43,15 +43,25 @@ router.get('/user/:userId', (req, res, next) => {
 //Put route to update a specific user
 router.put('/user/:userId', (req, res, next) => {
   const { userId } = req.params;
+  const {username, email, password} = req.body;
+  const salt = bcrypt.genSaltSync(saltRound);
+  const hashPassword = bcrypt.hashSync(password, salt);
  
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
   }
- 
-  User.findByIdAndUpdate(userId, req.body, { new: true })
+
+ if(!password){
+  User.findByIdAndUpdate(userId, {username: username, email: email}, { new: true })
     .then((updatedUser) => res.json(updatedUser))
     .catch(error => res.json(error));
+ } else{
+  User.findByIdAndUpdate(userId, {
+    username: username, email: email, password: hashPassword}, { new: true })
+  .then((updatedUser) => res.json(updatedUser))
+  .catch(error => res.json(error));
+ }
 });
 
 //Deletes a specified user by id 
