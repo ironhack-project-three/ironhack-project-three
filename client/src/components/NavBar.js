@@ -6,7 +6,7 @@ export default function NavBar() {
             <ul>
                 <li>
                     <Link to='/'>Home</Link>
-                    <Link to='/AllWines'>Discover wines</Link>
+                    <Link to='/wines'>Discover wines</Link>
                     <Link to='/WineMap'>Wine map</Link>
                     <Link to='/AboutUs'>About Us</Link>
                     <Link to='/SignUp'>Sign Up</Link>

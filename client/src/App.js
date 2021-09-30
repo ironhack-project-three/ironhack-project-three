@@ -10,7 +10,7 @@ import UserProfile from './Pages/UserProfile';
 import WineDetailsPage from './Pages/WineDetailsPage';
 import WineMap from './Pages/WineMap';
 import ErrorPage404 from './Pages/ErrorPage404';
-import ErrorPage505 from './Pages/ErrorPage505';
+import ErrorPage500 from './Pages/ErrorPage500';
 import { Switch, Route } from "react-router-dom";
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
@@ -19,12 +19,9 @@ import 'bulma/css/bulma.min.css';
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Project 3 Globtrotters
-        </p>
+      <NavBar />
+      </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={UserLogin} />
@@ -35,9 +32,8 @@ function App() {
         <Route path="/wines" component={AllWines} />
         <Route path='/About' component={AboutUs}/>
         <Route path='/404' component={ErrorPage404} />
-        <Route path='/505' component ={ErrorPage505} />
+        <Route path='/500' component ={ErrorPage500} />
       </Switch>
-      </header>
       <Footer />
     </div>
   );
