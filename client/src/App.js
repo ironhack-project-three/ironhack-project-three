@@ -13,6 +13,7 @@ import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
 import { Switch, Route } from "react-router-dom";
 import AboutUs from './Pages/AboutUs';
+import 'bulma/css/bulma.min.css';
 
 
 function App() {
