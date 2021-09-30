@@ -20,12 +20,11 @@ router.post('/create-user', (req, res)=> {
   const {username, email, password} = req.body;
   const salt = bcrypt.genSaltSync(saltRound);
   const hashPassword = bcrypt.hashSync(password, salt);
-
-  User.create({username, email, password: hashPassword})
-  .then((newUser)=>
-  res.json({newUser})
-).catch(error => console.log(error))
-
+  console.log("error")
+  User.create({username, email})
+  .then((newUser)=>{res.json({newUser})})
+  .catch(error => console.log(error))
+//password: hashPassword
 });
 
 //Get user by specific id

@@ -9,6 +9,17 @@ export default function HomePage() {
       </div>
       <div>
         <h1>Wine of the month</h1>
+        <div class="columns">
+          <div class="column">
+            White wine
+          </div>
+          <div class="column">
+            Red wine
+          </div>
+          <div class="column">
+            Rose
+          </div>
+        </div>
       </div>
     </div>
     )

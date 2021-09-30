@@ -13,6 +13,7 @@ import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage505 from './Pages/ErrorPage505';
 import { Switch, Route } from "react-router-dom";
 import AboutUs from './Pages/AboutUs';
+import 'bulma/css/bulma.min.css';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Project 3 <code>template</code> Globtrotters
+          Project 3 Globtrotters
         </p>
       <Switch>
         <Route exact path="/" component={HomePage} />
