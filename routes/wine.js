@@ -7,7 +7,7 @@ const Wine = require("../models/Wine.model")
 const Service = require("../services/service")
 
 router.get('/all-wine', (req, res)=> {
-    User.find().then((wines)=>
+    Wine.find().then((wines)=>
     res.json({wines})
     )
   });

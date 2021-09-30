@@ -17,5 +17,5 @@ const importWineData = async () => {
     }
 }
 
-
+importWineData()
 
