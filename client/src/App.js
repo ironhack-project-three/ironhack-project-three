@@ -18,12 +18,9 @@ import AboutUs from './Pages/AboutUs';
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Project 3 <code>template</code> Globtrotters
-        </p>
+      <NavBar />
+      </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={UserLogin} />
@@ -36,7 +33,6 @@ function App() {
         <Route path='/404' component={ErrorPage404} />
         <Route path='/500' component ={ErrorPage500} />
       </Switch>
-      </header>
       <Footer />
     </div>
   );

@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Box } from "react-bulma-components";
 
 import { Wines } from "../api/wines";
 
@@ -18,9 +20,9 @@ export default function AllWines(props) {
 
   return (
     <div>
-      <h1>AllWines</h1>
+      <h1 className="title is-size-1">AllWines</h1>
       {wines.map((wine) => {
-        return <div>{wine.title}</div>;
+        return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
       })}
     </div>
   );
