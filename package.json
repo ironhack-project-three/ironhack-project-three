@@ -27,8 +27,6 @@
     "morgan": "^1",
     "multer": "^1",
     "multer-storage-cloudinary": "^4",
-    "react-bulma-components": "^4.0.7",
-    "react-router-dom": "^5.3.0",
     "serve-favicon": "^2"
   },
   "devDependencies": {

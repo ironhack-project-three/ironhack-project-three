@@ -5,6 +5,7 @@ var express = require('express');
 
 var apiRouter = require('./routes/api');
 var usersRouter = require('./routes/users');
+var winesRouter = require('./routes/wine');
 
 var server = express();
 
@@ -14,6 +15,7 @@ require('./config/global')(server)
 
 server.use('/api', apiRouter);
 server.use('/users', usersRouter);
+server.use('/wines', winesRouter)
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {
