@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Box } from "react-bulma-components";
-
 import { Wines } from "../api/wines";
 
 export default function WineDetailsPage(props) {
