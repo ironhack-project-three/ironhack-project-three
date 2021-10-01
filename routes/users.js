@@ -61,7 +61,7 @@ router.post('/create-user', (req, res)=> {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ message: "Internal Server Error" })
+      res.status(500).json({ message: "Internal Server Error", err })
     });
 });
 
