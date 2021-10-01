@@ -8,7 +8,7 @@ const API_URL = "http://localhost:3000";
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
-        const [userName, setUserName] = useState("");
+        const [username, setUserName] = useState("");
        // const [errorMessage, setErrorMessage] = useState(undefined);
       
         
@@ -18,7 +18,7 @@ export default function SignUp(props) {
         const handleSignupSubmit = (e) => {
           e.preventDefault();
           // Create an object representing the request body
-          const requestBody = { email, password, userName };
+          const requestBody = {username, email, password};
           const storedToken = localStorage.getItem('authToken');
       
           // Make an axios request to the API
@@ -26,9 +26,9 @@ export default function SignUp(props) {
           // If the request resolves with an error, set the error message in the state
           axios.post(`${API_URL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
-            .then((response) => props.history.push("/Userlogin"))
+            .then((response) => props.history.push("/Userlogin", response))
             .catch((error) => {
-                console.log(error);
+                console.log("line 31",error.response);
              // const errorDescription = error.response.data.message;
               //setErrorMessage(errorDescription);
             })
@@ -45,7 +45,7 @@ export default function SignUp(props) {
                                 <div className="field">
                                     <label for="username" className="label">Username</label>
                                     <div className="control has-icons-left">
-                                        <input  type="username" placeholder="e.g. VineVibe" className="input" value={userName} onChange={handleUserName} required></input>
+                                        <input  type="username" placeholder="e.g. VineVibe" className="input" value={username} onChange={handleUserName} required></input>
                                         <span className="icon is-small is-left">
                                             <i className="fa fa-envelope"></i>
                                         </span>
