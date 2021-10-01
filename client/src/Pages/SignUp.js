@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {useState} from 'react'
+import {useState} from 'react';
+import axios from "axios";
 
+const API_URL = "http://localhost:5005";
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
@@ -23,12 +25,12 @@ export default function SignUp(props) {
           // Make an axios request to the API
           // If POST request is successful redirect to login page
           // If the request resolves with an error, set the error message in the state
-          //axios.post(`${API_URL}/auth/signup`, requestBody)
-            //.then((response) => props.history.push("/login"))
-            //.catch((error) => {
-              //const errorDescription = error.response.data.message;
-              //setErrorMessage(errorDescription);
-            //})
+          axios.post(`${API_URL}/users/create-user`, requestBody)
+            .then((response) => props.history.push("./Userlogin"))
+            .catch((error) => {
+              const errorDescription = error.response.data.message;
+              setErrorMessage(errorDescription);
+            })
         };
       
     return (
@@ -69,7 +71,7 @@ export default function SignUp(props) {
                                         <Link to={"./Userlogin"}>Already have an account? Click here to login</Link>
                                     </div>
                                     <div className="field">
-                                        <button className="button is-warning is-rounded">Sign up</button>
+                                        <button className="button is-warning is-rounded" type="submit">Sign up</button>
                                     </div>
                                 </div>
                             </form>
@@ -80,4 +82,3 @@ export default function SignUp(props) {
         </section>
     )
 }
-//<form action="" method="POST" className="box">
