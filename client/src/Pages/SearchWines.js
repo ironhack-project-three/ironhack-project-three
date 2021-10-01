@@ -10,6 +10,7 @@ export default function SearchWines(props) {
   const [wines, setWines] = useState([]);
   let filteredWines = wines
 
+  let lastQuery;
   const [query, setQuery] = useState('');
   if (query !== "") {
     filteredWines = wines.filter((wine) => {
@@ -20,28 +21,35 @@ export default function SearchWines(props) {
     setQuery(event.target.value);
   };
 
-  async function fetchWines() {
-    const response = await new Wines().search(query);
-    console.log("this is the response", response);
-    console.log("this is the response data", response.data.wines);
-    setWines(response.data.wines);
+  async function searchWines() {
+    if (query !== lastQuery) {
+      console.log("new query:", query)
+      lastQuery = query;
+      const response = await new Wines().search(query);
+      console.log("this is the response", response);
+      console.log("this is the response data", response.data.wines);
+      setWines(response.data.wines);
+    }
   }
 
   useEffect(() => {
-    fetchWines();
-  },[]);
+    searchWines()
+  }, [query]);
 
   return (
-    <div>
-      <h1 className="title is-size-1">SearchWines</h1>
-      <input 
-        onChange={changeHandler} 
-        type="text" 
-        placeholder="Type a query..."
-      />
-      {filteredWines.map((wine) => {
-        return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
-      })}
+    <div className="columns is-centered">
+      <div className="column is-10">
+        <h1 className="title is-size-1">SearchWines</h1>
+        <input 
+          className="input"
+          onChange={changeHandler} 
+          type="text" 
+          placeholder="Type a query..."
+        />
+        {filteredWines.map((wine) => {
+          return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
+        })}
+      </div>
     </div>
   );
 }

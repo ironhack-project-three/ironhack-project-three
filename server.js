@@ -17,6 +17,7 @@ require('./config/global')(server)
 server.use('/api', apiRouter);
 server.use('/users', usersRouter);
 server.use('/wines', winesRouter)
+// server.use('/wines', isAuthenticated, winesRouter)
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {

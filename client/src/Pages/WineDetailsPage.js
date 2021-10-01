@@ -20,6 +20,7 @@ export default function WineDetailsPage(props) {
     <div>
       <h1 className="title is-size-1">WineDetailsPage</h1>
         <Box className="title is-size-3">{wine.title}</Box>
+        <img src="https://www.placecage.com/500/500" />
     </div>
   );
 }
