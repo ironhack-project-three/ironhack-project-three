@@ -7,6 +7,7 @@ import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import UserLogin from './Pages/UserLogin';
 import UserProfile from './Pages/UserProfile';
+import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
 import WineMap from './Pages/WineMap';
 import ErrorPage404 from './Pages/ErrorPage404';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/wines/:id" component={WineDetailsPage} />
         <Route path="/wines/map" component={WineMap} />
         <Route path="/wines" component={AllWines} />
+        <Route path="/search" component={SearchWines} />
         <Route path='/About' component={AboutUs}/>
         <Route path='/404' component={ErrorPage404} />
         <Route path='/500' component ={ErrorPage500} />
