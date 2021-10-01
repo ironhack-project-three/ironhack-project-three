@@ -14,7 +14,7 @@ var server = express();
 require('./config/db')
 require('./config/global')(server)
 
-server.use('/api', isAuthenticated, apiRouter);
+server.use('/api', apiRouter);
 server.use('/users', usersRouter);
 server.use('/wines', winesRouter)
 // server.use('/wines', isAuthenticated, winesRouter)

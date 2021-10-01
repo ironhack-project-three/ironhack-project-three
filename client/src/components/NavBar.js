@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 
+
+
 export default function NavBar() {
+
+
+
+
+
     return (
+
+       
+
         <div className="NavBar">
             <ul>
                 <li>
@@ -14,6 +24,11 @@ export default function NavBar() {
                     <Link to='/UserLogin'>Log in</Link>
                 </li>
             </ul>
+
+            
+
+        <div class="spacer layer1"></div>
         </div>
+
     )
 }

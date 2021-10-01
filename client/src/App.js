@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './App.css';
@@ -29,7 +28,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/user" component={UserProfile} />
         <Route path="/wines/:id" component={WineDetailsPage} />
-        <Route path="/wines/map" component={WineMap} />
+        <Route path="/winemap" component={WineMap} />
         <Route path="/wines" component={AllWines} />
         <Route path="/search" component={SearchWines} />
         <Route path='/About' component={AboutUs}/>
