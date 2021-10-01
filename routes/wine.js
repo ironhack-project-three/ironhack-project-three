@@ -66,10 +66,12 @@ router.get("/wine/:wineId", (req, res, next) => {
     .catch((error) => res.json(error));
 });
 
-//Put route to update a specific user
-router.put("/wine/:wineId", (req, res, next) => {
-  const { wineId } = req.params;
-  const {
+//Put route to update a specific wine
+router.put("/wine/:wineId", (req, res) => {
+  console.log('line 63')
+  const  {wineId}  = req.params
+  console.log("line 64", wineId )
+  let {
     points,
     title,
     description,
@@ -84,12 +86,6 @@ router.put("/wine/:wineId", (req, res, next) => {
     country,
     winery,
   } = req.body;
-
-  if (!mongoose.Types.ObjectId.isValid(wineId)) {
-    res.status(400).json({ message: "Specified id is not valid" });
-    return;
-  }
-
   Wine.findByIdAndUpdate(
     wineId,
     {
@@ -109,18 +105,13 @@ router.put("/wine/:wineId", (req, res, next) => {
     },
     { new: true }
   )
-    .then((updatedWine) => res.status(200).json(updatedWine))
+    .then(updatedWine => res.status(200).json(updatedWine))
     .catch((error) => res.json(error));
 });
 
-//Deletes a specified user by id
+//Deletes a specified wine by id
 router.delete("/wine/:wineId", (req, res, next) => {
   const { wineId } = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(wineId)) {
-    res.status(400).json({ message: "Specified id is not valid" });
-    return;
-  }
 
   Wine.findByIdAndRemove(wineId)
     .then(() =>
