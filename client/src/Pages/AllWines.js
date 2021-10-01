@@ -15,7 +15,7 @@ export default function AllWines(props) {
 
   useEffect(() => {
     fetchWines();
-  });
+  }, [wines]);
 
   return (
     <div>

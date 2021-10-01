@@ -23,6 +23,12 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
+    title: 'Search',
+    path: '/search',
+    icon: <FaIcons.FaSearch />,
+    cName: 'nav-text'
+  },
+  {
     title: 'Profile',
     path: '/user',
     icon: <IoIcons.IoMdPeople />,
