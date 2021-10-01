@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "react-bulma-components";
 
-import { Wines } from "../api/wines";
+import  {Wines}  from "../api/wines";
 
 export default function SearchWines(props) {
+ 
   const [wines, setWines] = useState([]);
   let filteredWines = wines
 
@@ -28,7 +29,7 @@ export default function SearchWines(props) {
 
   useEffect(() => {
     fetchWines();
-  });
+  },[]);
 
   return (
     <div>
