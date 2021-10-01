@@ -54,7 +54,7 @@ export default function SignUp(props) {
                                 <div className="field">
                                     <label for="email" className="label">Email</label>
                                     <div className="control has-icons-left">
-                                        <input for="email" type="email" placeholder="e.g. your_email@VineVibe.com" className="input" value={email} onChange={handleEmail}required></input>
+                                        <input for="email" type="email" placeholder="e.g. your_email@VineVibe.com" className="input" value={email} onChange={handleEmail} required></input>
                                         <span className="icon is-small is-left">
                                             <i className="fa fa-envelope"></i>
                                         </span>
