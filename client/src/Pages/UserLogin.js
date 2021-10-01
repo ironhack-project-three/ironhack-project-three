@@ -8,12 +8,27 @@ export default function UserLogin(props) {
 
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
+        const [errorMessage, setErrorMessage] = useState(undefined);
+ 
     
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
       
         
         const handleLoginSubmit = (e) => {
+            e.preventDefault();
+            const requestBody = { email, password };
+         
+            axios.post(`${API_URL}/users/user/:userId`, requestBody)
+              .then((response) => {
+                console.log('JWT token', response.data.authToken );
+              })
+              .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+              })
+          };
+         
 
     return (
         <section className="hero has-background-white-ter is-fullheight">
@@ -21,10 +36,10 @@ export default function UserLogin(props) {
                 <div className="container">
                     <div className="columns is-centered">
                         <div column is-5-tablet is-4-desktop is-3-widescreen>
-                            <form action="POST" className="box" onSubmit={handleLoginSubmit}>
+                            <form action="/users/user/:userId" method="POST" className="box" onSubmit={handleLoginSubmit}>
                                 <h3 className="title is-3">Login</h3>
                                 <div className="field">
-                                    <label for="" className="label">Email</label>
+                                    <label for="email" className="label">Email</label>
                                     <div className="control has-icons-left">
                                     <input type="email" name="email" placeholder="e.g. your_email@Vinevibe.com" className="input" value={email} onChange={handleEmail} required></input>
                                         <span className="icon is-small is-left">
@@ -33,7 +48,7 @@ export default function UserLogin(props) {
                                     </div>
                                 </div>
                                 <div className="field">
-                                    <label for="" className="label">Password</label>
+                                    <label for="password" type="password" className="label">Password</label>
                                     <div class="control has-icons-left">
                                         <input type="password" name="password" placeholder="********" className="input" value={password} onChange={handlePassword} required></input>
                                         <span className="icon is-small is-left">
@@ -55,4 +70,4 @@ export default function UserLogin(props) {
         </section>
     )
 }
-}
+

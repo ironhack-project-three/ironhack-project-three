@@ -24,7 +24,7 @@ function App() {
       </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/Userlogin" component={UserLogin} />
+        <Route exact path="/users/user/:userId" component={UserLogin} />
         <Route path="/signup" component={SignUp} />
         <Route path="/user" component={UserProfile} />
         <Route path="/wines/:id" component={WineDetailsPage} />
