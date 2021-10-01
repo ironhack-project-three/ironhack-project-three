@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import NavBar from './components/NavBar';
 import './App.css';
 import AllWines from './Pages/AllWines';
@@ -19,7 +18,6 @@ function App() {
     <div className="App">
       <NavBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Project 3 <code>template</code> Globtrotters
         </p>
@@ -29,7 +27,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/user" component={UserProfile} />
         <Route path="/wines/:id" component={WineDetailsPage} />
-        <Route path="/wines/map" component={WineMap} />
+        <Route path="/winemap" component={WineMap} />
         <Route path="/wines" component={AllWines} />
         <Route path='/About' component={AboutUs}/>
         <Route path='/404' component={ErrorPage404} />
