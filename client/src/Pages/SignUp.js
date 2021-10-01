@@ -3,33 +3,34 @@ import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:3000";
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [userName, setUserName] = useState("");
-        const [errorMessage, setErrorMessage] = useState(undefined);
+       // const [errorMessage, setErrorMessage] = useState(undefined);
       
         
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
         const handleUserName = (e) => setUserName(e.target.value);
-      
-        
         const handleSignupSubmit = (e) => {
           e.preventDefault();
           // Create an object representing the request body
           const requestBody = { email, password, userName };
+          const storedToken = localStorage.getItem('authToken');
       
           // Make an axios request to the API
           // If POST request is successful redirect to login page
           // If the request resolves with an error, set the error message in the state
-          axios.post(`${API_URL}/users/create-user`, requestBody)
-            .then((response) => props.history.push("./Userlogin"))
+          axios.post(`${API_URL}/users/create-user`, requestBody, 
+        { headers: { Authorization: `Bearer ${storedToken}`}})
+            .then((response) => props.history.push("/Userlogin"))
             .catch((error) => {
-              const errorDescription = error.response.data.message;
-              setErrorMessage(errorDescription);
+                console.log(error);
+             // const errorDescription = error.response.data.message;
+              //setErrorMessage(errorDescription);
             })
         };
       
@@ -38,7 +39,7 @@ export default function SignUp(props) {
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
-                        <div column is-5-tablet is-4-desktop is-3-widescreen>
+                        <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="/users/create-user" method="POST" className="box" onSubmit={handleSignupSubmit}>
                                 <h3 className="title is-3">Sign up</h3>
                                 <div className="field">
@@ -61,7 +62,7 @@ export default function SignUp(props) {
                                 </div>
                                 <div className="field">
                                     <label for="password" type="password" className="label">Password</label>
-                                    <div class="control has-icons-left">
+                                    <div className="control has-icons-left">
                                         <input type="password" placeholder="********" className="input" value={password} onChange={handlePassword} required></input>
                                         <span className="icon is-small is-left">
                                             <i className="fa fa-lock"></i>
@@ -71,7 +72,7 @@ export default function SignUp(props) {
                                         <Link to={"./Userlogin"}>Already have an account? Click here to login</Link>
                                     </div>
                                     <div className="field">
-                                        <button className="button is-warning is-rounded" type="submit">Sign up</button>
+                                        <button type="submit" className="button is-warning is-rounded">Sign up</button>
                                     </div>
                                 </div>
                             </form>

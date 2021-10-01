@@ -1,25 +1,19 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import axios from "axios";
 import {useState} from 'react';
-//import { AuthContext } from "./../context/auth.context";
+import { Link } from "react-router-dom";
 
-export default function UserLogin() {
+const API_URL = "http://localhost:3000";
+
+export default function UserLogin(props) {
 
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
-        const [errorMessage, setErrorMessage] = useState(undefined);
-      
-        //const { logInUser } = useContext(AuthContext);
-      
-      
+    
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
       
         
         const handleLoginSubmit = (e) => {
-          e.preventDefault();
-          const requestBody = { email, password };
-      
 
     return (
         <section className="hero has-background-white-ter is-fullheight">
