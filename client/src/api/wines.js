@@ -12,6 +12,7 @@ export class Wines {
   // // CHANGE THE PATHS ACCORDING TO API DOCUMENTATION
   getAll = () => this.api.get("/all-wine")
   getOne = (id)=> this.api.get(`/wine/${id}`)
+  search = (query)=> this.api.get(`/search/?q=${query}`)
   // createOne = (newEntityValues)=>this.api.post("/", newEntityValues)
   // deleteOne = (id)=> this.api.delete(`/${id}`)
   // updateOne = (id)=> this.api.put(`/${id}`)
