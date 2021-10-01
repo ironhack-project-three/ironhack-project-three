@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5000";
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
