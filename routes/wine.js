@@ -9,6 +9,14 @@ router.get("/all-wine", (req, res) => {
   Wine.find().limit(100).then((wines) => res.json({ wines }));
 });
 
+
+router.get("/search", async (req, res) => {
+  console.log(`Got query: ${JSON.stringify(req.query, undefined, 2)}`)
+  const wines = await Wine.find({ 'title': { $regex: req.query.q || "", $options: 'i' } }).limit(100).exec()
+  res.json({ wines });
+    // )).catch((err) => {console.error(err)});
+});
+
 router.post("/create-wine", (req, res) => {
   const {
     points,
