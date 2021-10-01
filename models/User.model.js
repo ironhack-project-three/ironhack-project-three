@@ -15,9 +15,22 @@ const userSchema = new Schema({
 		type: String,
 		required: true
 	},
-
-	// favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
-});
+	Favorite: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Wine',
+		default: [],
+	}, ],
+	WantToTry: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Wine',
+		default: [],
+	}, ],
+	TriedInThePast: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Wine',
+		default: [],
+	}, ],
+	})
 
 const User = model('User', userSchema);
 

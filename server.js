@@ -5,6 +5,8 @@ var express = require('express');
 
 var apiRouter = require('./routes/api');
 var usersRouter = require('./routes/users');
+var winesRouter = require('./routes/wine');
+const { isAuthenticated } = require("./middleware/jwt.middleware");
 
 var server = express();
 
@@ -12,8 +14,9 @@ var server = express();
 require('./config/db')
 require('./config/global')(server)
 
-server.use('/api', apiRouter);
+server.use('/api', isAuthenticated, apiRouter);
 server.use('/users', usersRouter);
+server.use('/wines', isAuthenticated, winesRouter)
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {

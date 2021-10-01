@@ -7,8 +7,9 @@ export default function NavBar() {
                 <li>
                     <Link to='/'>Home</Link>
                     <Link to='/wines'>Discover wines</Link>
-                    <Link to='/Winemap'>Wine map</Link>
-                    <Link to='/About'>About Us</Link>
+                    <Link to='/WineMap'>Wine map</Link>
+                    <Link to='/search'>Search</Link>
+                    <Link to='/AboutUs'>About Us</Link>
                     <Link to='/SignUp'>Sign Up</Link>
                     <Link to='/UserLogin'>Log in</Link>
                 </li>
