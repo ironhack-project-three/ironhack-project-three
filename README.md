@@ -11,18 +11,16 @@ Describe your project in one/two lines.
 -  **Signup:** As an anon I can sign up in the platform so that I can start saving favorite restaurants
 -  **Login:** As a user I can login to the platform so that I can see my favorite restaurants
 -  **Logout:** As a user I can logout from the platform so no one else can use it
--  **Add Pool** As a user I can add a new pool so that I can share it with friends
--  **List Members** As a user I want to see the list of pools I'm part of so that I can access them
--  **Search Pools** As a user I want to search pools by name and if active 
--  **Set Pool Duration** As a user I want to control how frequent payments will be in the timeframe chosen 
--  **Select Pool Type** As a user I want to see what my friends and I are saving for
+-  **Add Wine** As a user I can add a new pool so that I can share it with friends
+-  **List Members** As a user I want to see the list of all the wines 
+-  **Search Wines** As a user I want to search wines by name, variety and country
 
 ## Backlog
 
 User profile:
-- see other users profile, and their pool types
+- see other users profile, and their wine types
 
-Setting up Third Party Pool:
+Setting up Third Party Wines:
 - Morality is as importanrt as avoiding pyramid schemes that sell drugs
   
 # Client
@@ -32,10 +30,10 @@ Setting up Third Party Pool:
 - / - Homepage
 - /auth/signup - Signup form
 - /auth/login - Login form
-- /pools - pools list
-- /pools/create - create a pool
-- /pools/:id - restaurant detail
-- /profile/me - my details and favorite pools
+- /wines - wines list
+- /wines/create - create a wines
+- /wines/:id - restaurant detail
+- /profile/me - my details and favorite wines
 - 404
 
 ## Pages
@@ -43,17 +41,17 @@ Setting up Third Party Pool:
 - Home Page (public)
 - Sign in Page (anon only)
 - Log in Page (anon only)
-- Pool List Page (public only)
-- Pool Create (user only)
-- Pool Detail Page (public only)
+- Wine List Page (public only)
+- Wine Create (user only)
+- Wine Detail Page (public only)
 - My Profile Page (user only)
 - 404 Page (public)
 
 ## Components
 
-- Pool Card component
-  - Input: pool: any
-  - Output: favorite(poolId: string, on: boolean)
+- Wine Card component
+  - Input: wine: any
+  - Output: favorite(wineId: string, on: boolean)
 - Search component
   - Output: change(terms: string)
 
@@ -68,12 +66,12 @@ Setting up Third Party Pool:
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Pool Service
-  - pool.list()
-  - pool.create(data)
-  - pool.detail(id)
-  - pool.addFavorite(id)
-  - pool.removeFavorite(id)   
+- Wine Service
+  - wine.list()
+  - wine.create(data)
+  - wine.detail(id)
+  - wine.addFavorite(id)
+  - wine.removeFavorite(id)   
 
 # Server
 
@@ -85,10 +83,10 @@ User model
 username - String // required
 email - String // required & unique
 password - String // required
-favorites - [ObjectID<Pool>]
+favorites - [ObjectID<Wine>]
 ```
 
-Pool model
+Wine model
 
 ```
 owner - ObjectID<User> // required
@@ -113,16 +111,16 @@ address - String
   - body: (empty)
 - POST /user/me/favorite
   - body:
-    - poolId
-- DELETE /user/me/favorite/:poolId
+    - wineId
+- DELETE /user/me/favorite/:wineId
   - body: (empty)
-- GET /pool
-- POST /pool
+- GET /wine
+- POST /wine
   - body:
     - name
     - phone
     - address
-- GET /pool/:id
+- GET /wine/:id
 
   
 
