@@ -24,7 +24,7 @@ router.post('/create-user', (req, res)=> {
   User.create({username, email})
   .then((newUser)=>{res.json({newUser})})
   .catch(error => console.log(error))
-//password: hashPassword
+  password: hashPassword
 });
 
 //Get user by specific id
