@@ -33,6 +33,7 @@
     "multer-storage-cloudinary": "^4",
     "react-bulma-components": "^4.0.7",
     "react-icons": "^4.2.0",
+    "react-responsive-carousel": "^3.2.21",
     "serve-favicon": "^2"
   },
   "devDependencies": {
