@@ -22,3 +22,8 @@
 .layer1 {
   background-image: src('./public/layer1.png');
 }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s linear infinite;
+  animation: fa-spin 2s linear infinite;
+}

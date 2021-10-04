@@ -1,9 +1,11 @@
-// import React from 'react'
-// import { Wines } from "../api/wines";
-// import { useEffect, useState } from "react";
-// import * as am4core from "@amcharts/amcharts4/core";
-// import * as am4maps from "@amcharts/amcharts4/maps";
-// import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
+import React from 'react'
+import { Wines } from "../api/wines";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Box } from "react-bulma-components";
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4maps from "@amcharts/amcharts4/maps";
+import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 
 // export default function AllWines(props) {
 //     const [wines, setWines] = useState([]);
