@@ -5,6 +5,7 @@ import { Wines } from "../api/wines";
 import { FaSpinner } from "react-icons/fa";
 
 export default function WineDetailsPage(props) {
+  console.log(props)
   const [wine, setWine] = useState({});
   const [loading, setLoading] = useState(true);
 
