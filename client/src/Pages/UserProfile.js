@@ -14,10 +14,10 @@ export default function UserProfile(props) {
                     </figure>
                 </div>
                 <div className="column is-6 is-offset-1">
-                    <h1 className="title is-2">
+                    <h1 className="is-2">
                         Welcome {props.username}
                     </h1>
-                    <h2 className="subtitle is-4">
+                    <h2 className="is-4">
                         Lorem ipsum 
                     </h2>
                     <p className="has-text-centered">

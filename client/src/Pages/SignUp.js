@@ -43,7 +43,7 @@ export default function SignUp(props) {
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="/users/create-user" method="POST" className="box" onSubmit={handleSignupSubmit}>
-                                <h3 className="title is-3">Sign up</h3>
+                                <h3 className="is-3">Sign up</h3>
                                 <div className="field">
                                     <label for="username" className="label">Username</label>
                                     <div className="control has-icons-left">

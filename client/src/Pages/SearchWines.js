@@ -39,7 +39,7 @@ export default function SearchWines(props) {
   return (
     <div className="columns is-centered">
       <div className="column is-10">
-        <h1 className="title is-size-1">SearchWines</h1>
+        <h1 className="is-size-1">SearchWines</h1>
         <input 
           className="input"
           onChange={changeHandler} 
@@ -47,7 +47,7 @@ export default function SearchWines(props) {
           placeholder="Type a query..."
         />
         {filteredWines.map((wine) => {
-          return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
+          return <Link to={() => `/wines/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
         })}
       </div>
     </div>
