@@ -16,6 +16,7 @@ import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -35,7 +36,6 @@ function App() {
         <Route path='/404' component={ErrorPage404} />
         <Route path='/500' component ={ErrorPage500} />
       </Switch>
-      <Footer />
     </div>
   );
 }
