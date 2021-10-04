@@ -6,6 +6,10 @@
   "workspaces": [
     "client"
   ],
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "start": "npm install -w client && npm run build -w client && node ./bin/www",
     "dev:all": "concurrently \"PORT=3000 nodemon ./bin/www\" \"PORT=5000 npm run start -w client\"",
