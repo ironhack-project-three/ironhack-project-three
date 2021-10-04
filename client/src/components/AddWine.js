@@ -45,11 +45,8 @@ export default function AddWine() {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-                            <form 
-                            action="" 
-                            method=""
-                            onSubmit={handleSubmit}>
-                                <h3 className="title is-3">Add new wine</h3>
+                            <form action="" onSubmit={handleSubmit}>
+                                <h3 className="is-3">Add new wine</h3>
                                 <div className="field">
                                     <label>Title</label>
                                     <div className="control has-icons-left">

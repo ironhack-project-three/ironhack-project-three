@@ -8,22 +8,50 @@
 }
 
 .custom-shape-divider-top-1633006772 .shape-fill {
-  fill: #8F0606;
+  fill: #8f0606;
 }
 
-.spacer{
+.spacer {
   aspect-ratio: 960/300;
-  width:100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .layer1 {
-  background-image: src('./public/layer1.png');
+  background-image: src("./public/layer1.png");
 }
 
 .fa-spin {
   -webkit-animation: fa-spin 2s linear infinite;
   animation: fa-spin 2s linear infinite;
+}
+
+@font-face {
+  font-family: WorkSans;
+  src: url("./fonts/WorkSans.ttf");
+}
+
+@font-face {
+  font-family: Forum;
+  src: url("./fonts/Forum-Regular.ttf");
+}
+
+body {
+  font-family: "WorkSans", "Lato", sans-serif !important;
+  font-size: 31px !important;
+}
+
+h1 {
+  font-size: 99px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Forum", "Lato", sans-serif;
 }

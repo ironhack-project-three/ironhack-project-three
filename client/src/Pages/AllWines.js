@@ -15,13 +15,13 @@ export default function AllWines(props) {
 
   useEffect(() => {
     fetchWines();
-  }, [wines]);
+  }, []);
 
   return (
     <div>
-      <h1 className="title is-size-1">AllWines</h1>
+      <h1 className="is-size-1">AllWines</h1>
       {wines.map((wine) => {
-        return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
+        return <Link to={() => `/wines/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
       })}
     </div>
   );
