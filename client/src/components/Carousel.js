@@ -27,7 +27,7 @@ export default function ImageCarousel(props) {
   return (
   
       
-  <Carousel>
+  <Carousel autoPlay>
   <div>
       <img src={image[0]} />
 
