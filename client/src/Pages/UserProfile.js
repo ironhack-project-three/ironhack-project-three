@@ -1,8 +1,8 @@
 import React from 'react';
 import Tabs from '../components/Tabs';
-import "../App.css";
 
 export default function UserProfile(props) {
+    const {username} = props
     return (
     <div>
         <div className="hero-body">
