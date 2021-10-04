@@ -8,10 +8,6 @@ import UserLogin from './Pages/UserLogin';
 import UserProfile from './Pages/UserProfile';
 import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
-<<<<<<< HEAD
-//import WineMap from './Pages/WineMap';
-=======
->>>>>>> 2028ba2fc05e2224531c68784cc86e242a7cbf47
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
