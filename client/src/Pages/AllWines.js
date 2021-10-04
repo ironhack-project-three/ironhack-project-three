@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "react-bulma-components";
 import { Wines } from "../api/wines";
-import addWine from "../components/AddWine";
 
 export default function AllWines(props) {
   const [wines, setWines] = useState([]);
@@ -20,7 +19,6 @@ export default function AllWines(props) {
 
   return (
     <div>
-    <addWine/>
       <h1 className="title is-size-1">AllWines</h1>
       {wines.map((wine) => {
         return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
