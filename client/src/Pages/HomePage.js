@@ -2,6 +2,7 @@ import React from 'react';
 import 'bulma/css/bulma.min.css';
 import ImageCarousel from '../components/Carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import AddWine from "../components/AddWine";
 
 export default function HomePage() {
     return (
@@ -12,19 +13,20 @@ export default function HomePage() {
       </div>
       <div>
         <h1>Wine of the month</h1>
-        <div class="columns">
-          <div class="column">
+        <div className="columns">
+          <div className="column">
             White wine
           </div>
-          <div class="column">
+          <div className="column">
             Red wine
           </div>
-          <div class="column">
+          <div className="column">
             Rose
           </div>
         </div>
       </div>
       <ImageCarousel />
+      <AddWine />
     </div>
     )
 }
