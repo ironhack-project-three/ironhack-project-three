@@ -49,9 +49,9 @@ function Navbar() {
             ) : (
               <>
                 <li className="nav-text">
-                  <a href="#" onClick={logOutUser}>
+                  <button onClick={logOutUser}>
                     Logout
-                  </a>
+                  </button>
                 </li>
               </>
             )}

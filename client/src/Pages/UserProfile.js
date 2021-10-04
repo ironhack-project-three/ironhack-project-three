@@ -25,10 +25,10 @@ export default function UserProfile(props) {
                         Lorem ipsum 
                     </h2>
                     <p className="has-text-centered">
-                        <a className="button is-warning is-rounded">
+                        <a className="button is-warning is-rounded" href="/TODO">
                             Edit Profile
                         </a>
-                        <a className="button is-warning is-rounded">
+                        <a className="button is-warning is-rounded" href="/TODO">
                             Log out
                         </a>
                     </p>

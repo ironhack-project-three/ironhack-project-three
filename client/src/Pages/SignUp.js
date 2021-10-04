@@ -4,7 +4,7 @@ import {useState} from 'react';
 import axios from "axios";
 
 const API_URL = "http://localhost:3000";
-const frontUrl = "http://localhost:5000"
+// const frontUrl = "http://localhost:5000"
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
