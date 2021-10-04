@@ -4,6 +4,7 @@ import { Box } from "react-bulma-components";
 import { Wines } from "../api/wines";
 
 export default function WineDetailsPage(props) {
+  console.log(props)
   const [wine, setWine] = useState({});
   async function fetchWine() {
     const response = await new Wines().getOne(props.match.params.id);
