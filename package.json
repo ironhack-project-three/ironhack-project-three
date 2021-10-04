@@ -13,6 +13,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.22",
     "axios": "^0.21",
     "bcrypt": "^5",
     "bulma": "^0.9.3",
