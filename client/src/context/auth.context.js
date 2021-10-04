@@ -14,25 +14,28 @@ function AuthProviderWrapper(props) {
   const verifyStoredToken = () => {                           
   
     const storedToken = localStorage.getItem('authToken');
+    console.log("Stored token:", storedToken)
     if (storedToken) {
       axios.get(
         `${API_URL}users/verify`, 
         { headers: { Authorization: `Bearer ${storedToken}`} }
       )
       .then((response) => {
+        console.log("Successfully verified JWT:", response)
         const user = response.data;
         setUser(user);
         setIsLoggedIn(true);
         setIsLoading(false);
       })
       .catch((error) => {
+        console.log("Failed to verify JWT:", error.response)
         setIsLoggedIn(false);
         setUser(null);
         setIsLoading(false);
       });      
     } else {
       setIsLoading(false);
-    }   
+    } 
   }
  
     useEffect(() => {    
@@ -49,7 +52,8 @@ function AuthProviderWrapper(props) {
     
     // Update the state variables
     setIsLoggedIn(false);
-    setUser(null);
+    setUser(null);                                   
+    props.history.push('/');
   }  
 
   return (

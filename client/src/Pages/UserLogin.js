@@ -11,8 +11,7 @@ export default function UserLogin(props) {
         const [password, setPassword] = useState("");
         const [errorMessage, setErrorMessage] = useState(undefined);
         
-        const { logInUser } = useContext(AuthContext);      
-
+        const { logInUser } = useContext(AuthContext);
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
       
@@ -55,7 +54,7 @@ export default function UserLogin(props) {
                                 </div>
                                 <div className="field">
                                     <label for="password" type="password" className="label">Password</label>
-                                    <div class="control has-icons-left">
+                                    <div className="control has-icons-left">
                                         <input type="password" name="password" placeholder="********" className="input" value={password} onChange={handlePassword} required></input>
                                         <span className="icon is-small is-left">
                                             <i className="fa fa-lock"></i>

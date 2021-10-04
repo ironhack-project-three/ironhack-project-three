@@ -1,8 +1,12 @@
 import React from 'react';
 import Tabs from '../components/Tabs';
 import "../App.css";
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
 
 export default function UserProfile(props) {
+    const {isLoggedIn, user} = useContext(AuthContext);
+    console.log(isLoggedIn, user)
     return (
     <div>
         <div className="hero-body">
@@ -15,7 +19,7 @@ export default function UserProfile(props) {
                 </div>
                 <div className="column is-6 is-offset-1">
                     <h1 className="is-2">
-                        Welcome {props.username}
+                        Welcome
                     </h1>
                     <h2 className="is-4">
                         Lorem ipsum 
