@@ -41,7 +41,7 @@ export default function UserLogin(props) {
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
-                        <div column is-5-tablet is-4-desktop is-3-widescreen>
+                        <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="/users/login" method="POST" className="box" onSubmit={handleLoginSubmit}>
                                 <h3 className="title is-3">Login</h3>
                                 <div className="field">

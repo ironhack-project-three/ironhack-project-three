@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import  {Api}  from "../api/api";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import './carousel.css';
 
 export default function ImageCarousel(props) {
 
@@ -27,14 +28,12 @@ export default function ImageCarousel(props) {
   return (
   
       
-  <Carousel>
+<Carousel className="Carousel" dynamicHeight={true} autoPlay width={"60%"} showThumbs={false}>
   <div>
       <img src={image[0]} />
-
   </div>
   <div>
       <img src={image[1]} />
-
   </div>
   <div>
       <img src={image[3]} />
@@ -42,7 +41,6 @@ export default function ImageCarousel(props) {
   <div>
       <img src={image[7]} />
   </div>
-
 </Carousel>
   
 

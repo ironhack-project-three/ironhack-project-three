@@ -40,7 +40,6 @@ function App() {
         <Route path='/404' component={ErrorPage404} />
         <Route path='/500' component ={ErrorPage500} />
       </Switch>
-      <Footer />
     </div>
   );
 }
