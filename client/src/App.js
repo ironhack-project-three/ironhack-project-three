@@ -8,7 +8,6 @@ import UserLogin from './Pages/UserLogin';
 import UserProfile from './Pages/UserProfile';
 import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
-import WineMap from './Pages/WineMap';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -33,7 +32,6 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/user" component={UserProfile} />
         <Route path="/wines/:id" component={WineDetailsPage} />
-        <Route path="/winemap" component={WineMap} />
         <Route path="/wines" component={AllWines} />
         <Route path="/search" component={SearchWines} />
         <Route path='/about' component={AboutUs}/>
