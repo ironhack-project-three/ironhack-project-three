@@ -10,14 +10,51 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+
+  const verifyStoredToken = () => {                           
   
-  /* 
-    Functions for handling the authentication status (isLoggedIn, isLoading, user)
-    will be added here later in the next step
-  */
+    const storedToken = localStorage.getItem('authToken');
+    if (storedToken) {
+      axios.get(
+        `${API_URL}users/verify`, 
+        { headers: { Authorization: `Bearer ${storedToken}`} }
+      )
+      .then((response) => {
+        const user = response.data;
+        setUser(user);
+        setIsLoggedIn(true);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoggedIn(false);
+        setUser(null);
+        setIsLoading(false);
+      });      
+    } else {
+      setIsLoading(false);
+    }   
+  }
+ 
+    useEffect(() => {    
+      verifyStoredToken();                                 
+  }, []);
+  
+  const logInUser = (token) => {                              
+    localStorage.setItem('authToken', token);
+    verifyStoredToken();  
+  }
+
+  const logOutUser = () => {                                    
+    localStorage.removeItem("authToken");
+    
+    // Update the state variables
+    setIsLoggedIn(false);
+    setUser(null);
+  }  
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user }}>
+    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, logInUser, logOutUser }}
+    >
       {props.children}
     </AuthContext.Provider>
   )
