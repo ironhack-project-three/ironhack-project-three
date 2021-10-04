@@ -11,6 +11,7 @@ import WineDetailsPage from './Pages/WineDetailsPage';
 import WineMap from './Pages/WineMap';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
+import Checkout from './Pages/Checkout'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/winemap" component={WineMap} />
         <Route path="/wines" component={AllWines} />
         <Route path="/search" component={SearchWines} />
+        <Route path="/checkout" component={Checkout} />
         <Route path='/about' component={AboutUs}/>
         <Route path='/404' component={ErrorPage404} />
         <Route path='/500' component ={ErrorPage500} />
