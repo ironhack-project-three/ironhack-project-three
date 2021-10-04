@@ -4,6 +4,7 @@ import {useState} from 'react';
 import axios from "axios";
 
 const API_URL = "http://localhost:3000";
+const frontUrl = "http://localhost:5000"
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
@@ -26,7 +27,8 @@ export default function SignUp(props) {
           // If the request resolves with an error, set the error message in the state
           axios.post(`${API_URL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
-            .then((response) => props.history.push("/Userlogin", response))
+            .then((response) => props.history.push(`/UserLogin`))
+            
             .catch((error) => {
                 console.log("line 31",error.response);
              // const errorDescription = error.response.data.message;
@@ -69,7 +71,7 @@ export default function SignUp(props) {
                                         </span>
                                     </div>
                                     <div className='field'>
-                                        <Link to={"./Userlogin"}>Already have an account? Click here to login</Link>
+                                        <Link to={"/Userlogin"}>Already have an account? Click here to login</Link>
                                     </div>
                                     <div className="field">
                                         <button type="submit" className="button is-warning is-rounded">Sign up</button>
