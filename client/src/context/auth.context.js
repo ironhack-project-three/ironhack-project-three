@@ -53,7 +53,7 @@ function AuthProviderWrapper(props) {
     // Update the state variables
     setIsLoggedIn(false);
     setUser(null);                                   
-    props.history.push('/');
+    // props.history.push('/');
   }  
 
   return (
