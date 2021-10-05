@@ -19,7 +19,7 @@ export default function AllWines(props) {
 
   return (
     <div>
-      <h1 className="is-size-1">AllWines</h1>
+      <h1 className="is-size-1">All Wines</h1>
       {wines.map((wine) => {
         return <Link to={() => `/wines/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
       })}
