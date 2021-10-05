@@ -5,8 +5,14 @@ const User = require("../models/User.model");
 const Wine = require("../models/Wine.model");
 const Service = require("../services/service");
 
-router.get("/all-wine", (req, res) => {
-  Wine.find().limit(100).then((wines) => res.json({ wines }));
+router.get("/all-wine", async (req, res) => {
+  try {
+    const wines = await Wine.find().limit(100)
+    res.json({ wines })
+    console.log(`Found ${wines.length} wines`)
+  } catch (err) {
+    console.log("Error fetching all wines:", err)
+  }
 });
 
 
@@ -15,6 +21,7 @@ router.get("/search", async (req, res) => {
   try{
     const wines = await Wine.find({ 'title': { $regex: req.query.q || "", $options: 'i' } }).limit(100).exec()
     res.json({ wines });
+    console.log(`Search found ${wines.length} wines`)
   }catch (err){
     console.log("Line 19 error wine.js", err)
 }
