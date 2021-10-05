@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
 
-const API_URL = "http://localhost:3000";
+// const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
+let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+baseURL = `${baseURL}/api` 
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
@@ -26,7 +28,7 @@ export default function SignUp(props) {
           // Make an axios request to the API
           // If POST request is successful redirect to login page
           // If the request resolves with an error, set the error message in the state
-          axios.post(`${API_URL}/users/create-user`, requestBody, 
+          axios.post(`${baseURL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
             .then((response) => {
                 props.history.push(`/UserLogin`)
