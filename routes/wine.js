@@ -64,7 +64,7 @@ router.post("/create-wine", (req, res) => {
 });
 
 //Get wine by specific id
-router.get("/wine/:wineId", (req, res, next) => {
+router.get("/wine/:wineId", async (req, res, next) => {
   console.log("line 51 wine.js", req.params);
   const { wineId } = req.params;
   if (!Types.ObjectId.isValid(wineId)) {
@@ -72,9 +72,20 @@ router.get("/wine/:wineId", (req, res, next) => {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
   }
-  Wine.findById(wineId)
-    .then((wine) => res.status(200).json(wine))
-    .catch((error) => res.json(error));
+  try {
+    console.log("fetching wine", wineId)
+    const wine = await Wine.findById(wineId)
+    if (!wine) {
+      res.status(404).json({message: `Wine not found: ${wineId}`});
+      return
+    }
+    console.log("fetched wine", wine)
+    res.status(200).json(wine);
+    console.log("returned wine")
+  } catch (error) {
+    console.log("/wine/:wineId got an error:", error)
+    res.status(500).json(error);
+  }
 });
 
 //Put route to update a specific wine

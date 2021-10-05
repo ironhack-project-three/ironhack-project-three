@@ -22,25 +22,27 @@ server.use('/users', usersRouter);
 server.use('/wines', winesRouter)
 server.use('/review', reviewRouter)
 
-// server.get('*', (req, res) => {
-//   console.log(req.url)
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
+server.get('*', (req, res) => {
+  console.log("get * returning index URL for", req.url)
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 // server.use('/wines', isAuthenticated, winesRouter)
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {
   // console.log(req.url)
-  next(res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')));
+  console.log("404 handler returning index.html")
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   // next(createError(404));
 });
 
-// // error handler
+// error handler
 server.use(function(err, req, res, next) {
   // console.log(req.url)
-  // res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-  // // set locals, only providing error in development
+  console.log("general error handler returning index.html")
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
