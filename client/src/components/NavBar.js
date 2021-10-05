@@ -12,7 +12,7 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const { logOutUser, isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser  } = useContext(AuthContext);
 
   return (
     <>
@@ -26,6 +26,7 @@ function Navbar() {
             className = "button is-normal"
             whileHover = {{ scale: 1.1}}
             whileTap = {{ scale: 0.9}}
+            onClick={logOutUser}
             >Logout</motion.button>
           </>)
         :
