@@ -47,7 +47,7 @@ export default function SearchWines(props) {
           placeholder="Type a query..."
         />
         {filteredWines.map((wine) => {
-          return <Link to={() => `/wines/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
+          return <Link to={() => `/wine/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
         })}
       </div>
     </div>
