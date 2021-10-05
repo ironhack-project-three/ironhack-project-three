@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const { Types } = require('mongoose');
 const User = require("../models/User.model");
 const Wine = require("../models/Wine.model");
 const Service = require("../services/service");
@@ -67,10 +67,11 @@ router.post("/create-wine", (req, res) => {
 router.get("/wine/:wineId", (req, res, next) => {
   console.log("line 51 wine.js", req.params);
   const { wineId } = req.params;
-  // if (!mongoose.Types.ObjectId.isValid(wineId)) {
-  //   res.status(400).json({ message: 'Specified id is not valid' });
-  //   return;
-  // }
+  if (!Types.ObjectId.isValid(wineId)) {
+    console.log("wines.detail: Specified id is not valid")
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+  }
   Wine.findById(wineId)
     .then((wine) => res.status(200).json(wine))
     .catch((error) => res.json(error));
