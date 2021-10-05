@@ -4,6 +4,7 @@ import { AuthContext } from '../context/auth.context';
 import { motion } from "framer-motion"
 const API_URL = "http://localhost:3000";
 
+
 export default function UserLogin(props) {
 
         const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export default function UserLogin(props) {
             e.preventDefault();
             const requestBody = { email, password };
 
-            axios.post(`${API_URL}/users/login`, requestBody)
+            axios.post(`${baseURL}/users/login`, requestBody)
               .then((response) => {
                 console.log('JWT token', response.data.authToken );
 
