@@ -3,6 +3,7 @@ import 'bulma/css/bulma.min.css';
 import ImageCarousel from '../components/Carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import AddWine from "../components/AddWine";
+import EditProfile from '../components/EditProfile';
 
 export default function HomePage() {
     return (
@@ -26,6 +27,7 @@ export default function HomePage() {
         </div>
       </div>
       <ImageCarousel />
+      <EditProfile />
       <AddWine />
     </div>
     )
