@@ -14,6 +14,7 @@ import ErrorPage500 from './Pages/ErrorPage500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
+import EditProfile from './components/EditProfile';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/wines" component={AllWines} />
             <Route path="/search" component={SearchWines} />
             <Route path="/about" component={AboutUs} />
+            <Route path="/user/:userId" component={EditProfile} />
             <Route path="/404" component={ErrorPage404} />
             <Route path="/500" component={ErrorPage500} />
           </Switch>
