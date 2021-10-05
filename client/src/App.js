@@ -12,7 +12,7 @@ import WineMap from './Pages/WineMap';
 import createWine from './Pages/createWine';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
 import EditProfile from './components/EditProfile';
