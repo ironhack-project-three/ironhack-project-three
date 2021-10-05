@@ -13,10 +13,10 @@ import ErrorPage500 from './Pages/ErrorPage500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-am4core.useTheme(am4themes_animated);
+//import * as am4core from "@amcharts/amcharts4/core";
+//import * as am4charts from "@amcharts/amcharts4/charts";
+//import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+//am4core.useTheme(am4themes_animated);
 
 
 
