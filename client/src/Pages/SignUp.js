@@ -25,7 +25,7 @@ export default function SignUp(props) {
     // If the request resolves with an error, set the error message in the state
     try {
       await Users.createOne(requestBody, storedToken);
-      props.history.push(`/UserLogin`);
+      props.history.push(`/login`);
     } catch (error) {
       console.log("line 31", error.response);
       const errorDescription = error.response.data.message;
@@ -95,7 +95,7 @@ export default function SignUp(props) {
                     ></input>
                   </div>
                   <div className="field" style={{ fontSize: "12px" }}>
-                    <Link to={"/Userlogin"}>
+                    <Link to={"/UserLogin"}>
                       Already have an account? Login here
                     </Link>
                   </div>
