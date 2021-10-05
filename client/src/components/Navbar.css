@@ -4,12 +4,14 @@
     display: flex;
     justify-content: end;
     align-items: center;
+
   }
   
   .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
+    padding-right: 2rem;
   }
   
   .nav-menu {
@@ -20,12 +22,12 @@
     justify-content: center;
     position: fixed;
     top: 0;
-    left: -100%;
+    right: -20%;
     transition: 850ms;
   }
   
   .nav-menu.active {
-    left: 0;
+    right: 0;
     transition: 350ms;
   }
   
@@ -51,7 +53,7 @@
   }
   
   .nav-text a:hover {
-    background-color: #4c2c45;
+    background-color: #ffffff;
   }
   
   .nav-menu-items {
@@ -69,4 +71,8 @@
   
   span {
     margin-left: 16px;
+  }
+
+  #logbutton{
+    margin: 0.5rem;
   }
