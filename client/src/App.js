@@ -40,6 +40,7 @@ function App() {
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/404" component={ErrorPage404} />
             <Route exact path="/500" component={ErrorPage500} />
+            <Route component={ErrorPage404} />
           </Switch>
         </div>
       </div>
