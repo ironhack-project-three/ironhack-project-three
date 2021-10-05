@@ -6,6 +6,7 @@ var express = require('express');
 var apiRouter = require('./routes/api');
 var usersRouter = require('./routes/users');
 var winesRouter = require('./routes/wine');
+var reviewRouter = require('./routes/review');
 const { isAuthenticated } = require("./middleware/jwt.middleware");
 
 var server = express();
@@ -17,6 +18,7 @@ require('./config/global')(server)
 server.use('/api', apiRouter);
 server.use('/users', usersRouter);
 server.use('/wines', winesRouter)
+server.use('/review', reviewRouter)
 
 // server.use('/wines', isAuthenticated, winesRouter)
 
