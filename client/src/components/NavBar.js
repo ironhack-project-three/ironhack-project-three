@@ -22,6 +22,7 @@ function Navbar() {
         ? (<>
             <motion.button
             id = "logbutton"
+            onClick={logOutUser}
             className = "button is-normal"
             whileHover = {{ scale: 1.1}}
             whileTap = {{ scale: 0.9}}

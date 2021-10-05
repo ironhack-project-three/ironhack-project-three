@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-
+const { Types } = require('mongoose');
 const User = require("../models/User.model");
 const Wine = require("../models/Wine.model");
 const Service = require("../services/service");
@@ -64,16 +64,28 @@ router.post("/create-wine", (req, res) => {
 });
 
 //Get wine by specific id
-router.get("/wine/:wineId", (req, res, next) => {
+router.get("/wine/:wineId", async (req, res, next) => {
   console.log("line 51 wine.js", req.params);
   const { wineId } = req.params;
-  // if (!mongoose.Types.ObjectId.isValid(wineId)) {
-  //   res.status(400).json({ message: 'Specified id is not valid' });
-  //   return;
-  // }
-  Wine.findById(wineId)
-    .then((wine) => res.status(200).json(wine))
-    .catch((error) => res.json(error));
+  if (!Types.ObjectId.isValid(wineId)) {
+    console.log("wines.detail: Specified id is not valid")
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+  }
+  try {
+    console.log("fetching wine", wineId)
+    const wine = await Wine.findById(wineId)
+    if (!wine) {
+      res.status(404).json({message: `Wine not found: ${wineId}`});
+      return
+    }
+    console.log("fetched wine", wine)
+    res.status(200).json(wine);
+    console.log("returned wine")
+  } catch (error) {
+    console.log("/wine/:wineId got an error:", error)
+    res.status(500).json(error);
+  }
 });
 
 //Put route to update a specific wine
