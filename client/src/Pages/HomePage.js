@@ -13,14 +13,14 @@ export default function HomePage() {
       </div>
       <div>
         <h1>Wine of the month</h1>
-        <div class="columns">
-          <div class="column">
+        <div className="columns">
+          <div className="column">
             White wine
           </div>
-          <div class="column">
+          <div className="column">
             Red wine
           </div>
-          <div class="column">
+          <div className="column">
             Rose
           </div>
         </div>

@@ -19,22 +19,29 @@ import 'bulma/css/bulma.min.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <NavBar />
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/userLogin" component={UserLogin} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/user" component={UserProfile} />
-        <Route path="/wines/:id" component={WineDetailsPage} />
-        <Route path="/winemap" component={WineMap} />
-        <Route path="/wines" component={AllWines} />
-        <Route path="/search" component={SearchWines} />
-        <Route path='/about' component={AboutUs}/>
-        <Route path='/404' component={ErrorPage404} />
-        <Route path='/500' component ={ErrorPage500} />
-      </Switch>
+      <div className="columns">
+        <div className="column">
+          <header className="App-header">
+            <NavBar />
+          </header>
+        </div>
+      </div>
+      <div className="columns is-centered">
+        <div className="column is-10">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/userLogin" component={UserLogin} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/user" component={UserProfile} />
+            <Route path="/wines/:id" component={WineDetailsPage} />
+            <Route path="/wines" component={AllWines} />
+            <Route path="/search" component={SearchWines} />
+            <Route path="/about" component={AboutUs} />
+            <Route path="/404" component={ErrorPage404} />
+            <Route path="/500" component={ErrorPage500} />
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 }

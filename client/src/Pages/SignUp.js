@@ -4,10 +4,11 @@ import {useState} from 'react';
 import axios from "axios";
 
 const API_URL = "http://localhost:3000";
-const frontUrl = "http://localhost:5000"
+// const frontUrl = "http://localhost:5000"
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
+        const [errorMessage, setErrorMessage] = useState(undefined);
         const [password, setPassword] = useState("");
         const [username, setUserName] = useState("");
        // const [errorMessage, setErrorMessage] = useState(undefined);
@@ -27,12 +28,14 @@ export default function SignUp(props) {
           // If the request resolves with an error, set the error message in the state
           axios.post(`${API_URL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
-            .then((response) => props.history.push(`/UserLogin`))
+            .then((response) => {
+                props.history.push(`/UserLogin`)
+            })
             
             .catch((error) => {
                 console.log("line 31",error.response);
-             // const errorDescription = error.response.data.message;
-              //setErrorMessage(errorDescription);
+             const errorDescription = error.response.data.message;
+              setErrorMessage(errorDescription);
             })
         };
       
@@ -43,7 +46,10 @@ export default function SignUp(props) {
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="/users/create-user" method="POST" className="box" onSubmit={handleSignupSubmit}>
-                                <h3 className="title is-3">Sign up</h3>
+                                <h3 className="is-3">Sign up</h3>
+                                <div className="field" style={{fontSize: "12px"}}>
+                                    {errorMessage}
+                                </div>
                                 <div className="field">
                                     <label for="username" className="label">Username</label>
                                     <div className="control has-icons-left">
@@ -70,7 +76,7 @@ export default function SignUp(props) {
                                             <i className="fa fa-lock"></i>
                                         </span>
                                     </div>
-                                    <div className='field'>
+                                    <div className='field' style={{fontSize: "12px"}}>
                                         <Link to={"/Userlogin"}>Already have an account? Click here to login</Link>
                                     </div>
                                     <div className="field">

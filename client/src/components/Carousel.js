@@ -12,7 +12,7 @@ export default function ImageCarousel(props) {
   
   const [image, setImage] = useState([]);
   async function fetchImage() {
-    const response = await new Api().getAll(props);
+    const response = await new Api().getAll();
     
     console.log("this is the response", response);
     console.log("this is the response data", response.data);
@@ -30,16 +30,16 @@ export default function ImageCarousel(props) {
       
 <Carousel className="Carousel" dynamicHeight={true} autoPlay width={"60%"} showThumbs={false}>
   <div>
-      <img src={image[0]} />
+      <img alt="wine" src={image[0]} />
   </div>
   <div>
-      <img src={image[1]} />
+      <img alt="wine" src={image[1]} />
   </div>
   <div>
-      <img src={image[3]} />
+      <img alt="wine" src={image[3]} />
   </div>
   <div>
-      <img src={image[7]} />
+      <img alt="wine" src={image[7]} />
   </div>
 </Carousel>
   

@@ -21,7 +21,7 @@ export default function SearchWines(props) {
     setQuery(event.target.value);
   };
 
-  async function searchWines() {
+  async function searchWines(query, lastQuery) {
     if (query !== lastQuery) {
       console.log("new query:", query)
       lastQuery = query;
@@ -33,13 +33,13 @@ export default function SearchWines(props) {
   }
 
   useEffect(() => {
-    searchWines()
-  }, [query]);
+    searchWines(query)
+  }, [query, lastQuery]);
 
   return (
     <div className="columns is-centered">
       <div className="column is-10">
-        <h1 className="title is-size-1">SearchWines</h1>
+        <h1 className="is-size-1">Search Wines</h1>
         <input 
           className="input"
           onChange={changeHandler} 
@@ -47,7 +47,7 @@ export default function SearchWines(props) {
           placeholder="Type a query..."
         />
         {filteredWines.map((wine) => {
-          return <Link to={() => `/wines/${wine._id}`}><Box className="title is-size-3">{wine.title}</Box></Link>;
+          return <Link to={() => `/wines/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
         })}
       </div>
     </div>

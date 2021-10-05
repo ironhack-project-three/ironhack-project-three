@@ -2,18 +2,24 @@
   "name": "project2-template",
   "version": "0.0.0",
   "private": true,
+  "cacheDirectories": ["client/node_modules", "node_modules"],
   "workspaces": [
     "client"
   ],
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
+  },
   "scripts": {
-    "start": "npm run build -w client&&node ./bin/www",
+    "start": "node ./bin/www",
     "dev:all": "concurrently \"PORT=3000 nodemon ./bin/www\" \"PORT=5000 npm run start -w client\"",
     "dev:front": "PORT=5000 npm run start -w client",
-    "dev:back": "PORT=3000 nodemon ./bin/www"
+    "dev:back": "PORT=3000 nodemon ./bin/www",
+    "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.22",
-    "axios": "^0.21",
+    "axios": "^0.22",
     "bcrypt": "^5",
     "bulma": "^0.9.3",
     "cloudinary": "^1",
@@ -27,18 +33,18 @@
     "hbs": "^4",
     "http-errors": "^1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5",
+    "mongoose": "^6",
     "morgan": "^1",
     "multer": "^1",
     "multer-storage-cloudinary": "^4",
     "react-bulma-components": "^4.0.7",
-    "react-icons": "^4.2.0",
+    "react-icons": "^4.3.1",
     "react-responsive-carousel": "^3.2.21",
     "serve-favicon": "^2"
   },
   "devDependencies": {
     "concurrently": "^6",
-    "debug": "^2",
+    "debug": "^4",
     "nodemon": "^2"
   }
 }
