@@ -6,6 +6,7 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { AuthContext } from "../context/auth.context";
+import { motion } from "framer-motion"
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -17,6 +18,31 @@ function Navbar() {
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar1">
+        {isLoggedIn
+        ? (<>
+            <motion.button
+            id = "logbutton"
+            className = "button is-normal"
+            whileHover = {{ scale: 1.1}}
+            whileTap = {{ scale: 0.9}}
+            >Logout</motion.button>
+          </>)
+        :
+        (<>
+          <Link to="/signup"> <motion.button
+          id = "logbutton"
+          className = "button is-normal"
+          whileHover = {{ scale: 1.1}}
+          whileTap = {{ scale: 0.9}}
+          >Signup</motion.button> </Link>
+          <Link to="/login"> <motion.button
+          id = "logbutton"
+          className = "button is-normal"
+          whileHover = {{ scale: 1.1}}
+          whileTap = {{ scale: 0.9}}
+          >Login</motion.button> </Link>
+        </>)
+      }
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -38,23 +64,6 @@ function Navbar() {
                 </li>
               );
             })}
-            {isLoggedIn ? (
-              <>
-                <li className="nav-text">
-                  <Link to="/userLogin">
-                    <span>Login</span>
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="nav-text">
-                  <button onClick={logOutUser}>
-                    Logout
-                  </button>
-                </li>
-              </>
-            )}
           </ul>
         </nav>
       </IconContext.Provider>

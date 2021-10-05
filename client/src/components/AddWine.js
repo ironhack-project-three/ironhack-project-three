@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-const API_URL = "http://localhost:3000";
 
 export default function AddWine() {
     const [title, setTitle] = useState("");
@@ -17,29 +16,29 @@ export default function AddWine() {
     const history = useHistory();
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const body = {title, description, price, variety, region, province, country, winery};
-    
-
-    try{const response = await axios.post(`${API_URL}/wines/create-wine`, body);
-    console.log(response);
-
-    setTitle('');
-    setDescription('');
-    setPrice('');
-    setVariety('');
-    setRegion('');
-    setProvince('');
-    setCountry ('');
-    setWinery ('');
-
-    history.push('./wines')}//Discuss redirecting route
-    catch(error){
-    console.log(error);
+      e.preventDefault();
+  
+      const body = {title, description, price, variety, region, province, country, winery};
+      
+      try {
+        const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000"
+        const response = await axios.post(`${baseUrl}/api/wines/create-wine`, body);
+        console.log(response);
+  
+        setTitle('');
+        setDescription('');
+        setPrice('');
+        setVariety('');
+        setRegion('');
+        setProvince('');
+        setCountry ('');
+        setWinery ('');
+  
+        history.push('./wines')}//Discuss redirecting route
+      catch (error) {
+        console.log(error);
+      }
     }
-
-}
     return ( 
         <section className="hero has-background-white-ter is-fullheight">
             <div className="hero-body">

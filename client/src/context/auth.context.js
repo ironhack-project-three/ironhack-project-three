@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_URL = "http://localhost:3000";
+let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+baseURL = `${baseURL}/api/` 
 
 const AuthContext = React.createContext();
 
@@ -13,12 +14,22 @@ function AuthProviderWrapper(props) {
   //}
 
   const verifyStoredToken = () => {                           
-  const storedToken = localStorage.getItem('authToken');
-//     console.log("Stored token:", storedToken)
-      if (storedToken) {
-      axios
-      .get(`${API_URL}users/verify`, { 
-        headers: { Authorization: `Bearer ${storedToken}`}
+
+  
+    const storedToken = localStorage.getItem('authToken');
+    console.log("Stored token:", storedToken)
+    if (storedToken) {
+      axios.get(
+        `${baseURL}users/verify`, 
+        { headers: { Authorization: `Bearer ${storedToken}`} }
+      )
+      .then((response) => {
+        console.log("Successfully verified JWT:", response)
+        const user = response.data;
+        setUser(user);
+        setIsLoggedIn(true);
+        setIsLoading(false);
+
       })
        .then((response) => {
 //         console.log("Successfully verified JWT:", response)

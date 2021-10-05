@@ -2,8 +2,9 @@ import React from 'react';
 import axios from "axios";
 import {useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-
+import { motion } from "framer-motion"
 const API_URL = "http://localhost:3000";
+
 
 export default function UserLogin(props) {
 
@@ -19,9 +20,11 @@ export default function UserLogin(props) {
         const requestBody = { email, password };
         const storedToken = localStorage.getItem('authToken');
 
+
             axios.post(`${API_URL}/users/login`, requestBody,
             { headers: { Authorization: `Bearer ${storedToken}`}})
             .then((response) => {
+
                 const token = response.data.authToken;
                 logInUser(token);
                 props.history.push("/");
@@ -82,9 +85,12 @@ export default function UserLogin(props) {
                                         {/* <a href="/TODO">Forgot Password</a> */}
                                     </div>
                                     <div className="field">
-                                        <button 
-                                        className="button is-warning is-rounded" 
-                                        type="submit">Login</button>
+
+                                        <motion.button 
+                                        whileHover = {{ scale: 1.1}}
+                                        whileTap = {{ scale: 0.9}}
+                                        className="button is-warning is-rounded" type="submit">Login</motion.button>
+
                                     </div>
                                 </div>
                             </form>
