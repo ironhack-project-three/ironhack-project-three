@@ -1,5 +1,4 @@
 import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import './App.css';
 import AllWines from './Pages/AllWines';
 import HomePage from './Pages/HomePage';
@@ -12,7 +11,7 @@ import WineMap from './Pages/WineMap';
 import createWine from './Pages/createWine';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
 import EditProfile from './components/EditProfile';
@@ -32,19 +31,19 @@ function App() {
         <div className="column is-10">
         <Router>
             <Switch>
-              <Route exact path="#/" component={HomePage} />
-              <Route exact path="#/login" component={UserLogin} />
-              <Route path="#/signup" component={SignUp} />
-              <Route path="#/user" component={UserProfile} />
-              <Route path="#/create-wine" component={createWine} />
-              <Route path="#/winemap" component={WineMap} />
-              <Route path="#/wine/:wineid" component={WineDetailsPage} />
-              <Route path="#/all-wine" component={AllWines} />
-              <Route path="#/search" component={SearchWines} />
-              <Route path="#/about" component={AboutUs} />
-              <Route path="#/user/:userId" component={EditProfile} />
-              <Route path="#/404" component={ErrorPage404} />
-              <Route path="#/500" component={ErrorPage500} />
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/login" component={UserLogin} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/user" component={UserProfile} />
+              <Route path="/create-wine" component={createWine} />
+              <Route path="/winemap" component={WineMap} />
+              <Route path="/wine/:wineid" component={WineDetailsPage} />
+              <Route path="/all-wine" component={AllWines} />
+              <Route path="/search" component={SearchWines} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/user/:userId" component={EditProfile} />
+              <Route path="/404" component={ErrorPage404} />
+              <Route path="/500" component={ErrorPage500} />
             </Switch>
           </Router>
         </div>
