@@ -4,24 +4,24 @@ import {useState} from 'react';
 import axios from "axios";
 import { motion } from "framer-motion"
 
+
 // const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
 let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
 baseURL = `${baseURL}/api` 
 
+
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
-        const [errorMessage, setErrorMessage] = useState(undefined);
         const [password, setPassword] = useState("");
         const [username, setUserName] = useState("");
-       // const [errorMessage, setErrorMessage] = useState(undefined);
+        const [errorMessage, setErrorMessage] = useState(undefined);
       
-        
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
         const handleUserName = (e) => setUserName(e.target.value);
-        const handleSignupSubmit = (e) => {
-          e.preventDefault();
+        const handleSignupSubmit = (e) => { e.preventDefault();
+          
           // Create an object representing the request body
           const requestBody = {username, email, password};
           const storedToken = localStorage.getItem('authToken');
@@ -31,12 +31,8 @@ export default function SignUp(props) {
           // If the request resolves with an error, set the error message in the state
           axios.post(`${baseURL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
-            .then((response) => {
-                props.history.push(`/UserLogin`)
-            })
-            
-            .catch((error) => {
-                console.log("line 31",error.response);
+            .then((response) => {props.history.push(`/UserLogin`)})
+            .catch((error) => {console.log("line 31",error.response);
              const errorDescription = error.response.data.message;
               setErrorMessage(errorDescription);
             })
@@ -48,48 +44,75 @@ export default function SignUp(props) {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-                            <form action="/users/create-user" method="POST" className="box" onSubmit={handleSignupSubmit}>
+                            <form 
+                            action="/users/create-user" 
+                            method="POST" 
+                            className="box" 
+                            onSubmit={handleSignupSubmit}>
                                 <h3 className="is-3">Sign up</h3>
                                 <div className="field" style={{fontSize: "12px"}}>
                                     {errorMessage}
                                 </div>
                                 <div className="field">
-                                    <label for="username" className="label">Username</label>
+                                    <label 
+                                    for="username" 
+                                    className="label">Username
+                                    </label>
                                     <div className="control has-icons-left">
-                                        <input  type="username" placeholder="e.g. VineVibe" className="input" value={username} onChange={handleUserName} required></input>
-                                        <span className="icon is-small is-left">
-                                            <i className="fa fa-envelope"></i>
-                                        </span>
+                                        <input  
+                                        type="username" 
+                                        placeholder="e.g. VineVibe" 
+                                        className="input" 
+                                        value={username} 
+                                        onChange={handleUserName} 
+                                        required></input>
                                     </div>
                                 </div>
                                 <div className="field">
-                                    <label for="email" className="label">Email</label>
+                                    <label 
+                                    for="email" 
+                                    className="label">Email
+                                    </label>
                                     <div className="control has-icons-left">
-                                        <input for="email" type="email" placeholder="e.g. your_email@VineVibe.com" className="input" value={email} onChange={handleEmail} required></input>
-                                        <span className="icon is-small is-left">
-                                            <i className="fa fa-envelope"></i>
-                                        </span>
+                                        <input 
+                                        for="email" 
+                                        type="email" 
+                                        placeholder="e.g. your_email@VineVibe.com" 
+                                        className="input" 
+                                        value={email} 
+                                        onChange={handleEmail} 
+                                        required></input>
                                     </div>
                                 </div>
                                 <div className="field">
-                                    <label for="password" type="password" className="label">Password</label>
+                                    <label 
+                                    for="password" 
+                                    type="password" 
+                                    className="label">Password
+                                    </label>
                                     <div className="control has-icons-left">
-                                        <input type="password" placeholder="********" className="input" value={password} onChange={handlePassword} required></input>
-                                        <span className="icon is-small is-left">
-                                            <i className="fa fa-lock"></i>
-                                        </span>
+                                        <input 
+                                        type="password" 
+                                        placeholder="********" 
+                                        className="input" 
+                                        value={password} 
+                                        onChange={handlePassword} 
+                                        required></input>
                                     </div>
                                     <div className='field' style={{fontSize: "12px"}}>
-                                        <Link to={"/Userlogin"}>Already have an account? Click here to login</Link>
+                                        <Link to={"/Userlogin"}>Already have an account? Login here</Link>
                                     </div>
                                     <div className="field">
+
                                         <motion.button 
                                         whileHover = {{ scale: 1.1}}
                                         whileTap = {{ scale: 0.9}}
                                         type="submit" className="button is-warning is-rounded">Sign up</motion.button>
+
                                     </div>
                                 </div>
                             </form>
+                            { errorMessage && <p className="error-message">{errorMessage}</p> }
                         </div>
                     </div>
                 </div>
