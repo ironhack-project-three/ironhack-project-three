@@ -4,16 +4,12 @@ import {useState} from 'react';
 import axios from "axios";
 import { motion } from "framer-motion"
 
-<<<<<<< HEAD
-const API_URL = "http://localhost:3000";
-=======
 
 // const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
 let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
 baseURL = `${baseURL}/api` 
 
->>>>>>> a30b2f7e15fae39e91fbf64f4404009997b1cef0
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
