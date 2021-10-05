@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/user" component={UserProfile} />
             <Route exact path="/create-wine" component={createWine} />
             <Route exact path="/winemap" component={WineMap} />
-            <Route exact path="/wine/:wineid" component={WineDetailsPage} />
+            <Route exact path="/wine/:id" component={WineDetailsPage} />
             <Route exact path="/all-wine" component={AllWines} />
             <Route exact path="/search" component={SearchWines} />
             <Route exact path="/about" component={AboutUs} />
