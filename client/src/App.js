@@ -9,6 +9,7 @@ import UserProfile from './Pages/UserProfile';
 import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
 import WineMap from './Pages/WineMap';
+import createWine from './Pages/createWine';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -30,11 +31,13 @@ function App() {
         <div className="column is-10">
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/userLogin" component={UserLogin} />
+            <Route exact path="/login" component={UserLogin} />
             <Route path="/signup" component={SignUp} />
             <Route path="/user" component={UserProfile} />
-            <Route path="/wines/:id" component={WineDetailsPage} />
-            <Route path="/wines" component={AllWines} />
+            <Route path="/create-wine" component={createWine} />
+            <Route path="/winemap" component={WineMap} />
+            <Route path="/wine/:wineid" component={WineDetailsPage} />
+            <Route path="/all-wine" component={AllWines} />
             <Route path="/search" component={SearchWines} />
             <Route path="/about" component={AboutUs} />
             <Route path="/404" component={ErrorPage404} />

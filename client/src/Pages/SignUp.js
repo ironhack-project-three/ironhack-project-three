@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
+import { motion } from "framer-motion"
 
 const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
@@ -80,7 +81,10 @@ export default function SignUp(props) {
                                         <Link to={"/Userlogin"}>Already have an account? Click here to login</Link>
                                     </div>
                                     <div className="field">
-                                        <button type="submit" className="button is-warning is-rounded">Sign up</button>
+                                        <motion.button 
+                                        whileHover = {{ scale: 1.1}}
+                                        whileTap = {{ scale: 0.9}}
+                                        type="submit" className="button is-warning is-rounded">Sign up</motion.button>
                                     </div>
                                 </div>
                             </form>
