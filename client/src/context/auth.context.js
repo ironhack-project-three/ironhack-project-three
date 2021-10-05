@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Users } from "../api/users";
+
+import axios from "axios";
+let baseURL =  "http://localhost:3000"
+
+
 
 const AuthContext = React.createContext();
 
@@ -7,17 +11,26 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-  // const logInUser = (token) => {
-  //   localStorage.setItem('authToken', token);
+
+  // const [storedTokenState, setStoredTokenState] = useState(null)
+  // const logInUser = (token) => { 
+  //   localStorage.setItem('authToken', token);           
   //}
 
-  const verifyStoredToken = async () => {
-    const storedToken = localStorage.getItem("authToken");
-    console.log("Stored token:", storedToken);
+  const verifyStoredToken = () => {                           
+    const storedToken = localStorage.getItem('authToken');
+    console.log("18 Stored token:", storedToken)
+    // setStoredTokenState(storedToken)
+
+  
     if (storedToken) {
-      try {
-        const response = await Users.verifyToken(storedToken);
-        console.log("Successfully verified JWT:", response);
+      axios.get(
+       "http://localhost:3000/users/verify", 
+        { headers: { Authorization: `Bearer ${storedToken}`} }
+      )
+      .then((response) => {
+        console.log("Successfully verified JWT:", response)
+
         const user = response.data;
         setUser(user);
         setIsLoggedIn(true);
@@ -33,8 +46,23 @@ function AuthProviderWrapper(props) {
     }
   };
 
-  const logInUser = (token) => {
-    localStorage.setItem("authToken", token);
+      })
+       .catch(error => {
+         console.log("storedToken 37", storedToken)
+        console.log("line 38 Failed to verify JWT:", error)
+         setIsLoggedIn(false);
+         setUser(null);
+         setIsLoading(false);
+       });      
+     } else {
+       setIsLoading(false);
+     } 
+   }
+ 
+
+  const logInUser = (token) => {                              
+    localStorage.setItem('authToken', token);
+
     verifyStoredToken();
   };
 
