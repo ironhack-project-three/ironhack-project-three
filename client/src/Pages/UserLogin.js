@@ -1,9 +1,9 @@
 import axios from "axios";
 import {useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
+import { motion } from "framer-motion"
+const API_URL = "http://localhost:3000";
 
-let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
-baseURL = `${baseURL}/api` 
 
 export default function UserLogin(props) {
 
@@ -67,7 +67,10 @@ export default function UserLogin(props) {
                                         <a href="/TODO">Forgot Password</a>
                                     </div>
                                     <div className="field">
-                                        <button className="button is-warning is-rounded" type="submit">Login</button>
+                                        <motion.button 
+                                        whileHover = {{ scale: 1.1}}
+                                        whileTap = {{ scale: 0.9}}
+                                        className="button is-warning is-rounded" type="submit">Login</motion.button>
                                     </div>
                                 </div>
                             </form>
