@@ -2,7 +2,8 @@ import axios from "axios";
 import {useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 
-const API_URL = "http://localhost:3000";
+let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+baseURL = `${baseURL}/api` 
 
 export default function UserLogin(props) {
 
@@ -19,7 +20,7 @@ export default function UserLogin(props) {
             e.preventDefault();
             const requestBody = { email, password };
 
-            axios.post(`${API_URL}/users/login`, requestBody)
+            axios.post(`${baseURL}/users/login`, requestBody)
               .then((response) => {
                 console.log('JWT token', response.data.authToken );
 
