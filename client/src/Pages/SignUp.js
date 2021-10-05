@@ -2,8 +2,18 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
+import { motion } from "framer-motion"
 
+<<<<<<< HEAD
 const API_URL = "http://localhost:3000";
+=======
+
+// const API_URL = "http://localhost:3000";
+// const frontUrl = "http://localhost:5000"
+let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+baseURL = `${baseURL}/api` 
+
+>>>>>>> a30b2f7e15fae39e91fbf64f4404009997b1cef0
 
 export default function SignUp(props) {
         const [email, setEmail] = useState("");
@@ -23,7 +33,7 @@ export default function SignUp(props) {
           // Make an axios request to the API
           // If POST request is successful redirect to login page
           // If the request resolves with an error, set the error message in the state
-          axios.post(`${API_URL}/users/create-user`, requestBody, 
+          axios.post(`${baseURL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
             .then((response) => {props.history.push(`/UserLogin`)})
             .catch((error) => {console.log("line 31",error.response);
@@ -97,10 +107,19 @@ export default function SignUp(props) {
                                         <Link to={"/Userlogin"}>Already have an account? Login here</Link>
                                     </div>
                                     <div className="field">
+<<<<<<< HEAD
                                         <button 
                                         type="submit" 
                                         className="button is-warning is-rounded">Sign up
                                         </button>
+=======
+
+                                        <motion.button 
+                                        whileHover = {{ scale: 1.1}}
+                                        whileTap = {{ scale: 0.9}}
+                                        type="submit" className="button is-warning is-rounded">Sign up</motion.button>
+
+>>>>>>> a30b2f7e15fae39e91fbf64f4404009997b1cef0
                                     </div>
                                 </div>
                             </form>

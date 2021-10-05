@@ -71,6 +71,9 @@ export default function WineDetailsPage(props) {
           <Block className="">
             <b>Winery:</b> {wine.winery}
           </Block>
+          <Block className="">
+            <b>Reviews:</b> {wine.review}
+          </Block>
         </Box>
       )}
     </div>
