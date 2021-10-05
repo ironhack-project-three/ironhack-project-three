@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
-import axios from "axios";
-import {useState, useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
-import { motion } from "framer-motion"
-
-const API_URL = "http://localhost:3000";
-
-=======
 import React from "react";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { motion } from "framer-motion";
 import { Users } from "../api/users";
->>>>>>> 7136d20873fa0c7fa28aeab7b415645564ce7612
 
 export default function UserLogin(props) {
   const [email, setEmail] = useState("");
@@ -21,29 +10,6 @@ export default function UserLogin(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { logInUser } = useContext(AuthContext);
 
-<<<<<<< HEAD
-        const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
-        const [errorMessage, setErrorMessage] = useState(undefined);
-        const { logInUser } = useContext(AuthContext);
-        
-        const handleEmail = (e) => setEmail(e.target.value);
-        const handlePassword = (e) => setPassword(e.target.value);
-        const handleLoginSubmit = (e) => { e.preventDefault();
-        
-        const requestBody = { email, password };
-        const storedToken = localStorage.getItem('authToken');
-
-                const token = response.data.authToken;
-                logInUser(token);
-                props.history.push("/");
-              })
-              .catch((error) => {
-                const errorDescription = error.response.data.message;
-                setErrorMessage(errorDescription);
-              });
-          };
-=======
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleLoginSubmit = async (e) => {
@@ -60,7 +26,6 @@ export default function UserLogin(props) {
       setErrorMessage(errorDescription);
     }
   };
->>>>>>> 7136d20873fa0c7fa28aeab7b415645564ce7612
 
   return (
     <section className="hero has-background-white-ter is-fullheight">
