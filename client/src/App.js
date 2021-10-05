@@ -1,20 +1,20 @@
-import NavBar from "./components/NavBar";
-import "./App.css";
-import AllWines from "./Pages/AllWines";
-import HomePage from "./Pages/HomePage";
-import SignUp from "./Pages/SignUp";
-import UserLogin from "./Pages/UserLogin";
-import UserProfile from "./Pages/UserProfile";
-import SearchWines from "./Pages/SearchWines";
-import WineDetailsPage from "./Pages/WineDetailsPage";
-import ErrorPage404 from "./Pages/ErrorPage404";
-import ErrorPage500 from "./Pages/ErrorPage500";
-import { Switch, Route } from "react-router-dom";
-import AboutUs from "./Pages/AboutUs";
-import "bulma/css/bulma.min.css";
-import * as am4core from "@amcharts/amcharts4/core";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-am4core.useTheme(am4themes_animated);
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import './App.css';
+import AllWines from './Pages/AllWines';
+import HomePage from './Pages/HomePage';
+import SignUp from './Pages/SignUp';
+import UserLogin from './Pages/UserLogin';
+import UserProfile from './Pages/UserProfile';
+import SearchWines from './Pages/SearchWines';
+import WineDetailsPage from './Pages/WineDetailsPage';
+import WineMap from './Pages/WineMap';
+import ErrorPage404 from './Pages/ErrorPage404';
+import ErrorPage500 from './Pages/ErrorPage500';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AboutUs from './Pages/AboutUs';
+import 'bulma/css/bulma.min.css';
+
 
 function App() {
   return (
