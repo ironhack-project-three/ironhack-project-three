@@ -1,5 +1,5 @@
 import React from 'react';
-import  {Users}  from "../api/users";
+import { Users }  from "../api/users";
 import { useEffect, useState } from "react";
 
 export default function EditProfile(props) {
@@ -18,11 +18,12 @@ export default function EditProfile(props) {
       fetchUser();
     }, []);
 
-    console.log('line 6 edit proffile', user)
+    console.log('line 6 edit profile', user)
 
     // const {username} = props
     return (
         <section className="hero has-background-white-ter is-fullheight">
+        <h1></h1>
         {/* <div className="hero-body">
             <div className="container">
                 <div className="columns is-centered">
