@@ -31,14 +31,15 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/userLogin" component={UserLogin} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/user" component={UserProfile} />
-            <Route path="/wines/:id" component={WineDetailsPage} />
-            <Route path="/wines" component={AllWines} />
-            <Route path="/search" component={SearchWines} />
-            <Route path="/about" component={AboutUs} />
-            <Route path="/404" component={ErrorPage404} />
-            <Route path="/500" component={ErrorPage500} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/user" component={UserProfile} />
+            <Route exact path="/wines/:id" component={WineDetailsPage} />
+            <Route exact path="/wines" component={AllWines} />
+            <Route exact path="/winemap" component={WineMap} />
+            <Route exact path="/search" component={SearchWines} />
+            <Route exact path="/about" component={AboutUs} />
+            <Route exact path="/404" component={ErrorPage404} />
+            <Route exact path="/500" component={ErrorPage500} />
           </Switch>
         </div>
       </div>
