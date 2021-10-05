@@ -103,19 +103,12 @@ export default function SignUp(props) {
                                         <Link to={"/Userlogin"}>Already have an account? Login here</Link>
                                     </div>
                                     <div className="field">
-<<<<<<< HEAD
-                                        <button 
-                                        type="submit" 
-                                        className="button is-warning is-rounded">Sign up
-                                        </button>
-=======
 
                                         <motion.button 
                                         whileHover = {{ scale: 1.1}}
                                         whileTap = {{ scale: 0.9}}
                                         type="submit" className="button is-warning is-rounded">Sign up</motion.button>
 
->>>>>>> a30b2f7e15fae39e91fbf64f4404009997b1cef0
                                     </div>
                                 </div>
                             </form>
