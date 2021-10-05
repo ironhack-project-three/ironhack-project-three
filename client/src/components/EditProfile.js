@@ -1,10 +1,30 @@
 import React from 'react';
+import { Users }  from "../api/users";
+import { useEffect, useState } from "react";
 
 export default function EditProfile(props) {
-    const {username} = props
+
+
+    const [user, setUser] = useState([]);
+    async function fetchUser() {
+      const response = await new Users().getOne();
+      
+      console.log("this is the response", response);
+      console.log("this is the response data", response.data);
+      setUser(response.data);
+    }
+  
+    useEffect(() => {
+      fetchUser();
+    }, []);
+
+    console.log('line 6 edit profile', user)
+
+    // const {username} = props
     return (
         <section className="hero has-background-white-ter is-fullheight">
-        <div className="hero-body">
+        <h1></h1>
+        {/* <div className="hero-body">
             <div className="container">
                 <div className="columns is-centered">
                     <div className="column is-5-tablet is-4-desktop is-3-widescreen">
@@ -19,7 +39,7 @@ export default function EditProfile(props) {
                                             placeholder="" 
                                             className="input" 
                                             value={username} 
-                                            onChange={}
+                                            // onChange={}
                                             required
                                             ></input>
                                         </div>
@@ -33,7 +53,7 @@ export default function EditProfile(props) {
                                             placeholder="" 
                                             className="input" 
                                             value={email} 
-                                            onChange={}
+                                            // onChange={}
                                             required
                                             ></input>
                                         </div>
@@ -47,7 +67,7 @@ export default function EditProfile(props) {
                                             placeholder="" 
                                             className="input" 
                                             value={password} 
-                                            onChange={} 
+                                            // onChange={} 
                                             required
                                             ></input>
                                         </div>
@@ -56,7 +76,7 @@ export default function EditProfile(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
         </section>
     )
 }
