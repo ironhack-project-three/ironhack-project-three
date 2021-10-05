@@ -43,13 +43,13 @@ export default function UserLogin(props) {
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form 
-                            action="/users/login" 
+                            action='/users/login'
                             method="POST" 
                             className="box" 
                             onSubmit={handleLoginSubmit}>
                                 <h3 className="is-3">Login</h3>
                                 <div className="field">
-                                    {errorMessage}
+                                
                                 </div>
                                 <div className="field">
                                     <label 

@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 // const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
 let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
-baseURL = `${baseURL}/api` 
+ 
 
 
 export default function SignUp(props) {
@@ -31,7 +31,7 @@ export default function SignUp(props) {
           // If the request resolves with an error, set the error message in the state
           axios.post(`${baseURL}/users/create-user`, requestBody, 
         { headers: { Authorization: `Bearer ${storedToken}`}})
-            .then((response) => {props.history.push(`/UserLogin`)})
+            .then((response) => {props.history.push(`/login`)})
             .catch((error) => {console.log("line 31",error.response);
              const errorDescription = error.response.data.message;
               setErrorMessage(errorDescription);
@@ -51,7 +51,7 @@ export default function SignUp(props) {
                             onSubmit={handleSignupSubmit}>
                                 <h3 className="is-3">Sign up</h3>
                                 <div className="field" style={{fontSize: "12px"}}>
-                                    {errorMessage}
+                             
                                 </div>
                                 <div className="field">
                                     <label 
