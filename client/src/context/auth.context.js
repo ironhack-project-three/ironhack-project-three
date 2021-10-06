@@ -59,21 +59,6 @@ function AuthProviderWrapper(props) {
     </AuthContext.Provider>
   )
 }
+
 export { AuthProviderWrapper, AuthContext };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

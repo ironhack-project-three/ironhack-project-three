@@ -5,61 +5,98 @@ const Wine = require('../models/Wine.model')
 const router = require('express').Router();
 const { isAuthenticated } = require("../middleware/jwt.middleware");
 
-// GET to show review form
-// router.get('/create/:wineId', (req, res) => {
-//     const { wineId } = req.params;
-//     res.status(200).json({ wineId })
-//     .then(()=>{
-//       Review.create({ comment })
-//         .then((createdReview) => {
-//           return Wine.findByIdAndUpdate(
-//             wineId,
-//             {
-//               $push: { reviews: createdReview._id },
-//             },
-//             {
-//               new: true,
-//             }
-//           );
-//         })
-//         .then(()=>{
-//             console.log(res.status(200)) 
-//         })
-//         .catch((err) => {
-//           console.log(err);})
+// // PUT  /api/reviews/:reviewId  - Updates a specific review by id
+// router.put("/edit/:reviewId", (req, res, next) => {
+//   const { reviewId } = req.params;
 
-//     })
-//   });
-  
-  // POST to pubslish a review
-  router.post('/create',  async (req, res) => {
-    const {user, comment, wineId } = req.body;
-    const foundWine = await Wine.findById(wineId);
-    console.log(foundWine)
-      Review.create({ user ,comment })
-        .then((createdReview) => {
-          return Wine.findByIdAndUpdate(
-            wineId,
-            {
-              $push: { reviews: createdReview._id },
-            },
-            {
-              new: true,
-            }
-          );
-        })
-        .then(()=>{
-            console.log("review saved to database!") 
-        })
-        .catch((err) => {
-          console.log(err);})
+//   const { review, rating } = req.body;
 
-  });
+//   if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+//     res.status(400).json({ message: "Specified id is not valid" });
+//     return;
+//   }
 
+//   Review.findByIdAndUpdate(
+//     reviewId,
+//     {
+//       review,
+//       rating,
+//     },
+//     {
+//       new: true,
+//     }
+//   )
+//     .then((updatedReview) => res.json(updatedReview))
+//     .catch((err) => {
+//       console.log("Review not updated: ", err);
+//       res.json(err);
+//     });
+// });
 
-  router.put("/add-wine-review/:wineId", (req, res) => {
-      const {wineId} = req.params
-      console.log(wineId)
+// //  DELETE /api/reviews/:reviewId  - Deletes a specific review by id
+// router.delete("/delete/:reviewId", (req, res, next) => {
+//   const { reviewId } = req.params;
+
+//   if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+//     res.status(400).json({ message: "Specified id is not valid" });
+//     return;
+//   }
+
+//   Review.findByIdAndRemove(reviewId)
+//     .then(() =>
+//       res.json({ message: `Org with ${reviewId} is removed successfully.` })
+//     )
+//     .catch((err) => {
+//       console.log("Review not deleted: ", err);
+//       res.json(err);
+//     });
+// });
+
+// //  GET /api/reviews/:reviewId  - Retrieves a specific review by id
+// router.get("/:reviewId", (req, res, next) => {
+//   const { reviewId } = req.params;
+
+//   if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+//     res.status(400).json({
+//       message: "Specified id is not valid",
+//     });
+//     return;
+//   }
+
+//   Review.findById(reviewId)
+//     .then((review) => res.status(200).json(review))
+//     .catch((error) => res.json(error));
+// });
+
+//  POST /api/reviews  -  Creates a new review
+router.post("/create", (req, res, next) => {
+  const { comment } = req.body;
+  console.log("hello")
+  Review.create({
+    user: req.payload._id,
+    comment
   })
+    // .then((newReview) => {
+    //   return Wine.findByIdAndUpdate(wineId, {
+    //     $push: {
+    //       reviews: {
+    //         $each: [newReview._id],
+    //         $position: 0,
+    //       },
+    //     },
+
+    //   });
+    // })
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log("Review not created: ", err);
+      res.json(err);
+    });
+});
+
+
+
   
   module.exports = router;
