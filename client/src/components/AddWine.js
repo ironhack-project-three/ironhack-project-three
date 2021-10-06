@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Wines } from '../api/wines';
-
+import { motion } from 'framer-motion'
+import Wines from "../api/wines"
 import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg"
 
 export default function AddWine() {
@@ -33,9 +33,9 @@ export default function AddWine() {
 
     try {
         try {
-            const response = await Wines.createOne(body)
+            const response = await (new Wines()).createOne(body)
             console.log(response);
-            history.push(`/wine/${response.data._id}`);
+            history.push(`/wine/${response.data.newWine._id}`);
         } catch (error) {
             setErrorMessage(`Received error: ${error}`)
         }
@@ -56,19 +56,6 @@ export default function AddWine() {
     }
   };
   return (
-//     <div class="columns">
-//   <div class="column">
-//     <p class="bd-notification is-info">First column</p>
-//     <div class="columns is-mobile">
-//       <div class="column">
-//         <p class="bd-notification is-info">First nested column</p>
-//       </div>
-//       <div class="column">
-//         <p class="bd-notification is-info">Second nested column</p>
-//       </div>
-//     </div>
-//   </div>
-  
     <div className="position-addwine">
     
       <div className="hero-body">
@@ -105,12 +92,12 @@ export default function AddWine() {
                   </div>
                 </div>
                 <div className="field">
-                  <label>Price</label>
+                  <label>Average Price</label>
                   <div className="control">
                     <input
                       type="number"
                       name="price"
-                      placeholder="Average price"
+                      placeholder="€"
                       className="input"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
@@ -183,11 +170,13 @@ export default function AddWine() {
                   </div>
                 </div>
                 <div className="field">
-                  <button
-                    className="button is-warning is-rounded"
-                    type="submit">
+                  <motion.button
+                    className="button is-warning"
+                    type="submit"
+                    whileHover = {{ scale: 1.1}}
+                    whileTap = {{ scale: 0.9}}>
                     Add wine
-                  </button>
+                  </motion.button>
                 </div>
               </form>
             </div>

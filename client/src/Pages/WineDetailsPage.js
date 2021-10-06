@@ -54,7 +54,7 @@ export default function WineDetailsPage(props) {
             <b>Description:</b> {wine.description}
           </Block>
           <Block className="">
-            <b>Price Range:</b> $ {wine.price} (RRP)
+            <b>Average Price:</b> € {wine.price}
           </Block>
           <Block className="">
             <b>Variety:</b> {wine.variety}
