@@ -70,6 +70,7 @@ router.get("/:reviewId", (req, res, next) => {
 //  POST /review/create  -  Creates a new review
 router.post("/create", isAuthenticated, (req, res, next) => {
   const { comment, wineId } = req.body;
+  console.log("this is the req.body line 73", req.body)
 
 
   Review.create({
@@ -77,6 +78,7 @@ router.post("/create", isAuthenticated, (req, res, next) => {
     comment
   })
     .then((newReview) => {
+      console.log("line 80 create review", newReview)
       return Wine.findByIdAndUpdate(wineId, {
         $push: {
           reviews: {
@@ -85,10 +87,11 @@ router.post("/create", isAuthenticated, (req, res, next) => {
           },
         },
 
-      })
+      }, {new: true})
     })
     
     .then((response) => {
+      console.log("this is line 92 response review route", response)
       res.status(200).json(response);
     })
     .catch((err) => {
