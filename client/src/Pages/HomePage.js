@@ -23,11 +23,13 @@ export default function HomePage() {
       <img src="client\src\Images\Naamloos2.png" className="logoPosition" alt="logo" />
       <div className="Hero">
       <ImageCarousel />
-        <h1>Welcome to </h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <h1>Welcome to VineVibe</h1>
+        <h2>Your virtual wine cellar</h2>
+        <p>“One should always be drunk. That’s all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk.” ― Charles Baudelaire</p>
       </div>
+      <br></br>
       <div>
-      <h1 className="is-size-1">Wine's of the Month</h1>
+      <h2 className="is-size-1">Wines of the month</h2>
       {wines.map((wine) => {
         return <Link to={() => `/wine/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
       })}

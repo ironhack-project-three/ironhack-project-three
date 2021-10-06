@@ -3,8 +3,7 @@ import "../App.css";
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 import Tabs from "../components/Tabs";
-
-
+   
 export default function UserProfile() {
     const {isLoggedIn, user} = useContext(AuthContext);
     console.log(isLoggedIn, user)
@@ -18,13 +17,13 @@ export default function UserProfile() {
                     <h1 className="is-2">
                         Welcome
                     </h1>
-                    <p>
-                        Welcome to your personal wine cellar
-                    </p>
-                    <br></br>
                     <h2 className="is-4">
-                    Here, you can have a virtual tasting of all of the wines you have experienced, the wines that you have loved and the wines you still want to explore
+                        Welcome to your personal wine cellar
                     </h2>
+                    <br></br>
+                    <p>
+                    Here, you can have a virtual tasting of all of the wines you have experienced, the wines that you have loved and the wines you still want to explore
+                    </p>
                     {/* <p className="has-text-centered">
                         <motion.button className="button is-warning" href="/">
                             Edit Profile
@@ -51,3 +50,5 @@ export default function UserProfile() {
 </div>
     )
 }
+
+
