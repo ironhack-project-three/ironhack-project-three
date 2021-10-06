@@ -1,6 +1,5 @@
 import NavBar from './components/NavBar';
 import './App.css';
-import AllWines from './Pages/AllWines';
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import UserLogin from './Pages/UserLogin';

@@ -16,8 +16,8 @@ export class Wines {
   getOne(id) {
     return this.api.get(`/wine/${id}`);
   }
-  search(query) {
-    return this.api.get(`/search/?q=${query}`);
+  search(query, page) {
+    return this.api.get(`/search/?q=${query}&page=${page}`);
   }
   createOne(newEntityValues) {
     return this.api.post("/create-wine", newEntityValues);
