@@ -23,7 +23,7 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Profile',
+    title: 'Your wine cellar',
     path: '/user',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
