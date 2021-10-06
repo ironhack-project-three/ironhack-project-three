@@ -1,6 +1,6 @@
-import React from 'react';
-import 'bulma/css/bulma.min.css';
-import ImageCarousel from '../components/Carousel';
+import React from "react";
+import "bulma/css/bulma.min.css";
+import ImageCarousel from "../components/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import AddWine from "../components/AddWine";
 import EditProfile from '../components/EditProfile';
@@ -37,7 +37,6 @@ export default function HomePage() {
         return <Link to={() => `/wine/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
       })}
       </div>
-     
     </div>
-    )
+  );
 }
