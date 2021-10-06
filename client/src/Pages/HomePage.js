@@ -26,6 +26,7 @@ export default function HomePage() {
 
     return (
     <div>
+      <img src="client\src\Images\Naamloos2.png" className="logoPosition" alt="logo" />
       <div className="Hero">
       <ImageCarousel />
         <h1>Welcome to </h1>

@@ -16,3 +16,9 @@
   font-size: 3rem;
 }
 
+
+.logoPosition{
+  display: flex;
+  justify-content: center;
+  margin-left: 50rem;
+}
