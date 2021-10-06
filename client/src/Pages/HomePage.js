@@ -8,6 +8,7 @@ import EditProfile from "../components/EditProfile";
 export default function HomePage() {
   return (
     <div>
+      <img src="client\src\Images\Naamloos2.png" className="logoPosition" alt="logo" />
       <div className="Hero">
         <h1>Welcome to VineVibe</h1>
         <p>
