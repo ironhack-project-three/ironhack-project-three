@@ -4,6 +4,7 @@ import {useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 import { motion } from "framer-motion"
 const API_URL = "http://localhost:3000";
+
 export default function UserLogin(props) {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
@@ -26,6 +27,7 @@ export default function UserLogin(props) {
                 setErrorMessage(errorDescription);
               });
           };
+          
     return (
         <section className="hero has-background-white-ter is-fullheight">
             <div className="hero-body">
