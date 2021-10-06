@@ -21,24 +21,23 @@ function Navbar() {
         {isLoggedIn
         ? (<>
             <motion.button
-            id = "logbutton"
+            id = "logButton"
             onClick={logOutUser}
             className = "button is-normal"
             whileHover = {{ scale: 1.1}}
             whileTap = {{ scale: 0.9}}
-            onClick={logOutUser}
             >Logout</motion.button>
           </>)
         :
         (<>
           <Link to="/signup"> <motion.button
-          id = "logbutton"
+          id = "logButton"
           className = "button is-normal"
           whileHover = {{ scale: 1.1}}
           whileTap = {{ scale: 0.9}}
           >Signup</motion.button> </Link>
           <Link to="/login"> <motion.button
-          id = "logbutton"
+          id = "logButton"
           className = "button is-normal"
           whileHover = {{ scale: 1.1}}
           whileTap = {{ scale: 0.9}}

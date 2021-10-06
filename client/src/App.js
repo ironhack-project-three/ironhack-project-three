@@ -9,7 +9,6 @@ import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
 import createWine from './Pages/createWine';
 import WineMap from './Pages/WineMap';
-import createWine from './Pages/createWine';
 import ErrorPage404 from './Pages/ErrorPage404';
 import ErrorPage500 from './Pages/ErrorPage500';
 import { Switch, Route } from 'react-router-dom';
