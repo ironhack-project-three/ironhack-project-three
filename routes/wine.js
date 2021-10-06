@@ -15,6 +15,17 @@ router.get("/all-wine", async (req, res) => {
   }
 });
 
+router.get("/top-wine", async (req, res) => {
+  try {
+    const winesArr = await Wine.find().limit(400)
+    const winesTop =  winesArr.filter(wine => {if(wine.points >= 95){return wine}})
+    
+    res.json({ winesTop })
+  } catch (err) {
+    console.log("Error fetching all wines:", err)
+  }
+});
+
 
 router.get("/search", async (req, res) => {
   console.log(`Got query: ${JSON.stringify(req.query, undefined, 2)}`)
