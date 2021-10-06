@@ -23,7 +23,7 @@ export default function EditProfile(props) {
     // const {username} = props
     return (
         <section className="hero has-background-white-ter is-fullheight">
-        <h1></h1>
+        <h1>Edit Profile</h1>
         {/* <div className="hero-body">
             <div className="container">
                 <div className="columns is-centered">

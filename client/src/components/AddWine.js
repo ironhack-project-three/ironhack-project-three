@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
-import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Wines } from '../api/wines';
 
 export default function AddWine() {
     const [title, setTitle] = useState("");
@@ -12,6 +12,7 @@ export default function AddWine() {
     const [province, setProvince] = useState('');
     const [country, setCountry] = useState('');
     const [winery, setWinery] = useState('');
+    const [errorMessage, setErrorMessage] = useState(undefined);
     
     const history = useHistory();
 
@@ -21,9 +22,12 @@ export default function AddWine() {
       const body = {title, description, price, variety, region, province, country, winery};
       
       try {
-        const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000"
-        const response = await axios.post(`${baseUrl}/api/wines/create-wine`, body);
-        console.log(response);
+        try {
+            const response = await Wines.createOne(body)
+            console.log(response);
+        } catch (error) {
+            setErrorMessage(`Received error: ${error}`)
+        }
   
         setTitle('');
         setDescription('');
@@ -47,6 +51,9 @@ export default function AddWine() {
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="" onSubmit={handleSubmit}>
                                 <h3 className="is-3">Add new wine</h3>
+                                <div className="field">
+                                    {errorMessage}
+                                </div>
                                 <div className="field">
                                     <label>Title</label>
                                     <div className="control has-icons-left">
