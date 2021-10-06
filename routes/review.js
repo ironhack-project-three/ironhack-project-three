@@ -67,9 +67,10 @@ router.get("/:reviewId", (req, res, next) => {
     .catch((error) => res.json(error));
 });
 
-//  POST /reviews/create  -  Creates a new review
-router.post("/create", (req, res, next) => {
+//  POST /review/create  -  Creates a new review
+router.post("/create", isAuthenticated, (req, res, next) => {
   const { comment, wineId } = req.body;
+
 
   Review.create({
     user: req.payload._id,
@@ -84,8 +85,9 @@ router.post("/create", (req, res, next) => {
           },
         },
 
-      });
+      })
     })
+    
     .then((response) => {
       res.status(200).json(response);
     })

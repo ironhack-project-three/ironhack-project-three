@@ -11,7 +11,7 @@ router.get("/all-wine", async (req, res) => {
     res.json({ wines })
     console.log(`Found ${wines.length} wines`)
   } catch (err) {
-    console.log("Error fetching all wines:", err)
+
   }
 });
 
@@ -22,13 +22,13 @@ router.get("/top-wine", async (req, res) => {
     
     res.json({ winesTop })
   } catch (err) {
-    console.log("Error fetching all wines:", err)
+
   }
 });
 
 
 router.get("/search", async (req, res) => {
-  console.log(`Got query: ${JSON.stringify(req.query, undefined, 2)}`)
+
   try{
     const wines = await Wine.find({ 'title': { $regex: req.query.q || "", $options: 'i' } }).limit(100).exec()
     res.json({ wines });
@@ -76,34 +76,40 @@ router.post("/create-wine", (req, res) => {
 
 //Get wine by specific id
 router.get("/wine/:wineId", async (req, res, next) => {
-  console.log("line 51 wine.js", req.params);
+ 
   const { wineId } = req.params;
   if (!Types.ObjectId.isValid(wineId)) {
-    console.log("wines.detail: Specified id is not valid")
+  
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
   }
   try {
-    console.log("fetching wine", wineId)
     const wine = await Wine.findById(wineId)
+    .populate({
+			path: 'reviews',
+			populate: {
+				path: 'user'
+			}
+		})
+   
     if (!wine) {
       res.status(404).json({message: `Wine not found: ${wineId}`});
       return
     }
-    console.log("fetched wine", wine)
+   
     res.status(200).json(wine);
-    console.log("returned wine")
+  
   } catch (error) {
-    console.log("/wine/:wineId got an error:", error)
+
     res.status(500).json(error);
   }
 });
 
 //Put route to update a specific wine
 router.put("/wine/:wineId", (req, res) => {
-  console.log('line 63')
+ 
   const  {wineId}  = req.params
-  console.log("line 64", wineId )
+
   let {
     points,
     title,
