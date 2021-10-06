@@ -61,43 +61,43 @@ export default function SearchWines(props) {
           );
         })}
         <nav class="pagination" role="navigation" aria-label="pagination">
-          <a class="pagination-previous" onClick={previousPage}>Previous</a>
-          <a class="pagination-next" onClick={nextPage}>Next page</a>
+          <button class="pagination-previous" onClick={previousPage}>Previous</button>
+          <button class="pagination-next" onClick={nextPage}>Next page</button>
           <ul class="pagination-list">
             <li>
-              <a class="pagination-link" aria-label="Goto page 1">
+              <button class="pagination-link" aria-label="Goto page 1">
                 1
-              </a>
+              </button>
             </li>
             <li>
               <span class="pagination-ellipsis">&hellip;</span>
             </li>
             <li>
-              <a class="pagination-link" aria-label="Goto page 45">
+              <button class="pagination-link" aria-label="Goto page 45">
                 45
-              </a>
+              </button>
             </li>
             <li>
-              <a
+              <button
                 class="pagination-link is-current"
                 aria-label="Page 46"
                 aria-current="page"
               >
                 46
-              </a>
+              </button>
             </li>
             <li>
-              <a class="pagination-link" aria-label="Goto page 47">
+              <button class="pagination-link" aria-label="Goto page 47">
                 47
-              </a>
+              </button>
             </li>
             <li>
               <span class="pagination-ellipsis">&hellip;</span>
             </li>
             <li>
-              <a class="pagination-link" aria-label="Goto page 86">
+              <button class="pagination-link" aria-label="Goto page 86">
                 86
-              </a>
+              </button>
             </li>
           </ul>
         </nav>

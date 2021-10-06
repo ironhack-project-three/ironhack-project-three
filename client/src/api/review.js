@@ -19,8 +19,8 @@ export class Review {
 
   getOne = (id) => this.api.get(`/${id}`);
  
-  createReview = (newEntityValues) =>
-    this.api.post("/create", newEntityValues);
+  createReview = (newEntityValues, storedToken) =>
+    this.api.post("/create", newEntityValues, { headers: { Authorization: `Bearer ${storedToken}` } });
 
   // deleteOne = (id)=> this.api.delete(`/${id}`)
   // updateOne = (id)=> this.api.put(`/${id}`)

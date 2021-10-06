@@ -1,7 +1,6 @@
 import React from 'react';
 import { Users }  from "../api/users";
 import { useEffect, useState } from "react";
-import { motion } from 'framer-motion'
 
 export default function EditProfile(props) {
 
