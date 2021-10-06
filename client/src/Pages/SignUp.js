@@ -110,8 +110,4 @@ export default function SignUp(props) {
             </div>
         </section>
     )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c8708a2feda565aaa7dff6754e48c04508bf56bc
