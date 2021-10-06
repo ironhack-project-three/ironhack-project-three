@@ -15,7 +15,7 @@ const wineSchema = new Schema({
     province: {type: String},
     country: {type: String},
     winery: {type: String},
-    review: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }]
   })
 
 const Wine = model('Wine', wineSchema);

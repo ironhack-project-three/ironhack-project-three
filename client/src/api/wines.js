@@ -13,6 +13,7 @@ export class Wines {
 
   // // CHANGE THE PATHS ACCORDING TO API DOCUMENTATION
   getAll = () => this.api.get("/all-wine");
+  topWines = () => this.api.get ('/top-wine')
   getOne = (id) => this.api.get(`/wine/${id}`);
   search = (query) => this.api.get(`/search/?q=${query}`);
   createOne = (newEntityValues) =>

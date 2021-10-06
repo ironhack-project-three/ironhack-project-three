@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Block, Box } from "react-bulma-components";
 import { Wines } from "../api/wines";
 import { FaSpinner } from "react-icons/fa";
+import AddReview from "../components/AddReview";
 
 export default function WineDetailsPage(props) {
   console.log(props);
@@ -21,6 +22,8 @@ export default function WineDetailsPage(props) {
   useEffect(() => {
     fetchWine(props.match.params.id);
   }, [props.match.params.id]);
+
+  
 
   return (
     <div>
@@ -72,7 +75,8 @@ export default function WineDetailsPage(props) {
             <b>Winery:</b> {wine.winery}
           </Block>
           <Block className="">
-            <b>Reviews:</b> {wine.review}
+            <b>Reviews:</b> <div>{wine.reviews.map( element =>  {return <p>{element.user.username} { element.comment} </p>})}</div>
+           
           </Block>
         </Box>
       )}
