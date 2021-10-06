@@ -28,7 +28,7 @@ export default function ImageCarousel(props) {
   return (
   
       
-<Carousel className="Carousel" dynamicHeight={true} autoPlay width={"60%"} showThumbs={false}>
+<Carousel className="Carousel" dynamicHeight={true} autoPlay infiniteLoop width={"100%"} showThumbs={false}>
   <div>
       <img alt="wine" src={image[0]} />
   </div>
