@@ -7,6 +7,7 @@ import UserLogin from './Pages/UserLogin';
 import UserProfile from './Pages/UserProfile';
 import SearchWines from './Pages/SearchWines';
 import WineDetailsPage from './Pages/WineDetailsPage';
+import createWine from './Pages/createWine';
 import WineMap from './Pages/WineMap';
 import createWine from './Pages/createWine';
 import ErrorPage404 from './Pages/ErrorPage404';
@@ -43,7 +44,6 @@ function App() {
             <Route exact path="/404" component={ErrorPage404} />
             <Route exact path="/500" component={ErrorPage500} />
             <Route exact path="/" component={HomePage} />
-            <Route component={ErrorPage404} />
           </Switch>
         </div>
       </div>
