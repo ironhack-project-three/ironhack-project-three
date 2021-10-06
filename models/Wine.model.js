@@ -18,6 +18,9 @@ const wineSchema = new Schema({
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }]
   })
 
+const mongoosePaginate = require('mongoose-paginate-v2');
+wineSchema.plugin(mongoosePaginate)
+
 const Wine = model('Wine', wineSchema);
 
 module.exports = Wine;

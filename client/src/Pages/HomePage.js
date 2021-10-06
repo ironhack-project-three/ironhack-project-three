@@ -2,12 +2,6 @@ import React from "react";
 import "bulma/css/bulma.min.css";
 import ImageCarousel from "../components/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import AddWine from "../components/AddWine";
-import EditProfile from '../components/EditProfile';
-import { Wines } from "../api/wines";
-import { Link } from "react-router-dom";
-import { Box } from "react-bulma-components";
-import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [wines, setWines] = useState([]);

@@ -28,12 +28,17 @@ router.get("/top-wine", async (req, res) => {
 
 
 router.get("/search", async (req, res) => {
-
-  try{
-    const wines = await Wine.find({ 'title': { $regex: req.query.q || "", $options: 'i' } }).limit(100).exec()
-    res.json({ wines });
-    console.log(`Search found ${wines.length} wines`)
-  }catch (err){
+  console.log(`Got query: ${JSON.stringify(req.query, undefined, 2)}`)
+  const perPage = 20;
+  const page = req.query.page || 1
+  try {
+    const resp = await Wine
+      .paginate({ 'title': { $regex: req.query.q || "", $options: 'i' } }, { page: page, limit: perPage })
+    resp.wines = resp.docs
+    resp.docs = undefined
+    res.json(resp);
+    console.log(`Search found ${resp.wines.length} wines`)
+  } catch (err) {
     console.log("Line 19 error wine.js", err)
 }
 });
