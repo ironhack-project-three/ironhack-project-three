@@ -5,6 +5,7 @@ import { Block, Box } from "react-bulma-components";
 import { Wines } from "../api/wines";
 import { FaSpinner } from "react-icons/fa";
 import AddReview from "../components/AddReview";
+import axios from "axios";
 
 export default function WineDetailsPage(props) {
   console.log(props);
@@ -13,8 +14,7 @@ export default function WineDetailsPage(props) {
 
   async function fetchWine(id) {
     const response = await new Wines().getOne(id);
-    console.log("this is the response", response);
-    console.log("this is the response data", response.data);
+ 
     setWine(response.data);
     setLoading(false);
   }
@@ -22,6 +22,14 @@ export default function WineDetailsPage(props) {
   useEffect(() => {
     fetchWine(props.match.params.id);
   }, [props.match.params.id]);
+  useEffect(() => {
+    axios.get(
+      (`/wine/${props.match.params.id}`)
+    )
+  }, []);
+
+ 
+
 
   
 
@@ -75,8 +83,8 @@ export default function WineDetailsPage(props) {
             <b>Winery:</b> {wine.winery}
           </Block>
           <Block className="">
+            <AddReview wineId={wine._id}/>
             <b>Reviews:</b> <div>{wine.reviews.map( element =>  {return <p>{element.user.username} { element.comment} </p>})}</div>
-           
           </Block>
         </Box>
       )}
