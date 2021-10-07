@@ -1,47 +1,76 @@
-import { useState } from "react";
+import {useState} from "react";
 import {motion} from "framer-motion"
-import Wines from "../api/wines";
+import {Columns} from "react-bulma-components";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
+const axios = require("axios");
+
 
 function AddReview(props) {
-  const [errorMessage, setErrorMessage] = useState("");
   const { wineId } = props;
+  const [errorMessage, setErrorMessage] = useState("");
   const [comment, setComment] = useState("");
-  const handleSubmit = async (e) => {
+  const handleReviewSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { comment,  wineId };
-    console.log("line 14 add revire", requestBody)
+  
+    const requestBody = { comment, wineId };
 
+    // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
-    try {
-      const response = await new Wines().createReview(requestBody, storedToken)
-      console.log("add review 18", response)
-      setComment(response.data.comment);
-    } catch (error) {
-      console.log(error);
-      setErrorMessage(error);
-    }
-  };
 
+    // Send the token through the request "Authorization" Headers
+    axios
+      .post(
+        `${API_URL}/review/create`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then(async (response) => {
+
+       
+        setComment("");
+        await props.refreshWine(response.data);
+    
+       
+        // Reset the state to clear the inputs
+    
+      })
+      .catch((error) => {
+        console.log(error)
+        setErrorMessage(error)
+      });
+  };
 
   return (
     <div className="AddTask">
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleReviewSubmit}>
         {errorMessage}
-        <input
-          placeholder="Write your review here"
-          type="text"
-          name="review"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-           <motion.button 
-             type="submit"
-             className = "button is-normal"
-             whileHover = {{ scale: 1.1}}
-             whileTap = {{ scale: 0.9}}
-             >Add Review
-        </motion.button>
+        <Columns>
+          <Columns.Column>
+            <div className="field">
+              <div class="control">
+                <input
+                  placeholder="Write your review here"
+                  type="text"
+                  name="review"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  className="input"
+                />
+              </div>
+            </div>
+          </Columns.Column>
+          <Columns.Column className="is-narrow">
+            <motion.button 
+              type="submit"
+              className = "button is-warning is-rounded"
+              whileHover = {{ scale: 1.1}}
+              whileTap = {{ scale: 0.9}}
+                >
+                Add Review
+            </motion.button>
+          </Columns.Column>
+        </Columns>
       </form>
     </div>
   );

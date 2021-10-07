@@ -13,9 +13,9 @@ export class Review {
   }
 
   // // CHANGE THE PATHS ACCORDING TO API DOCUMENTATION
-  updateReview = () => this.api.get(`/edit/${id}`);
+  updateReview = (id, newEntityValues, storedToken) => this.api.put(`/edit/${id}`, newEntityValues, { headers: { Authorization: `Bearer ${storedToken}` } });
 
-  deleteReview = () => this.api.get(`/delete/${id}`)
+  deleteReview = (id, storedToken) => this.api.delete(`/delete/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
 
   getOne = (id) => this.api.get(`/${id}`);
  

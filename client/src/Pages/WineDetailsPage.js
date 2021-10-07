@@ -5,6 +5,7 @@ import { Box, Block, Columns } from "react-bulma-components";
 import { Wines } from "../api/wines";
 import { FaSpinner } from "react-icons/fa";
 import AddReview from "../components/AddReview";
+import ReviewCard from "../components/ReviewCard";
 import "./WineDetailsPage.css"
 
 export default function WineDetailsPage(props) {
@@ -17,6 +18,11 @@ export default function WineDetailsPage(props) {
  
     setWine(response.data);
     setLoading(false);
+  }
+
+  async function refreshWine(newWine){
+    const response = await new Wines().getOne(newWine._id);
+    setWine(response.data);
   }
 
   useEffect(() => {
@@ -79,8 +85,14 @@ export default function WineDetailsPage(props) {
             <b>Winery:</b> {wine.winery}
           </Block>
           <Block className="">
-            <AddReview wineId={wine._id}/>
-            <b>Reviews:</b> <div>{wine.reviews.map( element =>  {return <p>{element.user.username} { element.comment} </p>})}</div>
+            <b>Add your own review:</b>
+            <AddReview wineId={wine._id} refreshWine={refreshWine}/>
+            <b>Reviews:</b> 
+            <div>
+              {wine.reviews.map( element =>  {
+                return <ReviewCard review={element} refreshWine={refreshWine} wine={wine}/>
+              })}
+            </div>
           </Block>
         </Box>
       )}
