@@ -38,9 +38,9 @@
   src: url("./fonts/Forum-Regular.ttf");
 }
 
-body {
-  font-family: "WorkSans", "Lato", sans-serif !important;
-  font-size: 31px !important;
+#root {
+  font-family: "WorkSans", "Lato", sans-serif ;
+  font-size: 24px ;
   background-color: #f8f2e9;
 }
 

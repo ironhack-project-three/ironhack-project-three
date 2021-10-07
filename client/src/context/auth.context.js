@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import {Users} from "../api/users";
 
 const AuthContext = React.createContext();
 
@@ -11,30 +11,34 @@ function AuthProviderWrapper(props) {
   // const logInUser = (token) => { 
   //   localStorage.setItem('authToken', token);           
   //}
-  const verifyStoredToken = () => {                           
+  const verifyStoredToken = async () => {                           
     const storedToken = localStorage.getItem('authToken');
     console.log("18 Stored token:", storedToken)
     // setStoredTokenState(storedToken)
   
     if (storedToken) {
-      axios.get(
-       "http://localhost:3000/users/verify",
-        { headers: { Authorization: `Bearer ${storedToken}`} }
-      )
-      .then((response) => {
+      try {
+        const response = await new Users().verifyToken(storedToken)
         console.log("Successfully verified JWT:", response)
-        const user = response.data;
-        setUser(user);
-        setIsLoggedIn(true);
-        setIsLoading(false);
-      })
-       .catch(error => {
-         console.log("storedToken 37", storedToken)
+        try {
+            const fullUserResponse = await new Users()
+              .getOne(response.data._id, storedToken)
+          
+            const user = fullUserResponse.data;
+            setUser(user);
+            setIsLoggedIn(true);
+            setIsLoading(false);
+        } catch (error) {
+          console.log("Failed to fetch user after successfully verifying the JWT:", error.response.data.message)
+        }
+      } catch (error) {
+        console.log("Failed to fetch user after successfully verifying the JWT:", error.response.data.message)
+        console.log("storedToken 37", storedToken)
         console.log("line 38 Failed to verify JWT:", error)
-         setIsLoggedIn(false);
-         setUser(null);
-         setIsLoading(false);
-       });
+        setIsLoggedIn(false);
+        setUser(null);
+        setIsLoading(false);
+      }
      } else {
        setIsLoading(false);
      }

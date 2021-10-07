@@ -51,31 +51,31 @@ export default function ReviewCard(props) {
     }
 
     return (
-        <p>
+        <div>
             {
                 isEditing ?
                     <>
                         <form onSubmit={handleSubmit}>
-                            <div class="field">
-                                <label class="label">{props.review.user.username}</label>
-                                <div class="control">
-                                    <input class="input" type="text" value={ comment} onChange={handleChange}/>
+                            <div className="field">
+                                <label className="label">{props.review.user.username}</label>
+                                <div className="control">
+                                    <input className="input" type="text" value={ comment} onChange={handleChange}/>
                                 </div>
                             </div>
 
-                            <div class="field is-grouped">
-                                <div class="control">
-                                    <motion.button class="button is-link"
+                            <div className="field is-grouped">
+                                <div className="control">
+                                    <motion.button className="button is-link"
                                         whileHover = {{ scale: 1.1}}
                                         whileTap = {{ scale: 0.9}}
                                          ><FaCheck />
                                          </motion.button>
                                 </div>
-                                <div class="control">
+                                <div className="control">
                                     <motion.button 
                                     whileHover = {{ scale: 1.1}}
                                     whileTap = {{ scale: 0.9}}
-                                    class="button is-link is-light" onClick={(e) => handleCancel(e)}>
+                                    className="button is-link is-light" onClick={(e) => handleCancel(e)}>
                                         <FaTimes />
                                     </motion.button>
                                 </div>
@@ -84,7 +84,9 @@ export default function ReviewCard(props) {
                     </>
                 :
                     <div className="is-flex is-align-items-flex-center is-justify-content-space-between">
-                        {props.review.user.username} { props.review.comment} 
+                        @{props.review.user.username}:
+                        <br />
+                        {props.review.comment} 
                         <div>
                             <motion.button 
                                whileHover = {{ scale: 1.1}}
@@ -101,6 +103,6 @@ export default function ReviewCard(props) {
                         </div>
                     </div>
             }
-        </p>
+        </div>
     );
 }
