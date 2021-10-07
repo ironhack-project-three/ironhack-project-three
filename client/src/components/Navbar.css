@@ -24,6 +24,7 @@
     top: 0;
     right: -20%;
     transition: 850ms;
+    z-index: 1;
   }
   
   .nav-menu.active {
@@ -75,4 +76,5 @@
 
   #logButton{
     margin: 0.5rem;
+    z-index: 2;
   }

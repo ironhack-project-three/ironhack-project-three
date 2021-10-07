@@ -7,7 +7,7 @@ import Tabs from "../components/Tabs";
 export default function UserProfile() {
     const {isLoggedIn, user} = useContext(AuthContext);
     console.log(isLoggedIn, user)
-
+ 
     return (
     <div>
         <div className="hero-body">
@@ -34,21 +34,19 @@ export default function UserProfile() {
         </div>
     </div>
     <Tabs>
-        <div label="Loved">   
-        Loved
+        <div label="Loved ♥︎">   
+        Find your personal collection of your favorite wines.
         </div>
-        <div label="Tried">
-        Tried
+        <div label="Tried ✓">
+        All the wines that you did try. Don't forget to leave your personal review! 
         </div>
-        <div label="Want to try">
-        Want to try
+        <div label="Want to try ★">
+        You don't want to miss out of those one! 
         </div>
-        <div label="Wines added">
-        Wines added
+        <div label="Wines added ✎">
+        Wines that have been added to our database by you.
         </div>
       </Tabs>
 </div>
     )
 }
-
-

@@ -61,7 +61,7 @@ export default function AddWine() {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-5-tablet is-4-desktop is-3-widescreen">
+            <div className="column is-6">
               <form action="" onSubmit={handleSubmit}>
                 <h3 className="is-3">Add new wine</h3>
                 <div className="field">{errorMessage}</div>
@@ -180,8 +180,8 @@ export default function AddWine() {
                 </div>
               </form>
             </div>
-            <div className="column is-7-tablet is-8-desktop is-9-widescreen">
-                <img src={wine} alt="wine"/>
+            <div className="column is-6">
+                <img className="addWine" src={wine} alt="wine"/>
             </div>
           </div>
         </div>

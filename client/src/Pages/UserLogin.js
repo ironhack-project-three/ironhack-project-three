@@ -3,6 +3,7 @@ import axios from "axios";
 import {useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 import { motion } from "framer-motion"
+import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg"
 const API_URL = "http://localhost:3000";
 
 export default function UserLogin(props) {
@@ -33,6 +34,9 @@ export default function UserLogin(props) {
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
+                        <div className="colum is-half">
+                            <img src={wine} alt="wine"></img>
+                        </div>
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form
                             action='/users/login'

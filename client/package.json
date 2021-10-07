@@ -12,6 +12,7 @@
     "framer-motion": "^4.1.17",
     "icons": "^1.0.0",
     "jquery": "^3.6.0",
+    "lottie-web": "^5.7.13",
     "react": "^17.0.2",
     "react-bulma-components": "^4.0.7",
     "react-dom": "^17.0.2",
@@ -23,7 +24,6 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-
     "start": "react-scripts start",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",
