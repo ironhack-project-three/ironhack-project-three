@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
 import { Redirect, Route } from "react-router-dom";
 import React from "react";
+
+import { AuthContext } from "../context/auth.context";
 
 function PrivateRoute(props) {
   // Destructure the props
@@ -22,6 +24,12 @@ function PrivateRoute(props) {
 
   // If the user is logged in ✅
   return <Route exact={exact} component={Component} {...restProps} />;
+}
+
+PrivateRoute.propTypes = {
+  toRedirect: PropTypes.string,
+  exact: PropTypes.boolean,
+  component: PropTypes.Component
 }
 
 export default PrivateRoute;

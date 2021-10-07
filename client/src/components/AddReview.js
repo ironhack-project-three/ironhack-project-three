@@ -66,4 +66,10 @@ function AddReview(props) {
   );
 }
 
+import PropTypes from "prop-types";
+AddReview.propTypes = {
+  wineId: PropTypes.string,
+  refreshWine: PropTypes.func,
+}
+
 export default AddReview;

@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from "react";
+
 import { Users } from "../api/users";
 
 const AuthContext = React.createContext();
@@ -72,6 +74,10 @@ function AuthProviderWrapper(props) {
       {props.children}
     </AuthContext.Provider>
   );
+}
+
+AuthProviderWrapper.propTypes = {
+  children: PropTypes.children
 }
 
 export { AuthProviderWrapper, AuthContext };

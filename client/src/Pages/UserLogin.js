@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useState, useContext } from "react";
+import {useHistory} from "react-router-dom";
 
 import { Users } from "../api/users";
 import { AuthContext } from "../context/auth.context";
 import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
 
-export default function UserLogin(props) {
+export default function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { logInUser } = useContext(AuthContext);
+  const history = useHistory();
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleLoginSubmit = async (e) => {
@@ -21,7 +23,7 @@ export default function UserLogin(props) {
       const response = new Users().login(requestBody, storedToken);
       const token = response.data.authToken;
       logInUser(token);
-      props.history.push("/");
+      history.push("/");
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

@@ -122,3 +122,13 @@ export default function ReviewCard(props) {
     </div>
   );
 }
+
+import PropTypes from 'prop-types';
+ReviewCard.propTypes = {
+  review: {
+    _id: PropTypes.string,
+    comment: PropTypes.string,
+  },
+  refreshWine: PropTypes.func,
+  wine: {}
+}

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { Users } from "../api/users";
 import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
 
-export default function SignUp(props) {
+export default function SignUp() {
   let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

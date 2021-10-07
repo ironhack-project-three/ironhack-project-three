@@ -8,6 +8,7 @@ export default class ErrorBoundary extends React.Component {
 
   static getDerivedStateFromError(error) {
     // Update state so the next render will show the fallback UI.
+    console.log("getDerivedStateFromError:", error)
     return { hasError: true };
   }
 
@@ -24,4 +25,9 @@ export default class ErrorBoundary extends React.Component {
 
     return this.props.children;
   }
+}
+
+import PropTypes from 'prop-types';
+ErrorBoundary.propTypes = {
+  children: PropTypes.children
 }

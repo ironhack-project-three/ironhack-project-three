@@ -2,7 +2,7 @@ import React from "react";
 import { Users } from "../api/users";
 import { useEffect, useState } from "react";
 
-export default function EditProfile(props) {
+export default function EditProfile() {
   const [user, setUser] = useState([]);
   async function fetchUser() {
     const response = await new Users().getOne();

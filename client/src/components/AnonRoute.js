@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Redirect, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import React from "react";
 
 function AnonRoute(props) {
@@ -20,4 +21,10 @@ function AnonRoute(props) {
   return <Route to={to} exact={exact} component={Component} {...restProps} />
 }
 
+AnonRoute.propTypes = {
+  to: PropTypes.string,
+  toRedirect: PropTypes.string,
+  exact: PropTypes.boolean,
+  component: PropTypes.Component
+}
 export default AnonRoute;

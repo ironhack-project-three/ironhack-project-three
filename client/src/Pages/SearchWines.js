@@ -5,7 +5,7 @@ import { Box } from "react-bulma-components";
 import { motion } from "framer-motion";
 import { Wines } from "../api/wines";
 
-export default function SearchWines(props) {
+export default function SearchWines() {
   const [page, setPage] = useState(1);
   const [wines, setWines] = useState([]);
   let filteredWines = wines;

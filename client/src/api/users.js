@@ -1,6 +1,7 @@
-const axios = require("axios");
+import axios from "axios"
+
 export class Users {
-  constructor(baseURL) {
+  constructor() {
     //baseUrl could be overwritten in the route that uses the API
     const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
     this.baseURL = `${baseUrl}/users`;

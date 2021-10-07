@@ -2,8 +2,6 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Block, Columns } from "react-bulma-components";
-import { Wines } from "../api/wines";
-import { Users } from "../api/users";
 import {
   FaCheck,
   FaHeart,
@@ -12,6 +10,9 @@ import {
   FaRegStar,
   FaTimes,
 } from "react-icons/fa";
+
+import { Wines } from "../api/wines";
+import { Users } from "../api/users";
 import AddReview from "../components/AddReview";
 import ReviewCard from "../components/ReviewCard";
 import "./WineDetailsPage.css";
@@ -189,4 +190,13 @@ export default function WineDetailsPage(props) {
       )}
     </div>
   );
+}
+
+import PropTypes from "prop-types";
+WineDetailsPage.propTypes = {
+  match: {
+    params: {
+      id: PropTypes.string
+    }
+  }
 }
