@@ -24,10 +24,10 @@ export class Users {
     this.api.post("/login", newEntityValues, {
       headers: { Authorization: `Bearer ${storedToken}` },
     });
-    verifyToken = (storedToken) =>
-      this.api.get("/verify", {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+  verifyToken = (storedToken) =>
+    this.api.get("/verify", {
+      headers: { Authorization: `Bearer ${storedToken}` },
+    });
   // deleteOne = (id)=> this.api.delete(`/${id}`)
   // updateOne = (id)=> this.api.put(`/${id}`)
   // // etc...
