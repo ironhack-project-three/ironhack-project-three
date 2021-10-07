@@ -27,7 +27,7 @@ export default function SignUp(props) {
         { headers: { Authorization: `Bearer ${storedToken}`}})
             .then((response) => {props.history.push(`/login`)})
             .catch((error) => {console.log("line 31",error.response);
-             const errorDescription = error.response.data.message;
+             const errorDescription = error.response;
               setErrorMessage(errorDescription);
             })
         };

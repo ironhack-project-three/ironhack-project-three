@@ -36,7 +36,7 @@ router.get("/search", async (req, res) => {
     resp.wines = resp.docs
     resp.docs = undefined
     res.json(resp);
-    console.log(`Search found ${resp.wines.length} wines`)
+    // console.log(`Search found ${resp.wines.length} wines`)
   } catch (err) {
     console.log("Line 19 error wine.js", err);
     res.status(500).json(error);
