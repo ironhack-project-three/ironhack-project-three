@@ -20,12 +20,16 @@ export default function UserLogin() {
     const requestBody = { email, password };
     const storedToken = localStorage.getItem("authToken");
     try {
-      const response = new Users().login(requestBody, storedToken);
+      const response = await new Users().login(requestBody, storedToken);
       const token = response.data.authToken;
       logInUser(token);
       history.push("/");
     } catch (error) {
-      const errorDescription = error.response.data.message;
+      console.log("Received error:", error)
+      let errorDescription = `${error}`
+      if (error.response && error.response.data && error.response.data.message) {
+        errorDescription = error.response.data.message;
+      }
       setErrorMessage(errorDescription);
     }
   };
@@ -51,7 +55,7 @@ export default function UserLogin() {
                   <label htmlFor="email" className="label">
                     Email
                   </label>
-                  <div className="control has-icons-left">
+                  <div className="control">
                     <input
                       type="email"
                       name="email"
@@ -67,7 +71,7 @@ export default function UserLogin() {
                   <label htmlFor="password" type="password" className="label">
                     Password
                   </label>
-                  <div className="control has-icons-left">
+                  <div className="control">
                     <input
                       type="password"
                       name="password"
