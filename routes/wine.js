@@ -17,7 +17,7 @@ router.get("/all-wine", async (req, res) => {
 
 router.get("/top-wine", async (req, res) => {
   try {
-    const winesTop = await Wine.find({ points: { $gte: 95 } }).limit(50)
+    const winesTop = await Wine.find({ points: { $gte: 95 } }).limit(1)
     res.json({ winesTop })
   } catch (err) {
     console.error("/wines/top-wine error:", err)

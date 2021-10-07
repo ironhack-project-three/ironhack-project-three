@@ -60,66 +60,15 @@ export default function SearchWines(props) {
             </Link>
           );
         })}
-        <nav class="pagination" role="navigation" aria-label="pagination">
+        <nav className="pagination is-pulled-right" role="navigation" aria-label="pagination">
           <motion.button 
           whileHover = {{ scale: 1.1}}
           whileTap = {{ scale: 0.9}}
-          class="pagination-previous" onClick={previousPage}>Previous</motion.button >
+          className="pagination-previous button is-warning is-rounded" onClick={previousPage}>Previous</motion.button>
           <motion.button
           whileHover = {{ scale: 1.1}}
           whileTap = {{ scale: 0.9}}
-          class="pagination-next" onClick={nextPage}>Next page</motion.button>
-          <ul class="pagination-list">
-            <li>
-              <motion.button 
-              whileHover = {{ scale: 1.1}}
-              whileTap = {{ scale: 0.9}}
-              class="pagination-link" aria-label="Goto page 1">
-                1
-              </motion.button>
-            </li>
-            <li>
-              <span class="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <motion.button 
-              whileHover = {{ scale: 1.1}}
-              whileTap = {{ scale: 0.9}}
-              class="pagination-link" aria-label="Goto page 45">
-                45
-              </motion.button>
-            </li>
-            <li>
-              <motion.button
-                whileHover = {{ scale: 1.1}}
-                whileTap = {{ scale: 0.9}}
-                class="pagination-link is-current"
-                aria-label="Page 46"
-                aria-current="page"
-              >
-                46
-              </motion.button>
-            </li>
-            <li>
-              <motion.button 
-              whileHover = {{ scale: 1.1}}
-              whileTap = {{ scale: 0.9}}
-              class="pagination-link" aria-label="Goto page 47">
-                47
-              </motion.button>
-            </li>
-            <li>
-              <span class="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              <motion.button 
-              whileHover = {{ scale: 1.1}}
-              whileTap = {{ scale: 0.9}}
-              class="pagination-link" aria-label="Goto page 86">
-                86
-              </motion.button>
-            </li>
-          </ul>
+          className="pagination-next button is-warning is-rounded" onClick={nextPage}>Next page</motion.button>
         </nav>
       </div>
     </div>

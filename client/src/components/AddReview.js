@@ -48,7 +48,7 @@ function AddReview(props) {
         <Columns>
           <Columns.Column>
             <div className="field">
-              <div class="control">
+              <div className="control">
                 <input
                   placeholder="Write your review here"
                   type="text"

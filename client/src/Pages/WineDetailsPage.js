@@ -1,28 +1,69 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Block, Columns } from "react-bulma-components";
 import { Wines } from "../api/wines";
-import { FaSpinner } from "react-icons/fa";
+import { Users } from "../api/users";
+import { FaCheck, FaHeart, FaHeartBroken, FaStar, FaRegStar, FaTimes } from "react-icons/fa";
 import AddReview from "../components/AddReview";
 import ReviewCard from "../components/ReviewCard";
 import "./WineDetailsPage.css"
+import ErrorBoundary from "../components/ErrorBoundary";
+import { AuthContext } from "../context/auth.context";
 
 export default function WineDetailsPage(props) {
   console.log('wine details props',props);
+  const { user } = useContext(AuthContext);
   const [wine, setWine] = useState({});
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("")
+  const [loved, setLoved] = useState(false);
+  const [tried, setTried] = useState(false);
+  const [wannaTry, setWannaTry] = useState(false);
 
   async function fetchWine(id) {
     const response = await new Wines().getOne(id);
- 
     setWine(response.data);
     setLoading(false);
   }
 
   async function refreshWine(newWine){
-    const response = await new Wines().getOne(newWine._id);
-    setWine(response.data);
+    await fetchWine(newWine._id)
+  }
+
+  const handleLove = async (e) => {
+    e.preventDefault()
+    try {
+      const storedToken = localStorage.getItem("authToken");
+      await new Users().addToLoved({userId: user._id, wineId: wine._id}, storedToken);
+      setLoved(true)
+    } catch (error) {
+      console.error("Received error:", error)
+      setErrorMessage(error.response.data.message)
+    }
+  }
+  const handleTried = async (e) => {
+    e.preventDefault()
+    try {
+      const storedToken = localStorage.getItem("authToken");
+      await new Users().addToTried({userId: user._id, wineId: wine._id}, storedToken);
+      setTried(true)
+    } catch (error) {
+      console.error("Received error:", error)
+      setErrorMessage(error.response.data.message)
+    }
+  }
+  const handleWannaTry = async (e) => {
+    e.preventDefault()
+    try {
+      const storedToken = localStorage.getItem("authToken");
+      await new Users().addToWantToTry({userId: user._id, wineId: wine._id}, storedToken);
+      setWannaTry(true)
+    } catch (error) {
+      console.error("Received error:", error)
+      setErrorMessage(error.response.data.message)
+    }
+
   }
 
   useEffect(() => {
@@ -30,39 +71,71 @@ export default function WineDetailsPage(props) {
   }, [props.match.params.id]);
 
   return (
-    <div>
+    <div className="WineDetailsPage">
       <Block>
         <nav className="breadcrumb" aria-label="breadcrumbs">
           <ul>
             <li>
-              <Link to={() => "/"}>
+              <Link className="has-text-grey-light" to={() => "/"}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to={() => "/wines"}>
-                All Wines
+              <Link className="has-text-grey-light" to={() => "/search"}>
+                Search Wines
               </Link>
             </li>
             <li className="is-active">
-              <Link to={() => `/wines/${wine._id}`}>{wine.title}</Link>
+              <Link className="has-text-grey-light" to={() => `/wines/${wine._id}`}>
+                {wine.title}
+              </Link>
             </li>
           </ul>
         </nav>
       </Block>
-      <Columns className="is-centered">
-        <Columns.Column className="is-narrow">
-          <div className="wineDetailTitle is-size-1">
+      <Columns className="is-centered is-vcentered">
+        <Columns.Column className="">
+          <h2 className="wineDetailTitle">
               {wine.title}
-          </div>
+          </h2>
+        </Columns.Column>
+        <Columns.Column className="is-narrow">
+          <button className="button is-warning is-rounded" onClick={(e) => handleLove(e)}>
+            {
+              loved
+              ?
+              <FaHeartBroken />
+              :
+              <FaHeart />
+            }
+          </button>
+          <button className="button is-warning is-rounded" onClick={(e) => handleTried(e)}>
+            {
+              tried
+              ?
+              <FaRegStar />
+              :
+              <FaStar />
+            }
+          </button>
+          <button className="button is-warning is-rounded" onClick={(e) => handleWannaTry(e)}>
+            {
+              wannaTry
+              ?
+              <FaTimes />
+              :
+              <FaCheck />
+            }
+          </button>
         </Columns.Column>
       </Columns>
       {loading ? (
         <div style={{ fontSize: "128px" }}>
-          <FaSpinner className="fa-spin" />
+          <p>Loading ...</p>
         </div>
       ) : (
         <Box>
+          {errorMessage}
           <Block className="">
             <b>Description:</b> {wine.description}
           </Block>
@@ -86,12 +159,16 @@ export default function WineDetailsPage(props) {
           </Block>
           <Block className="">
             <b>Add your own review:</b>
+            <ErrorBoundary>
             <AddReview wineId={wine._id} refreshWine={refreshWine}/>
+            </ErrorBoundary>
             <b>Reviews:</b> 
             <div>
+            <ErrorBoundary>
               {wine.reviews.map( element =>  {
-                return <ReviewCard review={element} refreshWine={refreshWine} wine={wine}/>
+                return <ReviewCard key={element._id} review={element} refreshWine={refreshWine} wine={wine}/>
               })}
+            </ErrorBoundary>
             </div>
           </Block>
         </Box>
