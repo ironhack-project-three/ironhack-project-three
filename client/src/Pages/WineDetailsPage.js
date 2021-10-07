@@ -194,9 +194,5 @@ export default function WineDetailsPage(props) {
 
 import PropTypes from "prop-types";
 WineDetailsPage.propTypes = {
-  match: {
-    params: {
-      id: PropTypes.string
-    }
-  }
+  match: PropTypes.object
 }

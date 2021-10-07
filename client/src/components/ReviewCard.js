@@ -125,10 +125,7 @@ export default function ReviewCard(props) {
 
 import PropTypes from 'prop-types';
 ReviewCard.propTypes = {
-  review: {
-    _id: PropTypes.string,
-    comment: PropTypes.string,
-  },
+  review: PropTypes.object,
   refreshWine: PropTypes.func,
-  wine: {}
+  wine: PropTypes.object
 }
