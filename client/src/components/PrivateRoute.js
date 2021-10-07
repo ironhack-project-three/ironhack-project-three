@@ -28,8 +28,12 @@ function PrivateRoute(props) {
 
 PrivateRoute.propTypes = {
   toRedirect: PropTypes.string,
-  exact: PropTypes.boolean,
-  component: PropTypes.Component
+  exact: PropTypes.bool,
+  component: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func
+  ])
 }
 
 export default PrivateRoute;

@@ -77,7 +77,11 @@ function AuthProviderWrapper(props) {
 }
 
 AuthProviderWrapper.propTypes = {
-  children: PropTypes.children
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func
+  ])
 }
 
 export { AuthProviderWrapper, AuthContext };

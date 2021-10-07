@@ -29,5 +29,9 @@ export default class ErrorBoundary extends React.Component {
 
 import PropTypes from 'prop-types';
 ErrorBoundary.propTypes = {
-  children: PropTypes.children
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func
+  ])
 }

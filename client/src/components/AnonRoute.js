@@ -24,7 +24,11 @@ function AnonRoute(props) {
 AnonRoute.propTypes = {
   to: PropTypes.string,
   toRedirect: PropTypes.string,
-  exact: PropTypes.boolean,
-  component: PropTypes.Component
+  exact: PropTypes.bool,
+  component: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.func
+  ])
 }
 export default AnonRoute;
