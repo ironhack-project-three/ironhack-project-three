@@ -15,10 +15,10 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "dev:all": "concurrently \" PORT=3000 nodemon ./bin/www\" \" PORT=5000 npm run start -w client\"",
-    "dev:front": " PORT=5000 npm run start -w client",
+    "dev:all": "concurrently \"PORT=3000 nodemon ./bin/www\" \"PORT=5000 yarn workspace client run start\"",
+    "dev:front": "PORT=5000 yarn workspace client run start",
     "dev:back": " PORT=3000 nodemon ./bin/www",
-    "build": "npm run build -w client"
+    "build": "yarn workspace run client build"
   },
   "dependencies": {
     "axios": "^0.22",
@@ -47,5 +47,6 @@
     "concurrently": "^6",
     "debug": "^4",
     "nodemon": "^2"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }
