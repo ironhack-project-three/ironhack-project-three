@@ -22,16 +22,8 @@ export default function WineDetailsPage(props) {
   useEffect(() => {
     fetchWine(props.match.params.id);
   }, [props.match.params.id]);
-  useEffect(() => {
-    axios.get(
-      (`/wine/${props.match.params.id}`)
-    )
-  }, []);
-
  
 
-
-  
 
   return (
     <div>
