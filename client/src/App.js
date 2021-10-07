@@ -43,7 +43,11 @@ function App() {
               <Route exact path="/wine/:id" component={WineDetailsPage} />
               <Route exact path="/search" component={SearchWines} />
               <Route exact path="/about" component={AboutUs} />
-              <PrivateRoute exact path="/user/:userId" component={EditProfile} />
+              <PrivateRoute
+                exact
+                path="/user/:userId"
+                component={EditProfile}
+              />
               <Route exact path="/404" component={ErrorPage404} />
               <Route exact path="/500" component={ErrorPage500} />
               <Route exact path="/" component={HomePage} />

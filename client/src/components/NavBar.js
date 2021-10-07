@@ -6,48 +6,60 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { AuthContext } from "../context/auth.context";
-import { motion } from "framer-motion"
-import namloos3 from "../Images/Naamloos3.png"
+import { motion } from "framer-motion";
+import namloos3 from "../Images/Naamloos3.png";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const { isLoggedIn, logOutUser  } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div  className="navbar1">
-        <Link to="/">
-          <img src={namloos3} alt="icon" id="iconLeft" />
+        <div className="navbar1">
+          <Link to="/">
+            <img src={namloos3} alt="icon" id="iconLeft" />
           </Link>
-        {isLoggedIn
-        ? (<>
-            <motion.button
-            id = "logButton"
-            onClick={logOutUser}
-            className = "button is-normal"
-            whileHover = {{ scale: 1.1}}
-            whileTap = {{ scale: 0.9}}
-            >Logout</motion.button>
-          </>)
-        :
-        (<>
-          <Link to="/signup"> <motion.button
-          id = "logButton"
-          className = "button is-normal"
-          whileHover = {{ scale: 1.1}}
-          whileTap = {{ scale: 0.9}}
-          >Signup</motion.button> </Link>
-          <Link to="/login"> <motion.button
-          id = "logButton"
-          className = "button is-normal"
-          whileHover = {{ scale: 1.1}}
-          whileTap = {{ scale: 0.9}}
-          >Login</motion.button> </Link>
-        </>)
-      }
+          {isLoggedIn ? (
+            <>
+              <motion.button
+                id="logButton"
+                onClick={logOutUser}
+                className="button is-normal"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Logout
+              </motion.button>
+            </>
+          ) : (
+            <>
+              <Link to="/signup">
+                {" "}
+                <motion.button
+                  id="logButton"
+                  className="button is-normal"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Signup
+                </motion.button>{" "}
+              </Link>
+              <Link to="/login">
+                {" "}
+                <motion.button
+                  id="logButton"
+                  className="button is-normal"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Login
+                </motion.button>{" "}
+              </Link>
+            </>
+          )}
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>

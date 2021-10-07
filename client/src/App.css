@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
   box-sizing: border-box;
@@ -16,7 +16,7 @@
   font-size: 2rem;
 }
 
-.tab-list {  
+.tab-list {
   border-bottom: 1px solid;
   padding-left: 0;
 }
@@ -41,10 +41,6 @@
   font-size: 31px;
 }
 
-.addWine{
+.addWine {
   height: 1000px;
 }
-
-
-
-

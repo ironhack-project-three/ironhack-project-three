@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { motion } from 'framer-motion'
-import Wines from "../api/wines"
-import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg"
+import { motion } from "framer-motion";
+import Wines from "../api/wines";
+import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
 
 export default function AddWine() {
   const [title, setTitle] = useState("");
@@ -16,7 +16,7 @@ export default function AddWine() {
   const [winery, setWinery] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const history = useHistory();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -32,24 +32,24 @@ export default function AddWine() {
     };
 
     try {
-        try {
-            const response = await (new Wines()).createOne(body)
-            console.log(response);
-            history.push(`/wine/${response.data.newWine._id}`);
-        } catch (error) {
-            setErrorMessage(`Received error: ${error}`)
-        }
+      try {
+        const response = await new Wines().createOne(body);
+        console.log(response);
+        history.push(`/wine/${response.data.newWine._id}`);
+      } catch (error) {
+        setErrorMessage(`Received error: ${error.response.data.message}`);
+      }
 
-    //   setTitle("");
-    //   setDescription("");
-    //   setPrice("");
-    //   setVariety("");
-    //   setRegion("");
-    //   setProvince("");
-    //   setCountry("");
-    //   setWinery("");
+      //   setTitle("");
+      //   setDescription("");
+      //   setPrice("");
+      //   setVariety("");
+      //   setRegion("");
+      //   setProvince("");
+      //   setCountry("");
+      //   setWinery("");
 
-     // history.push("./wines");
+      // history.push("./wines");
     } catch (error) {
       //Discuss redirecting route
       console.log(error);
@@ -57,7 +57,6 @@ export default function AddWine() {
   };
   return (
     <div className="position-addwine">
-    
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
@@ -173,19 +172,20 @@ export default function AddWine() {
                   <motion.button
                     className="button is-warning"
                     type="submit"
-                    whileHover = {{ scale: 1.1}}
-                    whileTap = {{ scale: 0.9}}>
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     Add wine
                   </motion.button>
                 </div>
               </form>
             </div>
             <div className="column is-6">
-                <img className="addWine" src={wine} alt="wine"/>
+              <img className="addWine" src={wine} alt="wine" />
             </div>
           </div>
         </div>
       </div>
- </div>
+    </div>
   );
 }
