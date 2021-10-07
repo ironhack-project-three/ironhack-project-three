@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
+import {motion} from "framer-motion"
 import {FaCheck, FaPencilAlt, FaTimes, FaTrashAlt} from "react-icons/fa";
 
 import  {Review}  from "../api/review";
@@ -65,14 +65,19 @@ export default function ReviewCard(props) {
 
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button class="button is-link">
-                                        <FaCheck />
-                                    </button>
+                                    <motion.button class="button is-link"
+                                        whileHover = {{ scale: 1.1}}
+                                        whileTap = {{ scale: 0.9}}
+                                         ><FaCheck />
+                                         </motion.button>
                                 </div>
                                 <div class="control">
-                                    <button class="button is-link is-light" onClick={(e) => handleCancel(e)}>
+                                    <motion.button 
+                                    whileHover = {{ scale: 1.1}}
+                                    whileTap = {{ scale: 0.9}}
+                                    class="button is-link is-light" onClick={(e) => handleCancel(e)}>
                                         <FaTimes />
-                                    </button>
+                                    </motion.button>
                                 </div>
                             </div>
                         </form>
@@ -81,12 +86,18 @@ export default function ReviewCard(props) {
                     <div className="is-flex is-align-items-flex-center is-justify-content-space-between">
                         {props.review.user.username} { props.review.comment} 
                         <div>
-                            <button className="button is-warning is-rounded is-small" onClick={(e) => handleEdit(e)}>
+                            <motion.button 
+                               whileHover = {{ scale: 1.1}}
+                               whileTap = {{ scale: 0.9}}
+                            className="button is-warning is-rounded is-small" onClick={(e) => handleEdit(e)}>
                                 <FaPencilAlt />
-                            </button>
-                            <button className="button is-warning is-rounded is-small" onClick={(e) => handleDelete(e)}>
+                            </motion.button>
+                            <motion.button 
+                               whileHover = {{ scale: 1.1}}
+                               whileTap = {{ scale: 0.9}}
+                            className="button is-warning is-rounded is-small" onClick={(e) => handleDelete(e)}>
                                 <FaTrashAlt />
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
             }

@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { Wines } from "../api/wines";
 import { Box } from "react-bulma-components";
 import Namloos2 from "../Images/Naamloos2.png"
+import './WineDetailsPage.css';
+
 // import { useLoading } from 'react-use-loading';
 // import LoadingPageAnimation from './components/LoadingPageAnimation';
 
@@ -33,15 +35,16 @@ return (
       //   isLoading ? <LoadingPageAnimation /> : 
       <div>
       <img src={Namloos2} className="logoPosition" alt="logo" />
+      <br></br>
+      <p>“One should always be drunk. That’s all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk.” ― Charles Baudelaire</p>
+      <br></br>
       <div className="Hero">
       <ImageCarousel />
-        <h1>Welcome to VineVibe</h1>
-        <h2>Your virtual wine cellar</h2>
-        <p>“One should always be drunk. That’s all that matters...But with what? With wine, with poetry, or with virtue, as you chose. But get drunk.” ― Charles Baudelaire</p>
       </div>
       <br></br>
       <div>
-      <h2 className="is-size-1">Wines of the month</h2>
+      <br></br>
+      <h2 className="is-size-1">Wine of the month:</h2>
       {wines.map((wine) => {
         return <Link to={() => `/wine/${wine._id}`}><Box className="is-size-3">{wine.title}</Box></Link>;
       })}

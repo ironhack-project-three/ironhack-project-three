@@ -14,6 +14,7 @@ import { Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import 'bulma/css/bulma.min.css';
 import EditProfile from './components/EditProfile';
+
 // import LoadingPageAnimation from './components/LoadingPageAnimation';
 
 

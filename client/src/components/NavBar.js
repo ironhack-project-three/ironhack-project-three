@@ -7,6 +7,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { AuthContext } from "../context/auth.context";
 import { motion } from "framer-motion"
+import namloos3 from "../Images/Naamloos3.png"
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -17,7 +18,10 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar1">
+        <div  className="navbar1">
+        <Link to="/">
+          <img src={namloos3} alt="icon" id="iconLeft" />
+          </Link>
         {isLoggedIn
         ? (<>
             <motion.button

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "react-bulma-components";
-
+import { motion } from "framer-motion"
 import { Wines } from "../api/wines";
 
 export default function SearchWines(props) {
@@ -61,43 +61,63 @@ export default function SearchWines(props) {
           );
         })}
         <nav class="pagination" role="navigation" aria-label="pagination">
-          <button class="pagination-previous" onClick={previousPage}>Previous</button>
-          <button class="pagination-next" onClick={nextPage}>Next page</button>
+          <motion.button 
+          whileHover = {{ scale: 1.1}}
+          whileTap = {{ scale: 0.9}}
+          class="pagination-previous" onClick={previousPage}>Previous</motion.button >
+          <motion.button
+          whileHover = {{ scale: 1.1}}
+          whileTap = {{ scale: 0.9}}
+          class="pagination-next" onClick={nextPage}>Next page</motion.button>
           <ul class="pagination-list">
             <li>
-              <button class="pagination-link" aria-label="Goto page 1">
+              <motion.button 
+              whileHover = {{ scale: 1.1}}
+              whileTap = {{ scale: 0.9}}
+              class="pagination-link" aria-label="Goto page 1">
                 1
-              </button>
+              </motion.button>
             </li>
             <li>
               <span class="pagination-ellipsis">&hellip;</span>
             </li>
             <li>
-              <button class="pagination-link" aria-label="Goto page 45">
+              <motion.button 
+              whileHover = {{ scale: 1.1}}
+              whileTap = {{ scale: 0.9}}
+              class="pagination-link" aria-label="Goto page 45">
                 45
-              </button>
+              </motion.button>
             </li>
             <li>
-              <button
+              <motion.button
+                whileHover = {{ scale: 1.1}}
+                whileTap = {{ scale: 0.9}}
                 class="pagination-link is-current"
                 aria-label="Page 46"
                 aria-current="page"
               >
                 46
-              </button>
+              </motion.button>
             </li>
             <li>
-              <button class="pagination-link" aria-label="Goto page 47">
+              <motion.button 
+              whileHover = {{ scale: 1.1}}
+              whileTap = {{ scale: 0.9}}
+              class="pagination-link" aria-label="Goto page 47">
                 47
-              </button>
+              </motion.button>
             </li>
             <li>
               <span class="pagination-ellipsis">&hellip;</span>
             </li>
             <li>
-              <button class="pagination-link" aria-label="Goto page 86">
+              <motion.button 
+              whileHover = {{ scale: 1.1}}
+              whileTap = {{ scale: 0.9}}
+              class="pagination-link" aria-label="Goto page 86">
                 86
-              </button>
+              </motion.button>
             </li>
           </ul>
         </nav>

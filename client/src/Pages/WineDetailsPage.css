@@ -7,6 +7,13 @@
     width: 100%;
 }
 
+.logoPosition{
+    height: 20rem;
+    width: 20rem;  
+    margin-left: 40rem;
+  }
+  
+
 /* .wineDetailTitle::before {
     content: "";
     position: absolute;
