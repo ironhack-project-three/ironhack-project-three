@@ -1,33 +1,25 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import {motion} from "framer-motion"
-
-const API_URL = "http://localhost:3000";
+import Wines from "../api/wines";
 
 function AddReview(props) {
-    const { wineId } = props;
+  const [errorMessage, setErrorMessage] = useState("");
+  const { wineId } = props;
   const [comment, setComment] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const requestBody = { comment,  wineId };
     console.log("line 14 add revire", requestBody)
 
     const storedToken = localStorage.getItem("authToken");
-    axios
-      .post(
-        `${API_URL}/review/create`,
-        requestBody,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then((response) => {
-          console.log("add review 23", response)
-          axios.get(
-            (`wines/wine/${wineId}`)
-          )
-       setComment(comment);
-    
-      })
-      .catch((error) => console.log(error));
+    try {
+      const response = await new Wines().createReview(requestBody, storedToken)
+      console.log("add review 18", response)
+      setComment(response.data.comment);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error);
+    }
   };
 
 
@@ -35,6 +27,7 @@ function AddReview(props) {
     <div className="AddTask">
 
       <form onSubmit={handleSubmit}>
+        {errorMessage}
         <input
           placeholder="Write your review here"
           type="text"
@@ -42,7 +35,7 @@ function AddReview(props) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-             <motion.button 
+           <motion.button 
              type="submit"
              className = "button is-normal"
              whileHover = {{ scale: 1.1}}

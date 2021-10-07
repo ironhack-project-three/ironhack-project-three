@@ -1,7 +1,12 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import "bulma/css/bulma.min.css";
 import ImageCarousel from "../components/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Link } from "react-router-dom";
+import { Wines } from "../api/wines";
+import { Box } from "react-bulma-components";
+import Namloos2 from "../Images/Naamloos2.png"
 
 export default function HomePage() {
   const [wines, setWines] = useState([]);
@@ -20,7 +25,7 @@ export default function HomePage() {
 
     return (
     <div>
-      <img src="client\src\Images\Naamloos2.png" className="logoPosition" alt="logo" />
+      <img src={Namloos2} className="logoPosition" alt="logo" />
       <div className="Hero">
       <ImageCarousel />
         <h1>Welcome to VineVibe</h1>

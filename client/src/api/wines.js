@@ -16,6 +16,9 @@ export class Wines {
   getOne(id) {
     return this.api.get(`/wine/${id}`);
   }
+  topWines() {
+    return this.api.get(`/top-wine`);
+  }
   search(query, page) {
     return this.api.get(`/search/?q=${query}&page=${page}`);
   }
