@@ -18,6 +18,7 @@ import EditProfile from './components/EditProfile';
 
 
 function App() {
+  
   return (
     <div className="App">
       <div className="columns">
