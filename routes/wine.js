@@ -17,24 +17,29 @@ router.get("/all-wine", async (req, res) => {
 
 router.get("/top-wine", async (req, res) => {
   try {
-    const winesArr = await Wine.find().limit(400)
-    const winesTop =  winesArr.filter(wine => {if(wine.points >= 95){return wine}})
-    
+    const winesTop = await Wine.find({ points: { $gte: 95 } }).limit(50)
     res.json({ winesTop })
   } catch (err) {
-
+    console.error("/wines/top-wine error:", err)
+    res.status(500).json(error);
   }
 });
 
 
 router.get("/search", async (req, res) => {
-
-  try{
-    const wines = await Wine.find({ 'title': { $regex: req.query.q || "", $options: 'i' } }).limit(100).exec()
-    res.json({ wines });
-    console.log(`Search found ${wines.length} wines`)
-  }catch (err){
-    console.log("Line 19 error wine.js", err)
+  console.log(`Got query: ${JSON.stringify(req.query, undefined, 2)}`)
+  const perPage = 20;
+  const page = req.query.page || 1
+  try {
+    const resp = await Wine
+      .paginate({ 'title': { $regex: req.query.q || "", $options: 'i' } }, { page: page, limit: perPage })
+    resp.wines = resp.docs
+    resp.docs = undefined
+    res.json(resp);
+    console.log(`Search found ${resp.wines.length} wines`)
+  } catch (err) {
+    console.log("Line 19 error wine.js", err);
+    res.status(500).json(error);
 }
 });
 

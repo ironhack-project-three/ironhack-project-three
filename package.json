@@ -38,6 +38,7 @@
     "http-errors": "^1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6",
+    "mongoose-paginate-v2": "^1.4.2",
     "morgan": "^1",
     "multer": "^1",
     "multer-storage-cloudinary": "^4",

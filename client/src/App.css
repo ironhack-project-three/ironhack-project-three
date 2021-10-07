@@ -16,23 +16,27 @@
   font-size: 3rem;
 }
 
-.tab-list {  border-bottom: 1px solid #ccc;
+.tab-list {  
+  border-bottom: 1px solid;
   padding-left: 0;
 }
 
 .tab-list-item {
   display: inline-block;
+  font-size: 31px;
   list-style: none;
   margin-bottom: -1px;
   padding: 0.5rem 0.75rem;
 }
 
 .tab-list-active {
-  background-color: white;
+  background-color: #a70361;
+  font-size: 31px;
+  color: white;
   border: solid #ccc;
   border-width: 1px 1px 0 1px;
 }
 
 .tab-content {
-  font-size: 2rem;
+  font-size: 31px;
 }

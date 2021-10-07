@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Block, Box } from "react-bulma-components";
+import { Box, Block, Columns } from "react-bulma-components";
 import { Wines } from "../api/wines";
 import { FaSpinner } from "react-icons/fa";
 import AddReview from "../components/AddReview";
+import "./WineDetailsPage.css"
 
 export default function WineDetailsPage(props) {
   console.log(props);
@@ -13,8 +14,7 @@ export default function WineDetailsPage(props) {
 
   async function fetchWine(id) {
     const response = await new Wines().getOne(id);
-    console.log("this is the response", response);
-    console.log("this is the response data", response.data);
+ 
     setWine(response.data);
     setLoading(false);
   }
@@ -22,8 +22,6 @@ export default function WineDetailsPage(props) {
   useEffect(() => {
     fetchWine(props.match.params.id);
   }, [props.match.params.id]);
-
-  
 
   return (
     <div>
@@ -46,7 +44,13 @@ export default function WineDetailsPage(props) {
           </ul>
         </nav>
       </Block>
-      <Box className="is-size-1">{wine.title}</Box>
+      <Columns className="is-centered">
+        <Columns.Column className="is-narrow">
+          <div className="wineDetailTitle is-size-1">
+              {wine.title}
+          </div>
+        </Columns.Column>
+      </Columns>
       {loading ? (
         <div style={{ fontSize: "128px" }}>
           <FaSpinner className="fa-spin" />
@@ -57,7 +61,7 @@ export default function WineDetailsPage(props) {
             <b>Description:</b> {wine.description}
           </Block>
           <Block className="">
-            <b>Price Range:</b> $ {wine.price} (RRP)
+            <b>Average Price:</b> € {wine.price}
           </Block>
           <Block className="">
             <b>Variety:</b> {wine.variety}
@@ -75,8 +79,8 @@ export default function WineDetailsPage(props) {
             <b>Winery:</b> {wine.winery}
           </Block>
           <Block className="">
+            <AddReview wineId={wine._id}/>
             <b>Reviews:</b> <div>{wine.reviews.map( element =>  {return <p>{element.user.username} { element.comment} </p>})}</div>
-           
           </Block>
         </Box>
       )}

@@ -12,7 +12,7 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const { isLoggedIn, user, logOutUser  } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser  } = useContext(AuthContext);
 
   return (
     <>
