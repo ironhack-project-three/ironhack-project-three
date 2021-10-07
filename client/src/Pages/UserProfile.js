@@ -1,13 +1,28 @@
 import React from "react";
 import "../App.css";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/auth.context';
 import Tabs from "../components/Tabs";
+import  {Users}  from "../api/users";
    
 export default function UserProfile() {
-    const {isLoggedIn, user} = useContext(AuthContext);
-    console.log(isLoggedIn, user)
- 
+    const {isLoggedIn, user } = useContext(AuthContext);
+    const storedToken = localStorage.getItem('authToken');
+   
+
+  useEffect(()=>{
+     new Users().getOne(user._id, storedToken)
+      .then(userProfile => {
+          //this is the favourties that you want to renderVVV
+          // there is a route to also add new favourites
+          console.log("15 user ", userProfile.data.Favorite)
+      })
+      .catch((err)=> {console.log("line 17 ", err)})
+  },[]
+  )
+
+
+
     return (
     <div>
         <div className="hero-body">
@@ -36,6 +51,8 @@ export default function UserProfile() {
     <Tabs>
         <div label="Loved ♥︎">   
         Find your personal collection of your favorite wines.
+
+        <p></p>
         </div>
         <div label="Tried ✓">
         All the wines that you did try. Don't forget to leave your personal review! 
