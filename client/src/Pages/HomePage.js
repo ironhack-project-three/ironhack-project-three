@@ -9,6 +9,26 @@ import { Box } from "react-bulma-components";
 import Namloos2 from "../Images/Naamloos2.png"
 
 export default function HomePage() {
+
+  state = {
+    loading: true
+  };
+
+  componentDidMount() {
+    // this simulates an async action, after which the component will render the content
+    demoAsyncCall().then(() => this.setState({ loading: false }));
+  }
+  
+  render() {
+    const { loading } = this.state;
+    
+    if(loading) { // if your component doesn't have to wait for an async action, remove this block 
+      return null; // render null when app is not ready
+    }
+
+
+
+
   const [wines, setWines] = useState([]);
   async function fetchWines() {
     const response = await new Wines().topWines();
@@ -25,6 +45,7 @@ export default function HomePage() {
 
     return (
     <div>
+
       <img src={Namloos2} className="logoPosition" alt="logo" />
       <div className="Hero">
       <ImageCarousel />
