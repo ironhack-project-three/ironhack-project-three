@@ -1,6 +1,5 @@
 import NavBar from './components/NavBar';
 import './App.css';
-import AllWines from './Pages/AllWines';
 import HomePage from './Pages/HomePage';
 import SignUp from './Pages/SignUp';
 import UserLogin from './Pages/UserLogin';
@@ -36,7 +35,6 @@ function App() {
             <Route exact path="/create-wine" component={createWine} />
             <Route exact path="/winemap" component={WineMap} />
             <Route exact path="/wine/:id" component={WineDetailsPage} />
-            <Route exact path="/all-wine" component={AllWines} />
             <Route exact path="/search" component={SearchWines} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/user/:userId" component={EditProfile} />

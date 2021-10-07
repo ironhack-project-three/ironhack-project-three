@@ -11,12 +11,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'All Wines',
-    path: '/all-wine',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Add Wine',
     path: '/create-wine',
     icon: <FaIcons.FaCartPlus />,

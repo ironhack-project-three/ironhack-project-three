@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-let baseURL =  "http://localhost:3000"
-const AuthContext = React.createContext();
 
+const AuthContext = React.createContext();
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
