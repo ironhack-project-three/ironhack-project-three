@@ -55,7 +55,7 @@ export default function SearchWines(props) {
         />
         {filteredWines.map((wine) => {
           return (
-            <Link to={() => `/wine/${wine._id}`}>
+            <Link key={wine._id} to={() => `/wine/${wine._id}`}>
               <Box className="is-size-3">{wine.title}</Box>
             </Link>
           );
