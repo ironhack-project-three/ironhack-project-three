@@ -56,7 +56,7 @@ export default function SignUp() {
                   <label htmlFor="username" className="label">
                     Username
                   </label>
-                  <div className="control has-icons-left">
+                  <div className="control">
                     <input
                       type="username"
                       placeholder="e.g. VineVibe"
@@ -71,7 +71,7 @@ export default function SignUp() {
                   <label htmlFor="email" className="label">
                     Email
                   </label>
-                  <div className="control has-icons-left">
+                  <div className="control">
                     <input
                       htmlFor="email"
                       type="email"
