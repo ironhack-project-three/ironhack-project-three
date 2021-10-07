@@ -67,7 +67,7 @@ router.post('/create-user', (req, res)=> {
 });
 
 //Get user by specific id
-router.get('/user/:userId', (req, res, next) => {
+router.get('/user/:userId', isAuthenticated, (req, res, next) => {
   const {userId} = req.params
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     res.status(400).json({ message: 'Specified id is not valid' });
@@ -176,6 +176,23 @@ router.get('/verify', isAuthenticated,   (req, res, next) => {       // <== CREA
   res.status(200).json(req.payload);
 });
 
+
+router.post('/add-to-loved', isAuthenticated, (req, res, next) => {
+const {wineId, userId} = req.body;
+console.log('line 182 req.body', wineId)
+
+User.findByIdAndUpdate(userId, {
+  $addToSet: {Favorite: [wineId]}
+},  {new: true})
+.populate("Favorite", "title")
+.then((updatedUser) => {
+  res.status(200).json(updatedUser)
+  console.log("line 189 updatedUser addtoloved", updatedUser)
+} )
+.catch((error)=>{
+  console.log(error)
+})
+})
 
 
 module.exports = router;

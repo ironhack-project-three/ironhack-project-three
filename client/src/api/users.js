@@ -14,7 +14,7 @@ export class Users {
 
   // // CHANGE THE PATHS ACCORDING TO API DOCUMENTATION
   getAll = () => this.api.get("/all-users");
-  getOne = (id) => this.api.get(`/user/${id}`);
+  getOne = (id, storedToken) => this.api.get(`/user/${id}`, {  headers: { Authorization: `Bearer ${storedToken}`}})
   //   search = (query)=> this.api.get(`/search/?q=${query}`)
   createOne = (newEntityValues, storedToken) =>
     this.api.post("/create-user", newEntityValues, {
@@ -28,7 +28,11 @@ export class Users {
     this.api.get("/verify", {
       headers: { Authorization: `Bearer ${storedToken}` },
     });
-  // deleteOne = (id)=> this.api.delete(`/${id}`)
-  // updateOne = (id)=> this.api.put(`/${id}`)
-  // // etc...
+  addToLoved = (newEntityValues, storedToken) => 
+    this.api.post("/add-to-loved", newEntityValues, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+    });
+  
+
+   
 }

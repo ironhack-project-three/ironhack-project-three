@@ -9,7 +9,7 @@ import ReviewCard from "../components/ReviewCard";
 import "./WineDetailsPage.css"
 
 export default function WineDetailsPage(props) {
-  console.log(props);
+  console.log('wine details props',props);
   const [wine, setWine] = useState({});
   const [loading, setLoading] = useState(true);
 
