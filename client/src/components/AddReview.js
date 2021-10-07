@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Columns } from "react-bulma-components";
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
-const axios = require("axios");
+import React from "react";
+
+import {Review} from "../api/review";
 
 function AddReview(props) {
   const { wineId } = props;

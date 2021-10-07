@@ -37,6 +37,7 @@ function AuthProviderWrapper(props) {
           );
         }
       } catch (error) {
+        console.log("error:", error)
         console.log(
           "Failed to fetch user after successfully verifying the JWT:",
           error.response.data.message

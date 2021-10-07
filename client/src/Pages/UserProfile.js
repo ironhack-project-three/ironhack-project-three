@@ -45,7 +45,7 @@ export default function UserProfile() {
           })}
         </div>
         <div label="Tried ✓">
-          All the wines that you did try. Don't forget to leave your personal
+          All the wines that you did try. Don&apos;t forget to leave your personal
           review!
           {user.TriedInThePast.map((wine) => {
             return (
@@ -56,7 +56,7 @@ export default function UserProfile() {
           })}
         </div>
         <div label="Want to try ★">
-          You don't want to miss out of those one!
+          You don&apos;t want to miss out of those one!
           {user.WantToTry.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>

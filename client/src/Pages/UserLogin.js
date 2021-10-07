@@ -1,10 +1,10 @@
-import React from "react";
-import axios from "axios";
-import { useState, useContext } from "react";
-import { AuthContext } from "../context/auth.context";
 import { motion } from "framer-motion";
-import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
+import React from "react";
+import { useState, useContext } from "react";
+
 import { Users } from "../api/users";
+import { AuthContext } from "../context/auth.context";
+import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
 
 export default function UserLogin(props) {
   const [email, setEmail] = useState("");
@@ -46,7 +46,7 @@ export default function UserLogin(props) {
                 <h3 className="is-3">Login</h3>
                 <div className="field"></div>
                 <div className="field">
-                  <label for="email" className="label">
+                  <label htmlFor="email" className="label">
                     Email
                   </label>
                   <div className="control has-icons-left">
@@ -62,7 +62,7 @@ export default function UserLogin(props) {
                   </div>
                 </div>
                 <div className="field">
-                  <label for="password" type="password" className="label">
+                  <label htmlFor="password" type="password" className="label">
                     Password
                   </label>
                   <div className="control has-icons-left">

@@ -1,16 +1,14 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
-import { motion } from "framer-motion";
-import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
-import { Users } from "../api/users";
+import { useHistory } from "react-router-dom";
 
-// const API_URL = "http://localhost:3000";
-// const frontUrl = "http://localhost:5000"
-// let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000";
+import { Users } from "../api/users";
+import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg";
 
 export default function SignUp(props) {
+  let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUserName] = useState("");
@@ -18,7 +16,7 @@ export default function SignUp(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUserName = (e) => setUserName(e.target.value);
-  const handleSignupSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = { username, email, password };
@@ -28,8 +26,8 @@ export default function SignUp(props) {
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
     try {
-      const response = new Users().createOne(requestBody, storedToken);
-      props.history.push(`/login`);
+      await new Users().createOne(requestBody, storedToken);
+      history.push(`/login`);
     } catch (error) {
       console.log("line 31", error.response);
       const errorDescription = error.response;
@@ -55,7 +53,7 @@ export default function SignUp(props) {
                 <h3 className="is-3">Sign up</h3>
                 <div className="field" style={{ fontSize: "12px" }}></div>
                 <div className="field">
-                  <label for="username" className="label">
+                  <label htmlFor="username" className="label">
                     Username
                   </label>
                   <div className="control has-icons-left">
@@ -70,12 +68,12 @@ export default function SignUp(props) {
                   </div>
                 </div>
                 <div className="field">
-                  <label for="email" className="label">
+                  <label htmlFor="email" className="label">
                     Email
                   </label>
                   <div className="control has-icons-left">
                     <input
-                      for="email"
+                      htmlFor="email"
                       type="email"
                       placeholder="e.g. your_email@VineVibe.com"
                       className="input"
@@ -86,7 +84,7 @@ export default function SignUp(props) {
                   </div>
                 </div>
                 <div className="field">
-                  <label for="password" type="password" className="label">
+                  <label htmlFor="password" type="password" className="label">
                     Password
                   </label>
                   <div className="control has-icons-left">

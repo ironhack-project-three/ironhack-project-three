@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Redirect, Route } from "react-router-dom";
+import React from "react";
 
 function PrivateRoute(props) {
   // Destructure the props
