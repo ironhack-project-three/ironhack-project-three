@@ -87,9 +87,14 @@ router.post("/create", isAuthenticated, (req, res, next) => {
           },
         },
 
-      }, {new: true})
+      }, {new: true})   
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user'
+        }})
     })
-    
+ 
     .then((response) => {
       console.log("this is line 92 response review route", response)
       res.status(200).json(response);

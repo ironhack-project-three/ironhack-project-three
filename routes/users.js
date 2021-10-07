@@ -120,7 +120,7 @@ router.delete('/user/:userId', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   
   const { email, password} = req.body;
- console.log("line 122", email, password)
+//  console.log("line 122", email, password)
   // Check if email or password are provided as empty string 
   if (email === '' || password === '') {
     res.status(400).json({ message: "Provide email and password." });
@@ -130,7 +130,7 @@ router.post('/login', (req, res, next) => {
   // Check the users collection if a user with the same email exists
   User.findOne({ email })
     .then((foundUser) => {
-      console.log('line 132', foundUser)
+      // console.log('line 132', foundUser)
       if (!foundUser) {
         // If the user is not found, send an error response
         res.status(401).json({ message: "User not found." })
@@ -169,7 +169,7 @@ router.get('/verify', isAuthenticated,   (req, res, next) => {       // <== CREA
  
   // If JWT token is valid the payload gets decoded by the
   // isAuthenticated middleware and made available on `req.payload`
-  console.log(`172 verify req.payload`, req.payload);
+  // console.log(`172 verify req.payload`, req.payload);
  
   // Send back the object with user data
   // previously set as the token payload
