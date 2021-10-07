@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
 import { motion } from "framer-motion"
+import wine from "../Images/aesop-wines-12MlCD5KlYw-unsplash.jpg"
+
 // const API_URL = "http://localhost:3000";
 // const frontUrl = "http://localhost:5000"
 let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
@@ -37,6 +39,9 @@ export default function SignUp(props) {
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
+                        <div className="colum is-half">
+                            <img src={wine} alt="wine"></img>
+                        </div>
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form
                             action="/users/create-user"

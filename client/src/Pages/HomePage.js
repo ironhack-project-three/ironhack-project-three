@@ -7,28 +7,14 @@ import { Link } from "react-router-dom";
 import { Wines } from "../api/wines";
 import { Box } from "react-bulma-components";
 import Namloos2 from "../Images/Naamloos2.png"
+// import { useLoading } from 'react-use-loading';
+// import LoadingPageAnimation from './components/LoadingPageAnimation';
 
 export default function HomePage() {
 
-  // state = {
-  //   loading: true
-  // };
-
-  // componentDidMount() {
-  //   // this simulates an async action, after which the component will render the content
-  //   demoAsyncCall().then(() => this.setState({ loading: false }));
+  // const MyComponent = () => {
+  //   const [{ isLoading }] = useLoading(true);
   // }
-  
-  // render() {
-  //   const { loading } = this.state;
-    
-  //   if(loading) { // if your component doesn't have to wait for an async action, remove this block 
-  //     return null; // render null when app is not ready
-  //   }
-
-
-
-
   const [wines, setWines] = useState([]);
   async function fetchWines() {
     const response = await new Wines().topWines();
@@ -42,10 +28,10 @@ export default function HomePage() {
    
   }, []);
 
-
-    return (
-    <div>
-
+return (
+      // <div>
+      //   isLoading ? <LoadingPageAnimation /> : 
+      <div>
       <img src={Namloos2} className="logoPosition" alt="logo" />
       <div className="Hero">
       <ImageCarousel />
@@ -61,5 +47,6 @@ export default function HomePage() {
       })}
       </div>
     </div>
+    // </div>
   );
 }

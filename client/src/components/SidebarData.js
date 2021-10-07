@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import * as BsIcons from 'react-icons/bs';
 
 export const SidebarData = [
   {
@@ -13,11 +14,11 @@ export const SidebarData = [
   {
     title: 'Add Wine',
     path: '/create-wine',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <BsIcons.BsPlusCircleFill />,
     cName: 'nav-text'
   },
   {
-    title: 'Search',
+    title: 'Search Wines',
     path: '/search',
     icon: <FaIcons.FaSearch />,
     cName: 'nav-text'
