@@ -48,6 +48,7 @@ export default function WineDetailsPage(props) {
         storedToken
       );
       setLoved(true);
+     
     } catch (error) {
       console.error("Received error:", error);
       setErrorMessage(error.response.data.message);
