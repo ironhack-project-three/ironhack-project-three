@@ -13,6 +13,28 @@
   margin-left: 40rem;
 }
 
+.error-page{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .errorText{
+position: relative;
+margin-left: 35rem;
+margin-bottom: 0; 
+}
+
+.errorImage2{
+   position: relative;
+    height: 35rem;
+    width: 35rem;
+    margin-left: auto;
+    margin-top: auto; 
+} */
 /* .wineDetailTitle::before {
     content: "";
     position: absolute;
