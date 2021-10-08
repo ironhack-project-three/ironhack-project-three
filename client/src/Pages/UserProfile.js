@@ -1,7 +1,8 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState  } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "react-bulma-components";
+import {Users} from "../api/users"
 
 import "../App.css";
 import Tabs from "../components/Tabs";
@@ -9,6 +10,16 @@ import { AuthContext } from "../context/auth.context";
 
 export default function UserProfile() {
   const { user } = useContext(AuthContext);
+  const [updatedUser, setUpdatedUser] = useState(user)
+  const authToken = localStorage.getItem('authToken')
+  async function fetchUser(id) {
+    const response = await new Users().getOne(id, authToken );
+    setUpdatedUser(response.data);
+  }
+
+  useEffect(()=> {
+    fetchUser(user._id)
+  }, [])
 
   return (
     <div>
@@ -36,7 +47,7 @@ export default function UserProfile() {
       <Tabs>
         <div label="Most Loved ♥︎">
           A collection of your favorite wines
-          {user.Favorite.map((wine) => {
+          {updatedUser.Favorite.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
                 <Box className="is-size-3">{wine.title}</Box>
@@ -46,7 +57,7 @@ export default function UserProfile() {
         </div>
         <div label="Have Tried ✓">
           All the wines that you&apos;ve tried
-          {user.TriedInThePast.map((wine) => {
+          {updatedUser.TriedInThePast.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
                 <Box className="is-size-3">{wine.title}</Box>
@@ -56,7 +67,7 @@ export default function UserProfile() {
         </div>
         <div label="Want to try ★">
           Wines to look forward to
-          {user.WantToTry.map((wine) => {
+          {updatedUser.WantToTry.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
                 <Box className="is-size-3">{wine.title}</Box>

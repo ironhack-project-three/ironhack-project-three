@@ -22,6 +22,7 @@ import { AuthContext } from "../context/auth.context";
 export default function WineDetailsPage(props) {
   console.log("wine details props", props);
   const [wine, setWine] = useState({});
+  // const [updateUser, setUpdateUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [loved, setLoved] = useState(false);
@@ -57,10 +58,19 @@ export default function WineDetailsPage(props) {
     setWine(response.data);
     setLoading(false);
   }
+  // async function fetchUser(id) {
+  //   const response = await new Users().getOne(id);
+  //   setUpdateUser(response.data);
+  //   setLoading(false);
+  // }
 
   async function refreshWine(newWine) {
     await fetchWine(newWine._id);
   }
+  // async function refreshUser() {
+  //   await fetchUser(user._id);
+  // }
+
 
   const handleLove = async (e) => {
     e.preventDefault();
@@ -71,7 +81,6 @@ export default function WineDetailsPage(props) {
         storedToken
       );
       setLoved(true);
-     
     } catch (error) {
       console.error("Received error:", error);
       setErrorMessage(error.response.data.message);
@@ -146,8 +155,9 @@ export default function WineDetailsPage(props) {
         </Columns.Column>
         <Columns.Column className="is-narrow">
           <button
+         
             className="button is-warning is-rounded"
-            onClick={(e) => handleLove(e)}
+            onClick={(e) => handleLove(e) }
           >
             {loved ? <FaHeartBroken /> : <FaHeart />}
           </button>
