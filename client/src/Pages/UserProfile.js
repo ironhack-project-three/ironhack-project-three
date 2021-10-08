@@ -45,8 +45,8 @@ export default function UserProfile() {
         </div>
       </div>
       <Tabs>
-        <div label="Loved ♥︎">
-          Find your personal collection of your favorite wines.
+        <div label="Most Loved ♥︎">
+          A collection of your favorite wines
           {updatedUser.Favorite.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
@@ -55,9 +55,8 @@ export default function UserProfile() {
             );
           })}
         </div>
-        <div label="Tried ✓">
-          All the wines that you did try. Don&apos;t forget to leave your personal
-          review!
+        <div label="Have Tried ✓">
+          All the wines that you&apos;ve tried
           {updatedUser.TriedInThePast.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
@@ -67,7 +66,7 @@ export default function UserProfile() {
           })}
         </div>
         <div label="Want to try ★">
-          You don&apos;t want to miss out of those one!
+          Wines to look forward to
           {updatedUser.WantToTry.map((wine) => {
             return (
               <Link key={wine._id} to={() => `/wine/${wine._id}`}>
@@ -75,9 +74,6 @@ export default function UserProfile() {
               </Link>
             );
           })}
-        </div>
-        <div label="Wines added ✎">
-          Wines that have been added to our database by you.
         </div>
       </Tabs>
     </div>

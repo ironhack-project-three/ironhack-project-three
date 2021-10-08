@@ -5853,7 +5853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:4.x, debug@npm:^4, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1":
+"debug@npm:4, debug@npm:4.x, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2":
   version: 4.3.2
   resolution: "debug@npm:4.3.2"
   dependencies:
@@ -13191,7 +13191,7 @@ fsevents@^1.2.7:
     connect-mongo: ^4
     cookie-parser: ^1
     cors: ^2.8.5
-    debug: ^4
+    debug: ^4.3.2
     dotenv: ^10
     eslint: ^7.32.0
     express: ^4

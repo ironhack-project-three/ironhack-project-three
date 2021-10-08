@@ -24,13 +24,13 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Your wine cellar",
+    title: "Your Wine Cellar",
     path: "/user",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },
   {
-    title: "About us",
+    title: "About Us",
     path: "/about",
     icon: <IoIcons.IoMdHelpCircle />,
     cName: "nav-text",

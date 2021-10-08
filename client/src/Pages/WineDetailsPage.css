@@ -7,12 +7,50 @@
     width: 100%;
 } */
 
-.logoPosition {
+/* .logoPosition {
   height: 20rem;
   width: 20rem;
   margin-left: 40rem;
+} */
+
+.error-page{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
 }
 
+.aboutImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 40rem;
+}
+
+.peronalImage{
+  height: 40vh;
+  width: auto;
+}
+
+/* .errorText{
+position: relative;
+margin-left: 35rem;
+margin-bottom: 0; 
+}
+
+.errorImage2{
+   position: relative;
+    height: 35rem;
+    width: 35rem;
+    margin-left: auto;
+    margin-top: auto; 
+} */
 /* .wineDetailTitle::before {
     content: "";
     position: absolute;
