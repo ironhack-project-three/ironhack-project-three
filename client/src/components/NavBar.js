@@ -20,10 +20,11 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar1">
-          <Link to="/">
+        <div className="navbar1 is-flex is-vcentered">
+          <Link to="/" className="">
             <img src={namloos3} alt="icon" id="iconLeft" />
           </Link>
+          <div>
           {isLoggedIn ? (
             <>
               <motion.button
@@ -65,6 +66,7 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
