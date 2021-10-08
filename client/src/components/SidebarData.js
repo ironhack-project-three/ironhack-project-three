@@ -1,38 +1,38 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as BsIcons from 'react-icons/bs';
+import React from "react";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
+import * as BsIcons from "react-icons/bs";
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
+    title: "Home",
+    path: "/",
     icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Add Wine',
-    path: '/create-wine',
+    title: "Add Wine",
+    path: "/create-wine",
     icon: <BsIcons.BsPlusCircleFill />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Search Wines',
-    path: '/search',
+    title: "Search Wines",
+    path: "/search",
     icon: <FaIcons.FaSearch />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Your wine cellar',
-    path: '/user',
+    title: "Your wine cellar",
+    path: "/user",
     icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'About us',
-    path: '/about',
+    title: "About us",
+    path: "/about",
     icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  }
+    cName: "nav-text",
+  },
 ];

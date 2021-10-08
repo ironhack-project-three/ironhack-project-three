@@ -1,30 +1,28 @@
-import React from 'react';
-import { Users }  from "../api/users";
+import React from "react";
+import { Users } from "../api/users";
 import { useEffect, useState } from "react";
 
-export default function EditProfile(props) {
+export default function EditProfile() {
+  const [user, setUser] = useState([]);
+  async function fetchUser() {
+    const response = await new Users().getOne();
 
+    console.log("this is the response", response);
+    console.log("this is the response data", response.data);
+    setUser(response.data);
+  }
 
-    const [user, setUser] = useState([]);
-    async function fetchUser() {
-      const response = await new Users().getOne();
-      
-      console.log("this is the response", response);
-      console.log("this is the response data", response.data);
-      setUser(response.data);
-    }
-  
-    useEffect(() => {
-      fetchUser();
-    }, []);
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
-    console.log('line 6 edit profile', user)
+  console.log("line 6 edit profile", user);
 
-    // const {username} = props
-    return (
-        <section className="hero has-background-white-ter is-fullheight">
-        <h1>Edit Profile</h1>
-        {/* <div className="hero-body">
+  // const {username} = props
+  return (
+    <section className="hero has-background-white-ter is-fullheight">
+      <h1>Edit Profile</h1>
+      {/* <div className="hero-body">
             <div className="container">
                 <div className="columns is-centered">
                     <div className="column is-5-tablet is-4-desktop is-3-widescreen">
@@ -77,6 +75,6 @@ export default function EditProfile(props) {
                 </div>
             </div>
         </div> */}
-        </section>
-    )
+    </section>
+  );
 }

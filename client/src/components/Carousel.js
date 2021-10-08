@@ -8,7 +8,7 @@ import rosePour from "../Images/rosePour.jpg";
 import wineLemons from "../Images/wineLemons.jpg";
 import winePeaches from "../Images/winePeaches.jpg";
 
-export default function ImageCarousel(props) {
+export default function ImageCarousel() {
   return (
     <Carousel
       className="Carousel"

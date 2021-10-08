@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "react-bulma-components";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { Wines } from "../api/wines";
 
-export default function SearchWines(props) {
+export default function SearchWines() {
   const [page, setPage] = useState(1);
   const [wines, setWines] = useState([]);
   let filteredWines = wines;
@@ -37,11 +37,11 @@ export default function SearchWines(props) {
   }, [query, lastQuery, page]);
 
   const nextPage = () => {
-    setPage(page + 1)
-  }
+    setPage(page + 1);
+  };
   const previousPage = () => {
-    setPage(page - 1)
-  }
+    setPage(page - 1);
+  };
 
   return (
     <div className="columns is-centered">
@@ -55,20 +55,32 @@ export default function SearchWines(props) {
         />
         {filteredWines.map((wine) => {
           return (
-            <Link to={() => `/wine/${wine._id}`}>
+            <Link key={wine._id} to={() => `/wine/${wine._id}`}>
               <Box className="is-size-3">{wine.title}</Box>
             </Link>
           );
         })}
-        <nav className="pagination is-pulled-right" role="navigation" aria-label="pagination">
-          <motion.button 
-          whileHover = {{ scale: 1.1}}
-          whileTap = {{ scale: 0.9}}
-          className="pagination-previous button is-warning is-rounded" onClick={previousPage}>Previous</motion.button>
+        <nav
+          className="pagination is-pulled-right"
+          role="navigation"
+          aria-label="pagination"
+        >
           <motion.button
-          whileHover = {{ scale: 1.1}}
-          whileTap = {{ scale: 0.9}}
-          className="pagination-next button is-warning is-rounded" onClick={nextPage}>Next page</motion.button>
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="pagination-previous button is-warning is-rounded"
+            onClick={previousPage}
+          >
+            Previous
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="pagination-next button is-warning is-rounded"
+            onClick={nextPage}
+          >
+            Next page
+          </motion.button>
         </nav>
       </div>
     </div>

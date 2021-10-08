@@ -2,21 +2,29 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Block, Columns } from "react-bulma-components";
+import {
+  FaCheck,
+  FaHeart,
+  FaHeartBroken,
+  FaStar,
+  FaRegStar,
+  FaTimes,
+} from "react-icons/fa";
+
 import { Wines } from "../api/wines";
 import { Users } from "../api/users";
-import { FaCheck, FaHeart, FaHeartBroken, FaStar, FaRegStar, FaTimes } from "react-icons/fa";
 import AddReview from "../components/AddReview";
 import ReviewCard from "../components/ReviewCard";
-import "./WineDetailsPage.css"
+import "./WineDetailsPage.css";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { AuthContext } from "../context/auth.context";
 
 export default function WineDetailsPage(props) {
-  console.log('wine details props',props);
+  console.log("wine details props", props);
   const { user } = useContext(AuthContext);
   const [wine, setWine] = useState({});
   const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
   const [loved, setLoved] = useState(false);
   const [tried, setTried] = useState(false);
   const [wannaTry, setWannaTry] = useState(false);
@@ -27,44 +35,52 @@ export default function WineDetailsPage(props) {
     setLoading(false);
   }
 
-  async function refreshWine(newWine){
-    await fetchWine(newWine._id)
+  async function refreshWine(newWine) {
+    await fetchWine(newWine._id);
   }
 
   const handleLove = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const storedToken = localStorage.getItem("authToken");
-      await new Users().addToLoved({userId: user._id, wineId: wine._id}, storedToken);
-      setLoved(true)
+      await new Users().addToLoved(
+        { userId: user._id, wineId: wine._id },
+        storedToken
+      );
+      setLoved(true);
     } catch (error) {
-      console.error("Received error:", error)
-      setErrorMessage(error.response.data.message)
+      console.error("Received error:", error);
+      setErrorMessage(error.response.data.message);
     }
-  }
+  };
   const handleTried = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const storedToken = localStorage.getItem("authToken");
-      await new Users().addToTried({userId: user._id, wineId: wine._id}, storedToken);
-      setTried(true)
+      await new Users().addToTried(
+        { userId: user._id, wineId: wine._id },
+        storedToken
+      );
+      setTried(true);
     } catch (error) {
-      console.error("Received error:", error)
-      setErrorMessage(error.response.data.message)
+      console.error("Received error:", error);
+      setErrorMessage(error.response.data.message);
     }
-  }
+  };
   const handleWannaTry = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const storedToken = localStorage.getItem("authToken");
-      await new Users().addToWantToTry({userId: user._id, wineId: wine._id}, storedToken);
-      setWannaTry(true)
+      await new Users().addToWantToTry(
+        { userId: user._id, wineId: wine._id },
+        storedToken
+      );
+      setWannaTry(true);
     } catch (error) {
-      console.error("Received error:", error)
-      setErrorMessage(error.response.data.message)
+      console.error("Received error:", error);
+      setErrorMessage(error.response.data.message);
     }
-
-  }
+  };
 
   useEffect(() => {
     fetchWine(props.match.params.id);
@@ -86,7 +102,10 @@ export default function WineDetailsPage(props) {
               </Link>
             </li>
             <li className="is-active">
-              <Link className="has-text-grey-light" to={() => `/wines/${wine._id}`}>
+              <Link
+                className="has-text-grey-light"
+                to={() => `/wines/${wine._id}`}
+              >
                 {wine.title}
               </Link>
             </li>
@@ -95,37 +114,26 @@ export default function WineDetailsPage(props) {
       </Block>
       <Columns className="is-centered is-vcentered">
         <Columns.Column className="">
-          <h2 className="wineDetailTitle">
-              {wine.title}
-          </h2>
+          <h2 className="wineDetailTitle">{wine.title}</h2>
         </Columns.Column>
         <Columns.Column className="is-narrow">
-          <button className="button is-warning is-rounded" onClick={(e) => handleLove(e)}>
-            {
-              loved
-              ?
-              <FaHeartBroken />
-              :
-              <FaHeart />
-            }
+          <button
+            className="button is-warning is-rounded"
+            onClick={(e) => handleLove(e)}
+          >
+            {loved ? <FaHeartBroken /> : <FaHeart />}
           </button>
-          <button className="button is-warning is-rounded" onClick={(e) => handleTried(e)}>
-            {
-              tried
-              ?
-              <FaRegStar />
-              :
-              <FaStar />
-            }
+          <button
+            className="button is-warning is-rounded"
+            onClick={(e) => handleTried(e)}
+          >
+            {tried ? <FaRegStar /> : <FaStar />}
           </button>
-          <button className="button is-warning is-rounded" onClick={(e) => handleWannaTry(e)}>
-            {
-              wannaTry
-              ?
-              <FaTimes />
-              :
-              <FaCheck />
-            }
+          <button
+            className="button is-warning is-rounded"
+            onClick={(e) => handleWannaTry(e)}
+          >
+            {wannaTry ? <FaTimes /> : <FaCheck />}
           </button>
         </Columns.Column>
       </Columns>
@@ -160,19 +168,31 @@ export default function WineDetailsPage(props) {
           <Block className="">
             <b>Add your own review:</b>
             <ErrorBoundary>
-            <AddReview wineId={wine._id} refreshWine={refreshWine}/>
+              <AddReview wineId={wine._id} refreshWine={refreshWine} />
             </ErrorBoundary>
-            <b>Reviews:</b> 
+            <b>Reviews:</b>
             <div>
-            <ErrorBoundary>
-              {wine.reviews.map( element =>  {
-                return <ReviewCard key={element._id} review={element} refreshWine={refreshWine} wine={wine}/>
-              })}
-            </ErrorBoundary>
+              <ErrorBoundary>
+                {wine.reviews.map((element) => {
+                  return (
+                    <ReviewCard
+                      key={element._id}
+                      review={element}
+                      refreshWine={refreshWine}
+                      wine={wine}
+                    />
+                  );
+                })}
+              </ErrorBoundary>
             </div>
           </Block>
         </Box>
       )}
     </div>
   );
+}
+
+import PropTypes from "prop-types";
+WineDetailsPage.propTypes = {
+  match: PropTypes.object
 }

@@ -51,13 +51,13 @@ export default function HomePage() {
         <br></br>
         <h2 className="is-size-1">Wine of the month:</h2>
         <ErrorBoundary>
-        {wines.map((wine) => {
-          return (
-            <Link key={wine._id} to={() => `/wine/${wine._id}`}>
-              <Box className="is-size-3">{wine.title}</Box>
-            </Link>
-          );
-        })}
+          {wines.map((wine) => {
+            return (
+              <Link key={wine._id} to={() => `/wine/${wine._id}`}>
+                <Box className="is-size-3">{wine.title}</Box>
+              </Link>
+            );
+          })}
         </ErrorBoundary>
       </div>
     </div>
