@@ -21,13 +21,36 @@ import { AuthContext } from "../context/auth.context";
 
 export default function WineDetailsPage(props) {
   console.log("wine details props", props);
-  const { user } = useContext(AuthContext);
   const [wine, setWine] = useState({});
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [loved, setLoved] = useState(false);
   const [tried, setTried] = useState(false);
   const [wannaTry, setWannaTry] = useState(false);
+
+
+  const { isLoggedIn, isLoading, user } = useContext(AuthContext);
+
+
+  const checkUser = () => {
+    if (isLoggedIn) {
+      user.Favorite.map((userWine) => {
+        if (userWine._id == wine._id) {
+          setLoved(true)
+        }
+      })
+      user.TriedInThePast.map((userWine) => {
+        if (userWine._id == wine._id) {
+          setTried(true)
+        }
+      })
+      user.WantToTry.map((userWine) => {
+        if (userWine._id == wine._id) {
+          setWannaTry(true)
+        }
+      })
+    }
+  }
 
   async function fetchWine(id) {
     const response = await new Wines().getOne(id);
@@ -84,8 +107,12 @@ export default function WineDetailsPage(props) {
   };
 
   useEffect(() => {
+    checkUser(user)
     fetchWine(props.match.params.id);
-  }, [props.match.params.id]);
+  }, [user, isLoggedIn, props.match.params.id]);
+
+  // If the authentication is still loading ⏳
+  if (isLoading) return <p>Loading ...</p>;
 
   return (
     <div className="WineDetailsPage">
