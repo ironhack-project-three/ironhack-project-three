@@ -3,8 +3,7 @@ import theGroup from "../Images/theGroup.jpeg";
 import thea from "../Images/thea.jpg"
 import mathijs from "../Images/mathijs.jpeg";
 import jesse from "../Images/jesse.jpeg";
-// TODO: Replace this once Cooper sends his photo
-import cooper from "../Images/stain.png";
+import cooper from "../Images/Cooper.jpg";
 import { motion } from "framer-motion";
 import "./WineDetailsPage.css";
 
