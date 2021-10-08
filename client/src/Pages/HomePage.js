@@ -33,7 +33,11 @@ export default function HomePage() {
     // <div>
     //   isLoading ? <LoadingPageAnimation /> :
     <div>
-      <img src={Namloos2} className="logoPosition" alt="logo" />
+      <div className="columns is-centered">
+        <div className="column is-narrow">
+          <img src={Namloos2} className="logoPosition" alt="logo" />
+        </div>
+      </div>
       <br></br>
       <p>
         “One should always be drunk. That’s all that matters...But with what?

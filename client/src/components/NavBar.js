@@ -13,8 +13,10 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
+  const { isLoading, isLoggedIn, logOutUser } = useContext(AuthContext);
+
+  if (isLoading) return <p>Loading ...</p>;
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
