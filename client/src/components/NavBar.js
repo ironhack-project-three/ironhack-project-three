@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar1 is-flex is-vcentered">
+        <div className="navbar1 is-flex is-vcentered is-justify-content-space-between">
           <Link to="/" className="">
             <img src={namloos3} alt="icon" id="iconLeft" />
           </Link>
