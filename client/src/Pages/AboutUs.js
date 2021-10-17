@@ -36,7 +36,7 @@ export default function AboutUs() {
           </div>
           <div className="columns is-centered">
             <div className="column is-narrow">
-              <img className="aboutImage" src={theGroup} alt="group photo of founders"></img>
+              <img className="aboutImage" src={theGroup} alt="group photo of founders" />
               <br />
               * Cooper took this photo
             </div>
@@ -54,12 +54,12 @@ export default function AboutUs() {
           <motion.button onClick={handleClickCooper} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
         <div className="column is-narrow">
-          <img className="peronalImage" src={cooper} alt="cooper"></img>
+          <img className="peronalImage" src={cooper} alt="cooper" />
         </div>
       </div>
       <div className="columns is-centered is-vcentered">
         <div className="column is-narrow">
-          <img className="peronalImage" src={jesse} alt="jesse"></img>
+          <img className="peronalImage" src={jesse} alt="jesse" />
         </div>
         <div className="column is-narrow has-text-centered">
           <h1>
@@ -82,12 +82,12 @@ export default function AboutUs() {
           <motion.button onClick={handleClickMathijs} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
         <div className="column is-narrow">
-          <img className="peronalImage" src={mathijs} alt="mathijs"></img>
+          <img className="peronalImage" src={mathijs} alt="mathijs" />
         </div>
       </div>
       <div className="columns is-centered is-vcentered">
         <div className="column is-narrow">
-          <img className="peronalImage" src={thea} alt="thea"></img>
+          <img className="peronalImage" src={thea} alt="thea" />
         </div>
         <div className="column is-narrow has-text-centered">
           <h1>
