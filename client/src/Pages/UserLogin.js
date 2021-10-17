@@ -40,7 +40,7 @@ export default function UserLogin() {
         <div className="container">
           <div className="columns is-centered">
             <div className="colum is-half">
-              <img src={wine} alt="wine"></img>
+              <img src={wine} alt="wine" />
             </div>
             <div className="column is-5-tablet is-4-desktop is-3-widescreen">
               <form
@@ -50,7 +50,7 @@ export default function UserLogin() {
                 onSubmit={handleLoginSubmit}
               >
                 <h3 className="is-3">Login</h3>
-                <div className="field"></div>
+                <div className="field" />
                 <div className="field">
                   <label htmlFor="email" className="label">
                     Email
@@ -64,7 +64,7 @@ export default function UserLogin() {
                       value={email}
                       onChange={handleEmail}
                       required
-                    ></input>
+                     />
                   </div>
                 </div>
                 <div className="field">
@@ -80,7 +80,7 @@ export default function UserLogin() {
                       value={password}
                       onChange={handlePassword}
                       required
-                    ></input>
+                     />
                   </div>
                   <div className="field">
                     {/* <a href="/TODO">Forgot Password</a> */}

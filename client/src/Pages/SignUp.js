@@ -41,7 +41,7 @@ export default function SignUp() {
         <div className="container">
           <div className="columns is-centered">
             <div className="colum is-half">
-              <img src={wine} alt="wine"></img>
+              <img src={wine} alt="wine" />
             </div>
             <div className="column is-5-tablet is-4-desktop is-3-widescreen">
               <form
@@ -51,7 +51,7 @@ export default function SignUp() {
                 onSubmit={handleSignupSubmit}
               >
                 <h3 className="is-3">Sign up</h3>
-                <div className="field" style={{ fontSize: "12px" }}></div>
+                <div className="field" style={{ fontSize: "12px" }} />
                 <div className="field">
                   <label htmlFor="username" className="label">
                     Username
@@ -64,7 +64,7 @@ export default function SignUp() {
                       value={username}
                       onChange={handleUserName}
                       required
-                    ></input>
+                     />
                   </div>
                 </div>
                 <div className="field">
@@ -80,7 +80,7 @@ export default function SignUp() {
                       value={email}
                       onChange={handleEmail}
                       required
-                    ></input>
+                     />
                   </div>
                 </div>
                 <div className="field">
@@ -95,7 +95,7 @@ export default function SignUp() {
                       value={password}
                       onChange={handlePassword}
                       required
-                    ></input>
+                     />
                   </div>
                   <div className="field" style={{ fontSize: "12px" }}>
                     <Link to={"/Userlogin"}>

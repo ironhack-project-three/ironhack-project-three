@@ -38,21 +38,21 @@ export default function HomePage() {
           <img src={Namloos2} className="logoPosition" alt="logo" />
         </div>
       </div>
-      <br></br>
+      <br />
       <p>
         “One should always be drunk. That’s all that matters...But with what?
         With wine, with poetry, or with virtue, as you chose. But get drunk.” ―
         Charles Baudelaire
       </p>
-      <br></br>
+      <br />
       <div className="Hero">
         <ErrorBoundary>
           <ImageCarousel />
         </ErrorBoundary>
       </div>
-      <br></br>
+      <br />
       <div>
-        <br></br>
+        <br />
         <h2 className="is-size-1">Wine of the month:</h2>
         <ErrorBoundary>
           {wines.map((wine) => {
