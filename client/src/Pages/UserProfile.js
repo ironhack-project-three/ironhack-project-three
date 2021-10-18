@@ -36,7 +36,7 @@ export default function UserProfile() {
                 you still want to explore
               </p>
               {/* <p className="has-text-centered">
-                        <motion.button className="button is-warning" href="/">
+                        <motion.button className="button" href="/">
                             Edit Profile
                         </motion.button>
                     </p> */}

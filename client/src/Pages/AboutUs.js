@@ -51,7 +51,7 @@ export default function AboutUs() {
           <p className="block">
             Clean haircuts and even cleaner code, backend aficionado that bakes his own pizza.
           </p>
-          <motion.button onClick={handleClickCooper} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
+          <motion.button onClick={handleClickCooper} className="button is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
         <div className="column is-narrow">
           <img className="peronalImage" src={cooper} alt="cooper" />
@@ -68,7 +68,7 @@ export default function AboutUs() {
           <p className="block">
             Colourful chaotic copywriter. Powering UX dreams with frog memes. 🐸
           </p>
-          <motion.button onClick={handleClickJesse} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
+          <motion.button onClick={handleClickJesse} className="button is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
       </div>
       <div className="columns is-centered is-vcentered">
@@ -79,7 +79,7 @@ export default function AboutUs() {
           <p className="block">
             Mixologist and animation library master. Will always help centre an image.
           </p>
-          <motion.button onClick={handleClickMathijs} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
+          <motion.button onClick={handleClickMathijs} className="button is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
         <div className="column is-narrow">
           <img className="peronalImage" src={mathijs} alt="mathijs" />
@@ -96,7 +96,7 @@ export default function AboutUs() {
           <p className="block">
             The voice of reason, manages people and can stop a bug from a mile away.
           </p>
-          <motion.button onClick={handleClickThea} className="button is-warning is-rounded is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
+          <motion.button onClick={handleClickThea} className="button is-small"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>LinkedIn</motion.button>
         </div>
       </div>
     </div>

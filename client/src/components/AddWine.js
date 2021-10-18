@@ -170,7 +170,7 @@ export default function AddWine() {
                 </div>
                 <div className="field">
                   <motion.button
-                    className="button is-warning"
+                    className="button"
                     type="submit"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
