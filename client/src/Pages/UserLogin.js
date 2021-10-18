@@ -23,7 +23,7 @@ export default function UserLogin() {
       const response = await new Users().login(requestBody, storedToken);
       const token = response.data.authToken;
       logInUser(token);
-      history.push("/");
+      history.push("/user");
     } catch (error) {
       console.log("Received error:", error)
       let errorDescription = `${error}`
