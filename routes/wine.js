@@ -1,9 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { Types } = require("mongoose");
-const User = require("../models/User.model");
 const Wine = require("../models/Wine.model");
-const Service = require("../services/service");
 
 router.get("/all-wine", async (req, res) => {
   try {
