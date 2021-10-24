@@ -8,7 +8,9 @@ router.get("/all-wine", async (req, res) => {
     const wines = await Wine.find().limit(100);
     res.json({ wines });
     console.log(`Found ${wines.length} wines`);
-  } catch (err) {}
+  } catch (err) {
+    console.log("error", err);
+  }
 });
 
 router.get("/top-wine", async (req, res) => {
