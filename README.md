@@ -2,7 +2,8 @@
 
 ## Description
 
-Describe your project in one/two lines.
+We decided to create a virtual wine cellar where we could virtually store all of the wines we loved, and hoard all of the ones we hadn't tried yet!
+- **Visit it here:** https://vinevibe.herokuapp.com/ 
 
 ## User Stories
 
@@ -122,26 +123,6 @@ address - String
     - address
 - GET /wine/:id
 
-  
-
-## Links
-
 ### Trello/Kanban
 
 [Trello](https://trello.com/b/ClH5Bn4q/project-3) 
-
-### Git
-
-The url to your repository and to your deployed project
-
-[Client repository Link](https://github.com)
-
-[Server repository Link](http://github.com)
-
-[Deploy Link](http://heroku.com)
-
-### Slides
-
-The url to your presentation slides
-
-[Slides Link](http://slides.com)
