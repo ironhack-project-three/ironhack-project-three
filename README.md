@@ -1,5 +1,12 @@
 # Project 3 Cooper, Jessé, Mathijs, Thea
 
+## Getting started
+
+```
+yarn install
+yarn run dev;all
+```
+
 ## Description
 
 We decided to create a virtual wine cellar where we could virtually store all of the wines we loved, and hoard all of the ones we hadn't tried yet!
